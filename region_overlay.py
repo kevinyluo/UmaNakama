@@ -1,8 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class RegionSelector(QtWidgets.QWidget):
-    region_changed = QtCore.pyqtSignal(tuple)  # (x, y, width, height)
-
     def __init__(self, region=(596, 382, 355, 74)):
         super().__init__()
         self.setWindowFlags(
@@ -15,44 +13,37 @@ class RegionSelector(QtWidgets.QWidget):
         self.resize_handle_size = 10
         self.dragging = False
         self.resizing = False
-        self.resize_direction = None
+        self.resize_dir = None
         self.old_pos = None
         self.show()
 
     def paintEvent(self, event):
         painter = QtGui.QPainter(self)
         painter.setRenderHint(QtGui.QPainter.Antialiasing)
-
-        # Bright red semi-transparent fill
         fill_color = QtGui.QColor(255, 0, 0, 60)
         painter.setBrush(fill_color)
-
-        # Dark red thick border
         border_color = QtGui.QColor(139, 0, 0)
         painter.setPen(QtGui.QPen(border_color, 3))
         painter.drawRect(0, 0, self.width(), self.height())
 
-        # Draw corner handles (dark red squares)
         handle_size = self.resize_handle_size
         handle_color = QtGui.QColor(139, 0, 0)
         painter.setBrush(handle_color)
         painter.setPen(QtCore.Qt.NoPen)
 
-        # Top-left
-        painter.drawRect(0, 0, handle_size, handle_size)
-        # Top-right
-        painter.drawRect(self.width() - handle_size, 0, handle_size, handle_size)
-        # Bottom-left
-        painter.drawRect(0, self.height() - handle_size, handle_size, handle_size)
-        # Bottom-right
-        painter.drawRect(self.width() - handle_size, self.height() - handle_size, handle_size, handle_size)
-
+        # Draw handles for all 4 corners
+        painter.drawRect(0, 0, handle_size, handle_size)  # top-left
+        painter.drawRect(self.width() - handle_size, 0, handle_size, handle_size)  # top-right
+        painter.drawRect(0, self.height() - handle_size, handle_size, handle_size)  # bottom-left
+        painter.drawRect(self.width() - handle_size, self.height() - handle_size, handle_size, handle_size)  # bottom-right
 
     def mousePressEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
             self.old_pos = event.globalPos()
-            self.resizing = self.is_on_edge(event.pos())
-            if not self.resizing:
+            self.resize_dir = self.get_resize_direction(event.pos())
+            if self.resize_dir:
+                self.resizing = True
+            else:
                 self.dragging = True
 
     def mouseMoveEvent(self, event):
@@ -63,8 +54,8 @@ class RegionSelector(QtWidgets.QWidget):
         elif self.resizing:
             self.resize_window(event.globalPos())
         else:
-            # Change cursor on edge
-            if self.is_on_edge(event.pos()):
+            direction = self.get_resize_direction(event.pos())
+            if direction:
                 self.setCursor(QtCore.Qt.SizeFDiagCursor)
             else:
                 self.setCursor(QtCore.Qt.ArrowCursor)
@@ -73,15 +64,40 @@ class RegionSelector(QtWidgets.QWidget):
         if event.button() == QtCore.Qt.LeftButton:
             self.dragging = False
             self.resizing = False
-            self.region_changed.emit((self.x(), self.y(), self.width(), self.height()))
+            self.resize_dir = None
 
-    def is_on_edge(self, pos):
-        return (
-            pos.x() >= self.width() - self.resize_handle_size and
-            pos.y() >= self.height() - self.resize_handle_size
-        )
+    def get_resize_direction(self, pos):
+        hs = self.resize_handle_size
+        if pos.x() <= hs and pos.y() <= hs:
+            return "top-left"
+        elif pos.x() >= self.width() - hs and pos.y() <= hs:
+            return "top-right"
+        elif pos.x() <= hs and pos.y() >= self.height() - hs:
+            return "bottom-left"
+        elif pos.x() >= self.width() - hs and pos.y() >= self.height() - hs:
+            return "bottom-right"
+        return None
 
     def resize_window(self, global_pos):
         delta = global_pos - self.old_pos
-        self.resize(self.width() + delta.x(), self.height() + delta.y())
+        x, y, w, h = self.geometry().x(), self.geometry().y(), self.width(), self.height()
+
+        if self.resize_dir == "bottom-right":
+            w += delta.x()
+            h += delta.y()
+        elif self.resize_dir == "bottom-left":
+            x += delta.x()
+            w -= delta.x()
+            h += delta.y()
+        elif self.resize_dir == "top-left":
+            x += delta.x()
+            y += delta.y()
+            w -= delta.x()
+            h -= delta.y()
+        elif self.resize_dir == "top-right":
+            y += delta.y()
+            w += delta.x()
+            h -= delta.y()
+
+        self.setGeometry(x, y, max(w, 50), max(h, 50))
         self.old_pos = global_pos

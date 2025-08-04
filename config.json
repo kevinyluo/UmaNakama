@@ -1,18 +1,19 @@
 {
   "region": {
-    "x": 596,
-    "y": 380,
-    "width": 367,
-    "height": 74
+    "x_offset": 233,
+    "y_offset": 189,
+    "width": 362,
+    "height": 76
   },
   "overlay_position": {
-    "x": 1200,
-    "y": 400
+    "x_offset": 1200,
+    "y_offset": 400
   },
   "status_position": {
-    "x": 50,
-    "y": 50
+    "x_offset": 50,
+    "y_offset": 50
   },
   "scan_speed": 0.5,
-  "scanning_enabled": true
+  "scanning_enabled": true,
+  "text_match_confidence": 0.7
 }
