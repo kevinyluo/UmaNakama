@@ -48,11 +48,11 @@
     "Top": "Power +5\nWisdom +5",
     "Bot": "Stamina +10"
   },
-  "Failed training (Get Well Soon!)": {
+  "Get Well Soon!": {
     "Top": "Mood -1\nLast trained stat -5\n(random) Get Practice Poor status",
     "Bot": "Randomly either\nMood -1\nLast trained stat -10\n(random) Get Practice Poor status\nor\nGet Practice Perfect ○ status"
   },
-  "Failed training (Don't Overdo It!)": {
+  "Don't Overdo It!": {
     "Top": "Energy +10\nMood -2\nLast trained stat -10\n2 random stats -10\n(random) Get Practice Poor status",
     "Bot": "Randomly either\nMood -3\nLast trained stat -10\n2 random stats -10\nGet Practice Poor status\nor\nEnergy +10\nGet Practice Perfect ○ status"
   },
