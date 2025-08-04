@@ -1,0 +1,1695 @@
+{
+  "Expression of Conviction": {
+    "Top": "Stamina +20",
+    "Bot": "Speed +20"
+  },
+  "Obtain Data!": {
+    "Top": "Wisdom +20",
+    "Bot": "Power +20"
+  },
+  "Tachyon the Spoiled Child": {
+    "Top": "Stamina +10\nGuts +10\n(random) Get Fast Learner status",
+    "Bot": "Wisdom +20\n(random) Get Fast Learner status"
+  },
+  "At Tachyon's Pace": {
+    "Top": "Guts +10",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "The Strongest Collaborator?!": {
+    "Top": "Energy -20\nStamina +15\nGuts +10",
+    "Bot": "Energy +5\nWisdom +5"
+  },
+  "The Pressure of Justice?": {
+    "Top": "Wisdom +10\nSkill points +15",
+    "Bot": "Corner Adept ○ hint +1"
+  },
+  "Hamburger Helper!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Medicine That Makes You Faster?": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Speed +5\nWisdom +5"
+  },
+  "The Significance of Research": {
+    "Top": "Wisdom +10",
+    "Bot": "Speed +10"
+  },
+  "No Shortcuts": {
+    "Top": "Guts +10",
+    "Mid": "Wisdom +10",
+    "Bot": "Power +10"
+  },
+  "A Gift From the Dark Sky": {
+    "Top": "Speed +5\nPower +5",
+    "Bot": "Guts +10"
+  },
+  "Body Modification!": {
+    "Top": "Power +5\nWisdom +5",
+    "Bot": "Stamina +10"
+  },
+  "Failed training (Get Well Soon!)": {
+    "Top": "Mood -1\nLast trained stat -5\n(random) Get Practice Poor status",
+    "Bot": "Randomly either\nMood -1\nLast trained stat -10\n(random) Get Practice Poor status\nor\nGet Practice Perfect ○ status"
+  },
+  "Failed training (Don't Overdo It!)": {
+    "Top": "Energy +10\nMood -2\nLast trained stat -10\n2 random stats -10\n(random) Get Practice Poor status",
+    "Bot": "Randomly either\nMood -3\nLast trained stat -10\n2 random stats -10\nGet Practice Poor status\nor\nEnergy +10\nGet Practice Perfect ○ status"
+  },
+  "Extra Training": {
+    "Top": "Energy -5\nLast trained stat +5\n(random) Heal a negative status effect\nYayoi Akikawa bond +5",
+    "Bot": "Energy +5"
+  },
+  "At Summer Camp (Year 2)": {
+    "Top": "Power +10",
+    "Bot": "Guts +10"
+  },
+  "Dance Lesson": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "New Year's Resolutions": {
+    "Top": "Wisdom +10",
+    "Mid": "Energy +20",
+    "Bot": "Skill points +20"
+  },
+  "New Year's Shrine Visit": {
+    "Top": "Energy +30",
+    "Mid": "All stats +5",
+    "Bot": "Skill points +35"
+  },
+  "Acupuncture (Just an Acupuncturist, No Worries! ☆)": {
+    "1.": "Randomly either (~30%)\nAll stats +20\nor (~70%)\nMood -2\nAll stats -15\nGet Night Owl status",
+    "2.": "Randomly either (~45%)\nObtain Corner Recovery ○ skill\nObtain Straightaway Recovery skill\nor (~55%)\nEnergy -20\nMood -2",
+    "3.": "Randomly either (~70%)\nMaximum Energy +12\nEnergy +40\nHeal all negative status effects\nor (~30%)\nEnergy -20\nMood -2\nGet Practice Poor status",
+    "4.": "Randomly either (~85%)\nEnergy +20\nMood +1\nGet Charming ○ status\nor (~15%)\nEnergy -10/-20\nMood -1\n(random) Get Practice Poor status",
+    "5.": "Energy +10"
+  },
+  "Victory! (G1)\n1st": {
+    "Top": "Energy -15\n1 random stat +10\nSkill points +45\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -5/-20\n1 random stat +10\nSkill points +45\n(random) Hint for a skill related to the race"
+  },
+  "Victory! (G2/G3)\n1st": {
+    "Top": "Energy -15\n1 random stat +8\nSkill points +35\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -5/-20\n1 random stat +8\nSkill points +35\n(random) Hint for a skill related to the race"
+  },
+  "Victory! (Pre/OP)\n1st": {
+    "Top": "Energy -15\n1 random stat +5\nSkill points +30\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -5/-20\n1 random stat +5\nSkill points +30\n(random) Hint for a skill related to the race"
+  },
+  "Solid Showing (G1)\n2nd-5th": {
+    "Top": "Energy -20\n1 random stat +8\nSkill points +45\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -10/-30\n1 random stat +8\nSkill points +45\n(random) Hint for a skill related to the race"
+  },
+  "Solid Showing (G2/G3)\n2nd-5th": {
+    "Top": "Energy -20\n1 random stat +5\nSkill points +35\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -10/-30\n1 random stat +5\nSkill points +35\n(random) Hint for a skill related to the race"
+  },
+  "Solid Showing (Pre/OP)\n2nd-5th": {
+    "Top": "Energy -20\n1 random stat +3\nSkill points +30\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -10/-30\n1 random stat +3\nSkill points +30\n(random) Hint for a skill related to the race"
+  },
+  "Defeat (G1)\n6th or worse": {
+    "Top": "Energy -25\n1 random stat +4\nSkill points +25\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -15/-35\n1 random stat +4\nSkill points +25\n(random) Hint for a skill related to the race"
+  },
+  "Defeat (G2/G3)\n6th or worse": {
+    "Top": "Energy -25\n1 random stat +3\nSkill points +20\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -15/-35\n1 random stat +3\nSkill points +20\n(random) Hint for a skill related to the race"
+  },
+  "Defeat (Pre/OP)\n6th or worse": {
+    "Top": "Energy -25\nSkill points +10\n(random) Hint for a skill related to the race",
+    "Bot": "Energy -15/-35\nSkill points +10\n(random) Hint for a skill related to the race"
+  },
+  "Etsuko's Exhaustive Coverage (G1)": {
+    "Top": "Randomly either\nEnergy -25\nMood -1\n1 random stat +4\nSkill points +25\nEtsuko Otonashi bond -10\nor\nEnergy -15\nMood +1\n1 random stat +4\nSkill points +25\nEtsuko Otonashi bond +15",
+    "Bot": "Energy -20\n1 random stat +4\nSkill points +25\nEtsuko Otonashi bond +10"
+  },
+  "Etsuko's Exhaustive Coverage (G2/G3)": {
+    "Top": "Randomly either\nEnergy -25\nMood -1\n1 random stat +3\nSkill points +20\nEtsuko Otonashi bond -10\nor\nEnergy -15\nMood +1\n1 random stat +3\nSkill points +20\nEtsuko Otonashi bond +15",
+    "Bot": "Energy -20\n1 random stat +3\nSkill points +20\nEtsuko Otonashi bond +10"
+  },
+  "Etsuko's Exhaustive Coverage (Pre/OP)": {
+    "Top": "Randomly either\nEnergy -25\nMood -1\nSkill points +10\nEtsuko Otonashi bond -10\nor\nEnergy -15\nMood +1\nSkill points +10\nEtsuko Otonashi bond +15",
+    "Bot": "Energy -20\nSkill points +10\nEtsuko Otonashi bond +10"
+  },
+  "Exhilarating! What a Scoop!": {
+    "Top": "Stamina +10\nEtsuko Otonashi bond +5",
+    "Bot": "Guts +10\nEtsuko Otonashi bond +5"
+  },
+  "A Trainer's Knowledge": {
+    "Top": "Power +10\nEtsuko Otonashi bond +5",
+    "Bot": "Speed +10\nEtsuko Otonashi bond +5"
+  },
+  "Best Foot Forward!": {
+    "Top": "Energy -10\nPower +20\nGuts +20\nBeeline Burst hint +1",
+    "Bot": "Energy +30\nStamina +20\nBreath of Fresh Air hint +1"
+  },
+  "Flowers for You": {
+    "Top": "Wisdom +20",
+    "Bot": "Speed +20"
+  },
+  "A Beautiful Stress Relief Method?": {
+    "Top": "Stamina +20",
+    "Bot": "Guts +20"
+  },
+  "Guidepost": {
+    "Top": "Speed +20\n(random) Get Hot Topic status",
+    "Bot": "Power +20\n(random) Get Hot Topic status"
+  },
+  "Empress and Monarch": {
+    "Top": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "Operation: Flowerbed": {
+    "Top": "Energy +5\nWisdom +5",
+    "Bot": "Energy -10\nSpeed +10\nPower +10"
+  },
+  "Empress and Emperor": {
+    "Top": "Homestretch Haste hint +1",
+    "Bot": "Mood +1\nSkill points +15"
+  },
+  "Seize Her!": {
+    "Top": "Energy +10",
+    "Bot": "Energy -10\nMood +1\nSpeed +10"
+  },
+  "Take Good Care of Your Tail": {
+    "Top": "Energy +10",
+    "Bot": "Energy -10\nMood +1\nPower +10"
+  },
+  "Suggestion Box of Freedom": {
+    "Top": "Energy +10",
+    "Bot": "Energy -10\nMood +1\nWisdom +10"
+  },
+  "A Taste of Effort": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "A Little Encounter": {
+    "Top": "Wisdom +10",
+    "Bot": "Guts +10"
+  },
+  "Sweet Potato Cake": {
+    "Top": "Power +10",
+    "Bot": "Stamina +10"
+  },
+  "Imprinted Memories": {
+    "Top": "Speed +10",
+    "Mid": "Power +10",
+    "Bot": "Stamina +10"
+  },
+  "A Blinking Light Means Stop": {
+    "Top": "Wisdom +10",
+    "Bot": "Power +10"
+  },
+  "Smoldering Silently": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "To Keep, or Not to Keep?": {
+    "Top": "Wisdom +20",
+    "Bot": "Stamina +10\nPower +10"
+  },
+  "A Realistic Fairytale": {
+    "Top": "Power +20",
+    "Bot": "Guts +20"
+  },
+  "Theory, the Greatest Weapon": {
+    "Top": "Randomly either\nStamina +20\n(random) Get Hot Topic status\nor\nWisdom +20\n(random) Get Hot Topic status",
+    "Bot": "Wisdom +20\n(random) Get Practice Perfect ○ status\n(random) Get Hot Topic status"
+  },
+  "Memories of Cooking and Sisterhood": {
+    "Top": "Power +10",
+    "Bot": "Stamina +5\nWisdom +5"
+  },
+  "A New Side": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "Battle With a Raging Dragon": {
+    "Top": "Power +5\nGuts +10",
+    "Bot": "Hanshin Racecourse ○ hint +1"
+  },
+  "Banana Fiend ♪": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Reading in a Cafe": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "Sharp Contrast": {
+    "Top": "Wisdom +10",
+    "Bot": "Guts +10"
+  },
+  "Emergency Presentation": {
+    "Top": "Wisdom +10",
+    "Mid": "Power +10",
+    "Bot": "Stamina +10"
+  },
+  "Hide and Seek Master": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "Game Theory": {
+    "Top": "Wisdom +10",
+    "Bot": "Power +10"
+  },
+  "Which Curren Do You Like?": {
+    "Top": "Speed +10\nPower +10",
+    "Bot": "Stamina +10\nGuts +10"
+  },
+  "How Curren Handles Social Media ♪": {
+    "Top": "Speed +20",
+    "Bot": "Wisdom +20"
+  },
+  "Curren's Signature Racewear": {
+    "Top": "Speed +10\nStamina +10\n(random) Get Practice Perfect ○ status",
+    "Bot": "Speed +10\nPower +10\n(random) Get Practice Perfect ○ status"
+  },
+  "One, Two, Three, Curren Chan!": {
+    "Top": "Speed +10",
+    "Bot": "Wisdom +10"
+  },
+  "Ms. Worldwide": {
+    "Top": "Power +10",
+    "Bot": "Speed +10"
+  },
+  "Thanks for the Lesson ♪": {
+    "Top": "Energy -10\nSpeed +20",
+    "Bot": "Frenzied Late Surgers hint +1"
+  },
+  "Wanna Eat Together?": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Making Friends": {
+    "Top": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "Making Connections": {
+    "Top": "Guts +10",
+    "Bot": "Power +10"
+  },
+  "Universal Cutie": {
+    "Top": "Speed +5\nPower +5",
+    "Mid": "Speed +10",
+    "Bot": "Speed +5\nWisdom +5"
+  },
+  "A Nostalgic Flavor": {
+    "Top": "Stamina +10",
+    "Bot": "Power +10"
+  },
+  "Rattle, Rattle, Clunk": {
+    "Top": "Wisdom +10",
+    "Bot": "Stamina +10"
+  },
+  "The Best Pose": {
+    "Top": "Stamina +10\nPower +10",
+    "Bot": "Wisdom +20"
+  },
+  "The Weight of Racewear": {
+    "Top": "Speed +20",
+    "Bot": "Guts +20"
+  },
+  "Looking Good": {
+    "Top": "Stamina +10\nWisdom +10\n(random) Get Hot Topic status",
+    "Bot": "Speed +10\nGuts +10\n(random) Get Hot Topic status"
+  },
+  "Her": {
+    "Top": "Power +5\nObjective race changed to Japanese Oaks",
+    "Bot": "Power +5\nObjective race changed to Tokyo Yushun (Japanese Derby)"
+  },
+  "Recommended Restaurant": {
+    "Top": "Speed +5\nPower +5",
+    "Bot": "Guts +5\nMood +1"
+  },
+  "Advice from an Older Student": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Enjoying Number One": {
+    "Top": "Stamina +10\nSkill points +15",
+    "Bot": "Unyielding Spirit hint +1"
+  },
+  "Can't Lose Sight of Number One!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "As a Model Student...": {
+    "Top": "Wisdom +10",
+    "Bot": "Skill points +30"
+  },
+  "Just a Little More": {
+    "Top": "Skill points +30",
+    "Bot": "Power +10"
+  },
+  "Under the Evening Star": {
+    "Top": "Skill points +30",
+    "Mid": "Speed +5\nStamina +5",
+    "Bot": "Power +10"
+  },
+  "Rained On": {
+    "Top": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "How to Spend a Day Off": {
+    "Top": "Energy +10",
+    "Bot": "Mood +1\nWisdom +5"
+  },
+  "Determination of the World's Strongest": {
+    "Top": "Power +20",
+    "Bot": "Stamina +20"
+  },
+  "Cactus Feast": {
+    "Top": "Speed +10\nStamina +10",
+    "Bot": "Wisdom +20"
+  },
+  "Song of Courage": {
+    "Top": "Power +20\n(random) Get Fast Learner status",
+    "Bot": "Speed +10\nPower +10\n(random) Get Fast Learner status"
+  },
+  "A Personalized Mask": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Salsa Roja": {
+    "Top": "Stamina +10",
+    "Bot": "Power +10"
+  },
+  "Go for the Extra-Large Pizza!": {
+    "Top": "Power +10\nSkill points +15",
+    "Bot": "Soft Step hint +1"
+  },
+  "Hot and Spicy!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "The Wrestler I Admire": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "Shocking Retirement": {
+    "Top": "Guts +10",
+    "Bot": "Power +10"
+  },
+  "Renewed Resolve": {
+    "Top": "Guts +10",
+    "Mid": "Stamina +10",
+    "Bot": "Speed +5\nStamina +5"
+  },
+  "The Academy at Night": {
+    "Top": "Mood +1\nGuts +5",
+    "Bot": "Energy +10"
+  },
+  "Flower Language": {
+    "Top": "Mood +1\nWisdom +5",
+    "Bot": "Energy +10"
+  },
+  "The Red of the Protagonist!": {
+    "Top": "Wisdom +20",
+    "Bot": "Guts +20"
+  },
+  "A Date, Golshi Style": {
+    "Top": "Stamina +20",
+    "Bot": "Power +20"
+  },
+  "A Sudden Episode from Golshi's Past!": {
+    "Top": "Stamina +10\nWisdom +10\n(random) Get Fast Learner status",
+    "Bot": "Speed +20\n(random) Get Fast Learner status"
+  },
+  "Pair Discount Repeat Offender": {
+    "Top": "Guts +10",
+    "Bot": "Stamina +10"
+  },
+  "Which Did You Lose?": {
+    "Top": "Energy -10\nPower +20",
+    "Bot": "Speed +10"
+  },
+  "My Part-Time Job Is... Crazy?": {
+    "Top": "Stamina +10\nSkill points +15",
+    "Bot": "Hanshin Racecourse ○ hint +1"
+  },
+  "The Day After, Voices Hoarse": {
+    "Top": "Stamina +10",
+    "Bot": "Guts +10"
+  },
+  "This One's For Keeps!": {
+    "Top": "Energy +10",
+    "Bot": "Randomly either\nSkill points +60\nNon-Standard Distance ○ hint +1\nor\nSkill points +15\nGet Slacker status"
+  },
+  "Killer Appetite!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Legend of the Left Pinky": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "Hello From About 1.5 Billion Years Ago": {
+    "Top": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "And Then She...": {
+    "Top": "Speed +10",
+    "Mid": "Guts +10",
+    "Bot": "Power +10"
+  },
+  "A Lovely Place": {
+    "Top": "Stamina +10",
+    "Bot": "Wisdom +10"
+  },
+  "Nighttime Park Visit": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "After the Takarazuka Kinen: Keyword 2": {
+    "Top": "All stats +3\nMood +1\nSkill points +45\nYayoi Akikawa bond +4",
+    "Bot": "All stats +3\nMood +1\nSkill points +45\n(random) Get Charming ○ status\n(random) Obtain Gatekept skill\nYayoi Akikawa bond +4"
+  },
+  "Hidden Meaning": {
+    "Top": "Stamina +10\nGuts +10",
+    "Bot": "Power +20"
+  },
+  "Principles": {
+    "Top": "Speed +20",
+    "Bot": "Stamina +20"
+  },
+  "Hate to Lose": {
+    "Top": "Wisdom +20\n(random) Get Fast Learner status",
+    "Bot": "Stamina +10\nGuts +10\n(random) Get Fast Learner status"
+  },
+  "Errands Have Perks": {
+    "Top": "Speed +5\nStamina +5",
+    "Bot": "Energy +5\nWisdom +5"
+  },
+  "Beauteaful": {
+    "Top": "Wisdom +5\nSkill points +15",
+    "Bot": "Speed +10"
+  },
+  "Tracen Karuta Queen": {
+    "Top": "Speed +10\nWisdom +5",
+    "Bot": "Competitive Spirit ○ hint +1"
+  },
+  "In Search of Refreshment": {
+    "Top": "Mood -1\nGuts +25",
+    "Bot": "Mood -1\nWisdom +25"
+  },
+  "Together for Tea": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Yamato Nadeshiko": {
+    "Top": "Power +5\nWisdom +5",
+    "Bot": "Speed +10"
+  },
+  "Childhoods Apart": {
+    "Top": "Guts +10",
+    "Bot": "Stamina +10"
+  },
+  "Nadeshiko Gal": {
+    "Top": "Power +10",
+    "Mid": "Wisdom +10",
+    "Bot": "Speed +10"
+  },
+  "Childhood Dream": {
+    "Top": "Speed +5\nGuts +5",
+    "Bot": "Stamina +5\nWisdom +5"
+  },
+  "Flower Vase": {
+    "Top": "Guts +5\nWisdom +5",
+    "Bot": "Speed +5\nStamina +5"
+  },
+  "The Racewear I Love!": {
+    "Top": "Speed +20",
+    "Bot": "Power +20"
+  },
+  "Pair Interview!": {
+    "Top": "Power +20",
+    "Bot": "Stamina +20"
+  },
+  "Tug of War Tournament!": {
+    "Top": "Guts +20\n(random) Get Hot Topic status",
+    "Bot": "Speed +20\n(random) Get Hot Topic status"
+  },
+  "Arm-Wrestling Contest": {
+    "Top": "Wisdom +10",
+    "Bot": "Power +10"
+  },
+  "Looking for Something Important": {
+    "Top": "Energy -10\nGuts +20",
+    "Bot": "Stamina +10"
+  },
+  "Sand Training!": {
+    "Top": "Guts +10\nSkill points +15",
+    "Bot": "Energy +15"
+  },
+  "The Final Boss... Spe!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "A Little Detour!": {
+    "Top": "Skill points +30",
+    "Bot": "Stamina +10"
+  },
+  "Parks Are Fun!": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Secret Day Off Plan!": {
+    "Top": "Speed +10",
+    "Mid": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "So Cool!": {
+    "Top": "Skill points +30",
+    "Bot": "Wisdom +10"
+  },
+  "Forgot to Eat!": {
+    "Top": "Guts +10",
+    "Bot": "Stamina +10"
+  },
+  "The Outfit That Suits Me Most": {
+    "Top": "Speed +10\nGuts +10",
+    "Bot": "Power +20"
+  },
+  "Running Isn't Everything": {
+    "Top": "Stamina +20",
+    "Bot": "Speed +10\nPower +10"
+  },
+  "Manners Are Common Sense": {
+    "Top": "Guts +20\n(random) Get Practice Perfect ○ status",
+    "Bot": "Stamina +10\nWisdom +10\n(random) Get Practice Perfect ○ status"
+  },
+  "Movies Are Full of Learning Opportunities": {
+    "Top": "Speed +5\nGuts +5",
+    "Bot": "Stamina +10"
+  },
+  "The King Knows No Exhaustion": {
+    "Top": "Energy +5\n(random) Mood +1",
+    "Bot": "Power +10"
+  },
+  "First-Rate in Studies Too": {
+    "Top": "Wisdom +10\nSkill points +15",
+    "Bot": "Outer Swell hint +1"
+  },
+  "After-School Soda": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "Three Heads Are Better than One": {
+    "Top": "Wisdom +10",
+    "Bot": "Stamina +10"
+  },
+  "Sweet Tooth Temptation": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "First-Rate Spot": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "First-Rate Harvest": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Speed +5\nStamina +5"
+  },
+  "First-Rate Terms": {
+    "Top": "Power +10",
+    "Mid": "Wisdom +10",
+    "Bot": "Guts +10"
+  },
+  "Crowds Are No Problem": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Breaking Curfew is Second-Rate": {
+    "Top": "Guts +5\nWisdom +5",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "Trendsetter": {
+    "Top": "Speed +10\nWisdom +10",
+    "Bot": "Power +20"
+  },
+  "Sewing Star": {
+    "Top": "Guts +20",
+    "Bot": "Stamina +10\nPower +10"
+  },
+  "My Favorite Things": {
+    "Top": "Speed +20\n(random) Get Fast Learner status",
+    "Bot": "Stamina +10\nGuts +10\n(random) Get Fast Learner status"
+  },
+  "Hot Rod": {
+    "Top": "Speed +10",
+    "Bot": "Wisdom +10"
+  },
+  "Let's Play ♪": {
+    "Top": "Energy +10",
+    "Bot": "Energy -5\nPower +10\nGuts +5"
+  },
+  "A Lady's Style ☆": {
+    "Top": "Speed +5\nSkill points +10\nMood +1",
+    "Bot": "Huge Lead hint +1"
+  },
+  "Let's Cook!": {
+    "Top": "Speed +10",
+    "Bot": "Guts +10"
+  },
+  "The Road to a Rad Victory!": {
+    "Top": "Stamina +10",
+    "Bot": "Wisdom +10"
+  },
+  "Down to Dance!": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Nostalgia Fever ☆": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "The Secret to Supporting Each Other": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Even Role Models Get Lonely": {
+    "Top": "Stamina +5\nGuts +5",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "Take the Wheel": {
+    "Top": "Power +10",
+    "Mid": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "Meeting New People Is Trendy ☆": {
+    "Top": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "The Fun Never Stops ♪": {
+    "Top": "Speed +5\nWisdom +5",
+    "Bot": "Stamina +5\nPower +5"
+  },
+  "Room of the Chosen Ones": {
+    "Top": "Guts +20",
+    "Bot": "Speed +20"
+  },
+  "Better Fortune! Lucky Telephone": {
+    "Top": "Stamina +10\nWisdom +10",
+    "Bot": "Power +20"
+  },
+  "Under the Meteor Shower": {
+    "Top": "Speed +10\nPower +10\n(random) Get Charming ○ status",
+    "Bot": "Stamina +10\nGuts +10\n(random) Get Charming ○ status"
+  },
+  "Cursed Camera": {
+    "Top": "Wisdom +10",
+    "Bot": "Skill points +30"
+  },
+  "Manhattan's Dream": {
+    "Top": "Hesitant Front Runners hint +1",
+    "Bot": "Stamina +10"
+  },
+  "Pretty Gunslingers": {
+    "Top": "Skill points +15\nMood +1",
+    "Bot": "Power +10"
+  },
+  "Seven Gods of Fortune Fine Food Tour": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Fukukitaru's Protection against Misfortune": {
+    "Top": "Guts +10",
+    "Bot": "Power +10"
+  },
+  "Punch in a Pinch": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +5\nWisdom +5"
+  },
+  "Fukukitaru's Unique Good-Luck Spell": {
+    "Top": "Speed +5\nGuts +5",
+    "Mid": "Stamina +5\nPower +5",
+    "Bot": "Wisdom +10"
+  },
+  "Taking the Plunge": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +5\nWisdom +5"
+  },
+  "Shrine Visit": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Speed +5\nStamina +5"
+  },
+  "Maya's Thrilling ☆ Test of Courage": {
+    "Top": "Power +20",
+    "Bot": "Guts +20"
+  },
+  "Sweet Feelings for You ♪": {
+    "Top": "Stamina +20",
+    "Bot": "Wisdom +20"
+  },
+  "Mayano Takes Off ☆": {
+    "Top": "Speed +20\n(random) Get Charming ○ status",
+    "Bot": "Stamina +20\n(random) Get Charming ○ status"
+  },
+  "Maya Will Teach You ☆": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Wisdom +10"
+  },
+  "Tips from a Top Model!": {
+    "Top": "Energy -10\nStamina +20",
+    "Bot": "Speed +10"
+  },
+  "Maya's Race Class ☆": {
+    "Top": "Stamina +10\nSkill points +15",
+    "Bot": "Straightaway Adept hint +1"
+  },
+  "Hearty Chanko! ☆": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Maya's Exciting ☆ Livestream!": {
+    "Top": "Stamina +5\nPower +5",
+    "Bot": "Guts +10"
+  },
+  "Maya's Euphoric ☆ Livestream!": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "Maya's Twinkly ☆ Determination!": {
+    "Top": "Speed +5\nStamina +5",
+    "Mid": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "Maya's Special Someone!": {
+    "Top": "Speed +10",
+    "Bot": "Guts +10"
+  },
+  "Wish on a Star": {
+    "Top": "Wisdom +10",
+    "Bot": "Speed +10"
+  },
+  "Resolve and Duty": {
+    "Top": "Speed +10\nWisdom +10",
+    "Bot": "Power +20"
+  },
+  "Late-Night Fanservice Training": {
+    "Top": "Guts +20",
+    "Bot": "Speed +20"
+  },
+  "Elegance": {
+    "Top": "Stamina +10\nPower +10\n(random) Get Practice Perfect ○ status",
+    "Bot": "Wisdom +20\n(random) Get Practice Perfect ○ status"
+  },
+  "Queen of the Island": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "It's Called a Sea Pineapple!": {
+    "Top": "Skill points +30",
+    "Bot": "Stamina +10"
+  },
+  "Cooking Up Memories": {
+    "Top": "Energy +15",
+    "Bot": "Early Lead hint +1"
+  },
+  "The Allure of Racecourse Food": {
+    "Top": "Randomly either\nEnergy +30\nStamina +10\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status",
+    "Bot": "Guts +15\nSkill points +5"
+  },
+  "Attack of the Chestnut Feast!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Two Tickets for the Silver Screen": {
+    "Top": "Stamina +10",
+    "Bot": "Wisdom +5\nSkill points +15"
+  },
+  "An Excited Young Lady": {
+    "Top": "Guts +10",
+    "Bot": "Power +10"
+  },
+  "Endless Kingdom": {
+    "Top": "Stamina +10",
+    "Mid": "Wisdom +10",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "Bargain Find": {
+    "Top": "Speed +10",
+    "Bot": "Guts +10"
+  },
+  "Three Ramen Bowls' Worth of Temptation": {
+    "Top": "Skill points +30",
+    "Bot": "Speed +5\nStamina +5"
+  },
+  "My Roommate's Concern": {
+    "Top": "Calm in a Crowd hint +2",
+    "Bot": "Stamina +10\nSkill points +15"
+  },
+  "My Family Make a Difficult Decision": {
+    "Top": "Speed +10\nPower +10",
+    "Bot": "Stamina +7\nGuts +7\nWisdom +7"
+  },
+  "My Rival, No Matter the Stage": {
+    "Top": "Prudent Positioning hint +2\n(random) Get Hot Topic status",
+    "Bot": "Wisdom +10\nSkill points +15\n(random) Get Hot Topic status"
+  },
+  "My Signature Racewear": {
+    "Top": "Guts +20",
+    "Bot": "Speed +20"
+  },
+  "Heart-Pounding Aquarium": {
+    "Top": "Power +10\nWisdom +10",
+    "Bot": "Stamina +10\nWisdom +10"
+  },
+  "Refreshingly Real": {
+    "Top": "Stamina +20\n(random) Get Hot Topic status",
+    "Bot": "Power +20\n(random) Get Hot Topic status"
+  },
+  "Muscle Jealousy": {
+    "Top": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "The Pony Girl and the Wolf Prince": {
+    "Top": "Energy +5\nStamina +5",
+    "Bot": "Energy +5\nSpeed +5"
+  },
+  "Real Gains": {
+    "Top": "Power +10\nSkill points +15",
+    "Bot": "Wet Conditions ○ hint +1"
+  },
+  "Rest Day": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Nerve-Racking Rest Time": {
+    "Top": "Stamina +10",
+    "Bot": "Power +10"
+  },
+  "Flush with Feelings": {
+    "Top": "Wisdom +10",
+    "Bot": "Speed +10"
+  },
+  "With Relaxation and Trust Comes...": {
+    "Top": "Speed +10",
+    "Mid": "Stamina +10",
+    "Bot": "Power +10"
+  },
+  "Ryan to the Rescue!": {
+    "Top": "Power +10",
+    "Bot": "Guts +10"
+  },
+  "The Little Fans of the Umadol": {
+    "Top": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "Trail of Light": {
+    "Top": "Speed +20",
+    "Bot": "Power +20"
+  },
+  "Smiles Are Contagious": {
+    "Top": "Stamina +20",
+    "Bot": "Guts +20"
+  },
+  "Who to Count On": {
+    "Top": "Wisdom +20\n(random) Get Hot Topic status",
+    "Bot": "Power +20\n(random) Get Hot Topic status"
+  },
+  "Operation: Execute Orders": {
+    "Top": "Stamina +10",
+    "Bot": "Power +10"
+  },
+  "Operation: Extra Classes": {
+    "Top": "Energy +10\nMood +1",
+    "Bot": "Wisdom +10"
+  },
+  "Operation: Excursion Trouble": {
+    "Top": "Stamina +10\nSkill points +15",
+    "Bot": "Wet Conditions ○ hint +1"
+  },
+  "Brutal Training": {
+    "Top": "Energy -10\nPower +5/+20\nSkill points +5/+10",
+    "Bot": "Energy +5"
+  },
+  "The Perfect Dessert": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Let's Make Memories": {
+    "Top": "Speed +10",
+    "Bot": "Guts +10"
+  },
+  "Bourbon's Challenge?": {
+    "Top": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "You're Irreplaceable to Me": {
+    "Top": "Stamina +10",
+    "Mid": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Operation: Dance Fever": {
+    "Top": "Stamina +5\nGuts +5",
+    "Bot": "Stamina +5\nWisdom +5"
+  },
+  "Operation: Festival Fun": {
+    "Top": "Power +10",
+    "Bot": "Stamina +5\nGuts +5"
+  },
+  "Strong Just the Way I Am": {
+    "Top": "Power +20",
+    "Bot": "Speed +20"
+  },
+  "Taishin's SOS": {
+    "Top": "Speed +10\nWisdom +10",
+    "Bot": "Stamina +20"
+  },
+  "Anxious Survival": {
+    "Top": "Power +20\n(random) Get Charming ○ status",
+    "Bot": "Guts +10\nWisdom +10\n(random) Get Charming ○ status"
+  },
+  "Report Submitted": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +5\nPower +5"
+  },
+  "Unknown Music": {
+    "Top": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "Distance": {
+    "Top": "Mood +1\nGuts +10",
+    "Bot": "Standing By hint +1"
+  },
+  "Extra Training to Blow Off Steam": {
+    "Top": "Energy +10",
+    "Mid": "Energy -10\nSkill points +25",
+    "Bot": "Randomly either\nEnergy -15\n1 random stat +10\nor\nEnergy -15\nMood +1\n2 random stats +15"
+  },
+  "Extra Training to De-stress?": {
+    "Top": "Energy +10",
+    "Mid": "Energy -10\nSkill points +25",
+    "Bot": "Randomly either\nEnergy -15\n1 random stat +10\nor\nEnergy -15\nMood +1\n2 random stats +15"
+  },
+  "Nutritional Food is the Food of Hope?": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "git gud noob": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "ggez": {
+    "Top": "Power +10",
+    "Bot": "Guts +10"
+  },
+  "ggwp": {
+    "Top": "Guts +10",
+    "Mid": "Wisdom +10",
+    "Bot": "Stamina +10"
+  },
+  "The Taciturn Two": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "Open the Cage Door with Your Own Hands": {
+    "Top": "Stamina +5\nGuts +5",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "Nature and Her Tired Trainer": {
+    "Top": "Power +20",
+    "Bot": "Stamina +20"
+  },
+  "Bittersweet Sparkle": {
+    "Top": "Power +20",
+    "Bot": "Speed +20"
+  },
+  "Festive Colors": {
+    "Top": "Guts +20\n(random) Get Charming ○ status",
+    "Bot": "Stamina +20\n(random) Get Charming ○ status"
+  },
+  "Rainy-Day Fun": {
+    "Top": "Wisdom +10",
+    "Bot": "Energy -10\nStamina +10\nGuts +10"
+  },
+  "Not My Style": {
+    "Top": "Energy +5\nMood +1",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "Whirlwind Advice": {
+    "Top": "Studious hint +1",
+    "Bot": "Speed +5\nStamina +5\nPower +5"
+  },
+  "A Little Can't Hurt": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "A Phone Call from Mom": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "Once in a While": {
+    "Top": "Stamina +5\nGuts +5",
+    "Bot": "Stamina +5\nPower +5"
+  },
+  "Bittersweet Twilight": {
+    "Top": "Speed +10",
+    "Mid": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "Snapshot of Emotions": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Let's Watch the Fish": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "Pinned Hopes": {
+    "Top": "Stamina +10\nPower +10",
+    "Bot": "Wisdom +20"
+  },
+  "Oguri the Forest Guide?": {
+    "Top": "Speed +20",
+    "Bot": "Power +20"
+  },
+  "Better Than a Plushie": {
+    "Top": "Guts +20\n(random) Get Hot Topic status",
+    "Bot": "Stamina +20\n(random) Get Hot Topic status"
+  },
+  "Lost Umamusume": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "Field Workout": {
+    "Top": "Guts +10",
+    "Bot": "Power +10"
+  },
+  "Running on Full": {
+    "Top": "Energy +10\nSkill points +15",
+    "Bot": "Nakayama Racecourse ○ hint +1"
+  },
+  "Oguri's Gluttony Championship": {
+    "Top": "Randomly either\nEnergy +30\nPower +10\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status",
+    "Bot": "Energy +10\nPower +5\nSkill points +5"
+  },
+  "Bottomless Pit": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Oguri Makes a Resolution": {
+    "Top": "Speed +5\nWisdom +5",
+    "Bot": "Stamina +5\nGuts +5"
+  },
+  "Oguri Perseveres": {
+    "Top": "Guts +10",
+    "Bot": "Power +10"
+  },
+  "Oguri Matures": {
+    "Top": "Wisdom +10",
+    "Mid": "Stamina +10",
+    "Bot": "Power +10"
+  },
+  "Something Smells Good!": {
+    "Top": "Speed +10",
+    "Bot": "Guts +10"
+  },
+  "High-Level Rival": {
+    "Top": "Speed +5\nStamina +5",
+    "Bot": "Power +5\nWisdom +5"
+  },
+  "Am I Enough?": {
+    "Top": "Guts +20",
+    "Bot": "Power +20"
+  },
+  "Sweet & Lively Joy": {
+    "Top": "Speed +10\nStamina +10",
+    "Bot": "Wisdom +20"
+  },
+  "I Am Enough": {
+    "Top": "Guts +10\nWisdom +10\n(random) Get Charming ○ status",
+    "Bot": "Stamina +10\nPower +10\n(random) Get Charming ○ status"
+  },
+  "Training Inspiration": {
+    "Top": "Energy -10\nGuts +20",
+    "Bot": "Energy +5\nSkill points +15"
+  },
+  "Wonderful New Worlds": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +5\nWisdom +5"
+  },
+  "Looking on the Bright Side": {
+    "Top": "Stamina +5\nGuts +10",
+    "Bot": "Firm Conditions ○ hint +1"
+  },
+  "A Page about Apples": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Even When the Ladybugs Are Gone": {
+    "Top": "Stamina +10",
+    "Bot": "Wisdom +10"
+  },
+  "Even When Clouds Cover the Sky": {
+    "Top": "Speed +5\nPower +5",
+    "Bot": "Guts +10"
+  },
+  "My Sun": {
+    "Top": "Guts +5\nWisdom +5",
+    "Mid": "Speed +5\nPower +5",
+    "Bot": "Stamina +10"
+  },
+  "I've Got This!": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "A Page about Sunsets": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Stamina +5\nWisdom +5"
+  },
+  "Bakushin for Love!": {
+    "Top": "Stamina +10\nWisdom +10",
+    "Bot": "Guts +20"
+  },
+  "A Day Without a Class Rep": {
+    "Top": "Speed +20",
+    "Bot": "Power +20"
+  },
+  "Bakushin in Signature Racewear!": {
+    "Top": "Power +10\nGuts +10\n(random) Get Hot Topic status",
+    "Bot": "Wisdom +20\n(random) Get Hot Topic status"
+  },
+  "The Bakushin Book!": {
+    "Top": "Wisdom +10",
+    "Bot": "Stamina +10"
+  },
+  "The Voices of the Students": {
+    "Top": "Energy -10\nStamina +10\nPower +10",
+    "Bot": "Speed +10"
+  },
+  "Solving Riddles, Bakushin Style!": {
+    "Top": "Guts +10\nSkill points +15",
+    "Bot": "Nakayama Racecourse ○ hint +1"
+  },
+  "Bakushin?! Class?!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Bakushin-ing with a Classmate!": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Speed +5\nWisdom +5"
+  },
+  "The Best Bakushin!": {
+    "Top": "Wisdom +10",
+    "Bot": "Stamina +5\nGuts +5"
+  },
+  "Bakushin, Now and Forever!": {
+    "Top": "Speed +10",
+    "Mid": "Guts +5\nWisdom +5",
+    "Bot": "Power +10"
+  },
+  "Together with Someone Important!": {
+    "Top": "Guts +10",
+    "Bot": "Speed +5\nStamina +5"
+  },
+  "The Speed King": {
+    "Top": "Power +5\nWisdom +5",
+    "Bot": "Stamina +10"
+  },
+  "The Color of the Landscape": {
+    "Top": "Guts +20",
+    "Bot": "Power +20"
+  },
+  "Hobbies and Talents": {
+    "Top": "Stamina +20",
+    "Bot": "Speed +10\nWisdom +10"
+  },
+  "Umadol ☆ Special Class!": {
+    "Top": "Speed +10\nPower +10\n(random) Get Hot Topic status",
+    "Bot": "Guts +10\nWisdom +10\n(random) Get Hot Topic status"
+  },
+  "Teaching Suzuka's Style": {
+    "Top": "Speed +10",
+    "Bot": "Wisdom +10"
+  },
+  "Party Time": {
+    "Top": "Energy +10",
+    "Bot": "Stamina +5\nPower +5"
+  },
+  "On My Heels": {
+    "Top": "Speed +5\nSkill points +15",
+    "Bot": "Left-Handed ○ hint +1"
+  },
+  "White Temptation": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "My Little Snowscape": {
+    "Top": "Stamina +10",
+    "Bot": "Wisdom +10"
+  },
+  "To Make You Happy": {
+    "Top": "Power +10",
+    "Bot": "Speed +5\nGuts +5"
+  },
+  "Our Little Snowscape": {
+    "Top": "Stamina +10",
+    "Mid": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "How to Spend a Rainy Day": {
+    "Top": "Guts +10",
+    "Bot": "Speed +5\nWisdom +5"
+  },
+  "Are They Compatible?": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Stamina +10"
+  },
+  "How Should I Pose?": {
+    "Top": "Power +20",
+    "Bot": "Skill points +40"
+  },
+  "Wear Your Heart on Your Sleeve": {
+    "Top": "Stamina +20",
+    "Bot": "Guts +20"
+  },
+  "Today and Tomorrow, Too": {
+    "Top": "Speed +20\n(random) Get Hot Topic status",
+    "Bot": "Wisdom +20\n(random) Get Hot Topic status"
+  },
+  "A Beautiful Day for Tennis": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "Karaoke Connoisseur ♪": {
+    "Top": "Energy +10",
+    "Bot": "Power +10"
+  },
+  "Early Afternoon Payback": {
+    "Top": "Energy +5\nWisdom +5",
+    "Bot": "Pace Strategy hint +1"
+  },
+  "Putting It Away at the Cafeteria": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Because It's Special": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "A Place I Want to Take You": {
+    "Top": "Wisdom +10",
+    "Bot": "Stamina +10"
+  },
+  "Someone I Respect": {
+    "Top": "Skill points +30",
+    "Mid": "Stamina +5\nGuts +5",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "Research Fanatic": {
+    "Top": "Tokyo Racecourse ○ hint +1",
+    "Bot": "Nakayama Racecourse ○ hint +1"
+  },
+  "A Self-Satisfying Wish": {
+    "Top": "Power +20",
+    "Bot": "Stamina +20"
+  },
+  "Fill Life with Love": {
+    "Top": "Randomly either\nSpeed +10\nStamina +10\nor\nWisdom +20",
+    "Bot": "Wisdom +20"
+  },
+  "Patience Is Key": {
+    "Top": "Guts +20\n(random) Get Hot Topic status",
+    "Bot": "Stamina +10\nPower +10\n(random) Get Hot Topic status"
+  },
+  "One-Day Experience ☆ Ceramics Class": {
+    "Top": "Speed +5\nWisdom +5",
+    "Bot": "Stamina +10"
+  },
+  "Find the Lost Child!": {
+    "Top": "Energy -10\nStamina +10\nPower +10",
+    "Bot": "Wisdom +10"
+  },
+  "A Dangerous Treat": {
+    "Top": "Guts +10\nSkill points +15",
+    "Bot": "Corner Recovery ○ hint +1"
+  },
+  "Sweet Nighttime Temptation": {
+    "Top": "Energy +30\nSpeed +10\nSkill points +10\n(random) Mood -1\n(random) Get Slow Metabolism status",
+    "Bot": "Energy +10\nSpeed +5\nSkill points +5"
+  },
+  "For My Friends": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Is Relaxing Being Spoiled?": {
+    "Top": "Stamina +10",
+    "Bot": "Wisdom +10"
+  },
+  "Dispel Your Anxieties": {
+    "Top": "Power +10",
+    "Bot": "Speed +5\nGuts +5"
+  },
+  "Let's Share": {
+    "Top": "Stamina +10",
+    "Mid": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Rough Massage!": {
+    "Top": "Guts +10",
+    "Bot": "Speed +5\nWisdom +5"
+  },
+  "Stargazing is Better Together": {
+    "Top": "Power +5\nGuts +5",
+    "Bot": "Stamina +10"
+  },
+  "Midway Reflection": {
+    "Top": "Speed +20",
+    "Bot": "Power +20"
+  },
+  "The Smiling Emperor's New Clothes": {
+    "Top": "Wisdom +20",
+    "Bot": "Guts +20"
+  },
+  "The Distant View from the End of the Road": {
+    "Top": "Stamina +20\n(random) Get Hot Topic status",
+    "Bot": "Guts +20\n(random) Get Hot Topic status"
+  },
+  "Those Who March Forth": {
+    "Top": "Speed +5\nPower +5",
+    "Bot": "Stamina +5\nGuts +5"
+  },
+  "The Emperor's Social Studies": {
+    "Top": "Energy -10\nStamina +10\nPower +10",
+    "Bot": "Wisdom +5\nSkill points +15"
+  },
+  "The Emperor's Spare Time": {
+    "Top": "Wisdom +10\nSkill points +15",
+    "Bot": "Rainy Days ○ hint +1"
+  },
+  "At Any Time": {
+    "Top": "Energy -10\nGuts +20\nYayoi Akikawa bond +10",
+    "Bot": "Energy +10"
+  },
+  "Sudden Kindness": {
+    "Top": "Energy -10\nStamina +20\nYayoi Akikawa bond +10",
+    "Bot": "Energy +10"
+  },
+  "As Good As My Word": {
+    "Top": "Energy -10\nPower +20\nYayoi Akikawa bond +10",
+    "Bot": "Energy +10"
+  },
+  "The Emperor's Satiation": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Birds of a Feather": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "Well-Earned Respect": {
+    "Top": "Wisdom +10",
+    "Bot": "Power +10"
+  },
+  "A Clear and Beautiful Night": {
+    "Top": "Speed +10",
+    "Mid": "Wisdom +10",
+    "Bot": "Stamina +10"
+  },
+  "The Emperor's Daily Routine": {
+    "Top": "Power +10",
+    "Bot": "Guts +10"
+  },
+  "The Emperor's Path": {
+    "Top": "Wisdom +10",
+    "Bot": "Power +10"
+  },
+  "Quick Draw Showdown": {
+    "Top": "Energy +10\nSpeed +10",
+    "Bot": "Energy +10\nWisdom +10"
+  },
+  "Must-Win Match": {
+    "Top": "Wisdom +20",
+    "Bot": "Stamina +20"
+  },
+  "To the Top!": {
+    "Top": "Power +10\nGuts +10\n(random) Get Fast Learner status",
+    "Bot": "Speed +10\nWisdom +10\n(random) Get Fast Learner status"
+  },
+  "Hide-and-Seek": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "Embracing Guidance": {
+    "Top": "Power +10",
+    "Bot": "Energy +10"
+  },
+  "Harvest Festival": {
+    "Top": "Power +10\nSkill points +15",
+    "Bot": "Prepared to Pass hint +1"
+  },
+  "Serial Riddler": {
+    "Top": "Randomly either\nMood +1\nStamina +5\nPower +10\nor\nMood -1",
+    "Bot": "Wisdom +10"
+  },
+  "Taste of Home": {
+    "Top": "Randomly either\nMood +1\nSpeed +10\nPower +5\nor\nMood -1",
+    "Bot": "Wisdom +10"
+  },
+  "Meaty Heaven": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Rainy Power": {
+    "Top": "Power +10",
+    "Bot": "Skill points +30"
+  },
+  "Rainy Choice": {
+    "Top": "Speed +5\nGuts +5",
+    "Bot": "Stamina +5\nWisdom +5"
+  },
+  "Rainy Rescue": {
+    "Top": "Skill points +30",
+    "Mid": "Power +5\nWisdom +5",
+    "Bot": "Speed +5\nGuts +5"
+  },
+  "Let's Patrol!": {
+    "Top": "Power +10",
+    "Bot": "Energy +10"
+  },
+  "Going Home Together": {
+    "Top": "Mood +1\nSpeed +5",
+    "Bot": "Mood +1\nStamina +5"
+  },
+  "Fit for a King": {
+    "Top": "Wisdom +20",
+    "Bot": "Power +20"
+  },
+  "For My Admirer": {
+    "Top": "Stamina +10\nGuts +10",
+    "Bot": "Speed +20"
+  },
+  "Strength of Will": {
+    "Top": "Wisdom +20\n(random) Get Fast Learner status",
+    "Bot": "Speed +10\nPower +10\n(random) Speed +20\n(random) Get Fast Learner status"
+  },
+  "Fantastic Voyeur": {
+    "Top": "Power +10",
+    "Bot": "Wisdom +10"
+  },
+  "Blinding Beauty": {
+    "Top": "Energy -10\nPower +20",
+    "Bot": "Speed +10"
+  },
+  "Bring Me Your Finest": {
+    "Top": "Speed +10\nSkill points +15",
+    "Bot": "Non-Standard Distance ○ hint +1"
+  },
+  "Battle of Kings: The Great Ramen War": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "The Princess in Pajamas": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "What the Mirror Reflects": {
+    "Top": "Wisdom +10",
+    "Bot": "Guts +10"
+  },
+  "My Radiance is Yours": {
+    "Top": "Power +10",
+    "Mid": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "Maintaining Magnificence": {
+    "Top": "Speed +10",
+    "Bot": "Wisdom +10"
+  },
+  "Evening Opera O Theater": {
+    "Top": "Power +10",
+    "Bot": "Energy +10"
+  },
+  "Good Luck Charm": {
+    "Top": "Stamina +20",
+    "Bot": "Wisdom +20"
+  },
+  "Selfish Teio and a Nostalgic View": {
+    "Top": "Guts +20",
+    "Bot": "Speed +10\nPower +10"
+  },
+  "Racewear Like Prez": {
+    "Top": "Speed +10\nWisdom +10\n(random) Get Hot Topic status",
+    "Bot": "Stamina +10\nGuts +10\n(random) Get Hot Topic status"
+  },
+  "Empress vs Monarch": {
+    "Top": "Guts +10",
+    "Bot": "Skill points +30"
+  },
+  "Cupcakes for All": {
+    "Top": "Energy +5\nMood +1",
+    "Bot": "Speed +5\nPower +5"
+  },
+  "Teio's Warrior Training": {
+    "Top": "Guts +10\nSkill points +15",
+    "Bot": "Prepared to Pass hint +1"
+  },
+  "Karaoke Power?": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "Teio, an Umadol?!": {
+    "Top": "Power +10",
+    "Bot": "Speed +10"
+  },
+  "Secret to Strength": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "I Got Praised!": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "I Got Scolded!": {
+    "Top": "Wisdom +10",
+    "Bot": "Power +5\nGuts +5"
+  },
+  "I Figured It Out!": {
+    "Top": "Speed +5\nStamina +5",
+    "Mid": "Guts +5\nWisdom +5",
+    "Bot": "Power +10"
+  },
+  "Grown-Up Time": {
+    "Top": "Guts +10",
+    "Bot": "Wisdom +10"
+  },
+  "Punny Prez": {
+    "Top": "Stamina +5\nPower +5",
+    "Bot": "Speed +10"
+  },
+  "Rivals on Paper, Friends in Practice": {
+    "Top": "Stamina to Spare hint +2",
+    "Bot": "Speed +10\nSkill points +15"
+  },
+  "The Secret to Teio Tenacity": {
+    "Top": "Corner Acceleration ○ hint +2",
+    "Bot": "Wisdom +10\nSkill points +15"
+  },
+  "I'm Never Giving Up!": {
+    "Top": "Stamina +15\nGuts +5\n(random) Get Practice Perfect ○ status",
+    "Bot": "Power +5\nWisdom +15\n(random) Get Practice Perfect ○ status"
+  },
+  "Vintage Style": {
+    "Top": "Power +20",
+    "Bot": "Stamina +20"
+  },
+  "Makings of a Friend": {
+    "Top": "Speed +20\n(random) Get Practice Perfect ○ status",
+    "Bot": "Guts +20"
+  },
+  "Hot and Cool": {
+    "Top": "Speed +20\n(random) Get Practice Perfect ○ status",
+    "Bot": "Speed +10\nPower +10\n(random) Get Practice Perfect ○ status"
+  },
+  "Like a Kid": {
+    "Top": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Challenging Fate": {
+    "Top": "Stamina +10",
+    "Bot": "Speed +10"
+  },
+  "Showdown by the River!": {
+    "Top": "Wisdom +10\nSkill points +15",
+    "Bot": "Shifting Gears hint +1"
+  },
+  "Awkward Honesty": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "The Standards of Coolness": {
+    "Top": "Wisdom +10",
+    "Bot": "Guts +10"
+  },
+  "Ring Out, Passionate Sound!": {
+    "Top": "Speed +10",
+    "Bot": "Stamina +10"
+  },
+  "The Way of Cool": {
+    "Top": "Power +10",
+    "Mid": "Speed +10",
+    "Bot": "Stamina +5\nGuts +5"
+  },
+  "Let's Take a Little Detour": {
+    "Top": "Speed +10",
+    "Bot": "Energy +5\nMood +1"
+  },
+  "Sugar and Spice": {
+    "Top": "Energy +5/+10",
+    "Bot": "Power +10"
+  },
+  "Full-Power Testing!": {
+    "Top": "Guts +20",
+    "Bot": "Speed +20"
+  },
+  "Full-Power Fashion!": {
+    "Top": "Stamina +20",
+    "Bot": "Power +10\nGuts +10"
+  },
+  "Full-Power Effort!": {
+    "Top": "Speed +10\nWisdom +10\n(random) Get Hot Topic status",
+    "Bot": "Power +20\n(random) Get Hot Topic status"
+  },
+  "Rain or Shine": {
+    "Top": "Energy -10\nStamina +10\nSkill points +15",
+    "Bot": "Power +10"
+  },
+  "Overcome the Towering Obstacle!": {
+    "Top": "Mood +1\nGuts +5",
+    "Bot": "Mood +1\nPower +5"
+  },
+  "A Fresh Perspective": {
+    "Top": "Speed +10\nSkill points +15",
+    "Bot": "Nimble Navigator hint +1"
+  },
+  "Full-Power Eating!": {
+    "Top": "Energy +10\nSkill points +5",
+    "Bot": "Randomly either\nEnergy +30\nSkill points +10\nor\nEnergy +30\nSkill points +10\nSpeed -5\nPower +5\nGet Slow Metabolism status"
+  },
+  "Play of the Three Kingdoms": {
+    "Top": "Stamina +5\nSkill points +15",
+    "Bot": "Power +5\nSkill points +15"
+  },
+  "Futsal, Now?!": {
+    "Top": "Guts +10",
+    "Bot": "Speed +10"
+  },
+  "The Last Ticket": {
+    "Top": "Guts +10",
+    "Mid": "Speed +10",
+    "Bot": "Power +10"
+  },
+  "Shake Off Your Blues!": {
+    "Top": "Mood +1\nPower +5",
+    "Bot": "Speed +5\nSkill points +15"
+  },
+  "Big Girls Cry Too": {
+    "Top": "Guts +5\nSkill points +15",
+    "Bot": "Mood +1\nPower +5"
+  }
+}

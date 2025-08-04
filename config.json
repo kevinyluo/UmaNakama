@@ -1,0 +1,18 @@
+{
+  "region": {
+    "x": 596,
+    "y": 380,
+    "width": 367,
+    "height": 74
+  },
+  "overlay_position": {
+    "x": 1200,
+    "y": 400
+  },
+  "status_position": {
+    "x": 50,
+    "y": 50
+  },
+  "scan_speed": 0.5,
+  "scanning_enabled": true
+}
