@@ -10,15 +10,19 @@ from PIL import ImageEnhance, ImageOps
 from PyQt5 import QtWidgets, QtCore, QtGui
 import threading
 import pygetwindow as gw
+import cv2
+import numpy as np
 from text_overlay import TextOverlay
 from region_overlay import RegionSelector
 from status_overlay import StatusOverlay
 from settings_overlay import SettingsOverlay
+import Levenshtein
 
 # ---------------- Global Variables----------------
 settings_overlay_pos = (500, 200)
 settings_overlay = None
 selector = None
+last_detected_time = 0
 
 CONFIG_FILE = "config.json"
 default_config = {
@@ -27,7 +31,8 @@ default_config = {
     "status_position": {"x_offset": 50, "y_offset": 50},
     "scan_speed": 0.5,
     "scanning_enabled": True,
-    "text_match_confidence": 0.7
+    "text_match_confidence": 0.7,
+    "debug_mode": False
 }
 
 class AppController(QtCore.QObject):
@@ -36,10 +41,8 @@ class AppController(QtCore.QObject):
 
 controller = AppController()
 
-
 # ---------------- CONFIG HANDLING ----------------
 def load_config():
-    """Load config or create default if missing/corrupted."""
     if not os.path.exists(CONFIG_FILE):
         save_config(default_config)
         return default_config.copy()
@@ -49,16 +52,10 @@ def load_config():
         with open(CONFIG_FILE, "r", encoding="utf-8") as f:
             loaded = json.load(f)
 
-            # Convert old absolute keys
-            if "region" in loaded and "x" in loaded["region"]:
-                loaded["region"]["x_offset"] = loaded["region"].pop("x")
-                loaded["region"]["y_offset"] = loaded["region"].pop("y")
-            if "overlay_position" in loaded and "x" in loaded["overlay_position"]:
-                loaded["overlay_position"]["x_offset"] = loaded["overlay_position"].pop("x")
-                loaded["overlay_position"]["y_offset"] = loaded["overlay_position"].pop("y")
-            if "status_position" in loaded and "x" in loaded["status_position"]:
-                loaded["status_position"]["x_offset"] = loaded["status_position"].pop("x")
-                loaded["status_position"]["y_offset"] = loaded["status_position"].pop("y")
+            for key in ["region", "overlay_position", "status_position"]:
+                if key in loaded and "x" in loaded[key]:
+                    loaded[key]["x_offset"] = loaded[key].pop("x")
+                    loaded[key]["y_offset"] = loaded[key].pop("y")
 
             for key, value in default_config.items():
                 if key not in loaded:
@@ -73,7 +70,6 @@ def load_config():
     return config
 
 def save_config(config):
-    """Write config to file."""
     try:
         with open(CONFIG_FILE, "w", encoding="utf-8") as f:
             json.dump(config, f, indent=2)
@@ -88,7 +84,6 @@ pytesseract.pytesseract.tesseract_cmd = r"C:\\Program Files\\Tesseract-OCR\\tess
 
 # ---------------- HELPERS ----------------
 def get_umamusume_window():
-    """Find Umamusume game window."""
     try:
         windows = gw.getWindowsWithTitle("Umamusume")
         if windows:
@@ -101,7 +96,6 @@ def get_umamusume_window():
     return None
 
 def get_absolute_region():
-    """Convert saved offsets to absolute coordinates."""
     win = get_umamusume_window()
     if not win:
         return (
@@ -132,6 +126,7 @@ def load_events(category):
 def find_best_match(event_line, category):
     if len(event_line) < 4:
         return None, None
+    
     events = load_events(category)
     candidates = list(events.keys())
     confidence = config.get("text_match_confidence", 0.7)
@@ -141,8 +136,30 @@ def find_best_match(event_line, category):
         return event_name, events[event_name]
     return None, None
 
+# def find_best_match(event_line, category):
+#     if len(event_line) < 4:
+#         return None, None
+#     events = load_events(category)
+#     candidates = list(events.keys())
+#     confidence = config.get("text_match_confidence", 0.7)
+
+#     best_match = None
+#     best_score = 0
+
+#     for candidate in candidates:
+#         score = 1 - (Levenshtein.distance(event_line, candidate) / max(len(event_line), len(candidate)))
+#         if score > best_score:
+#             best_score = score
+#             best_match = candidate
+
+#     if best_match and best_score >= confidence:
+#         return best_match, events[best_match]
+#     return None, None
+
+
 # ---------------- OCR FUNCTION ----------------
 def read_text_from_screen(text_overlay):
+    global last_detected_time
     screenshot = pyautogui.screenshot(region=get_absolute_region())
     gray = screenshot.convert("L")
     inverted = ImageOps.invert(gray)
@@ -151,13 +168,18 @@ def read_text_from_screen(text_overlay):
     thresholded = high_contrast.point(lambda x: 0 if x < 50 else 255, mode='1')
 
     text = pytesseract.image_to_string(thresholded, config="--psm 6").strip()
-    lines = [line.strip() for line in text.split('\n') if line.strip()]
-    if len(lines) < 2:
+    lines = [line.replace("|", "").strip() for line in text.split('\n') if line.strip()]
+
+    if len(lines) < 2 and time.time() - last_detected_time > 2:
         text_overlay.hide()
         return
+    elif len(lines) < 2:
+        return
+    
+    last_detected_time = time.time()
 
     category_line = lines[0].lower()
-    event_line = lines[1].lower()
+    event_line = lines[1]
     if "trainee" in category_line:
         category = "trainee"
     elif "support" in category_line:
@@ -183,7 +205,7 @@ def read_text_from_screen(text_overlay):
 def continuous_scan(text_overlay, stop_event, status_overlay):
     global scanning_enabled
     while not stop_event.is_set():
-        if scanning_enabled: #and not (settings_overlay and settings_overlay.isVisible()):
+        if scanning_enabled:
             read_text_from_screen(text_overlay)
             status_overlay.set_color(QtGui.QColor(0, 200, 0))
         else:
@@ -218,7 +240,6 @@ def save_region_from_selector():
 def toggle_settings():
     global settings_overlay, settings_overlay_pos
     if settings_overlay and settings_overlay.isVisible():
-        # Save current position for next time (no config write)
         settings_overlay_pos = (settings_overlay.x(), settings_overlay.y())
         save_region_from_selector()
         settings_overlay.close_overlay()
@@ -227,18 +248,43 @@ def toggle_settings():
         print("Settings & Region selector closed. Changes saved.")
         return
 
-    # Show settings overlay at last position
     settings_overlay = SettingsOverlay(config, save_config, settings_overlay_pos)
     settings_overlay.closed.connect(lambda: print("Settings overlay closed"))
     settings_overlay.show()
 
-    # Show region selector
-    selector.setGeometry(*get_absolute_region())
-    selector.show()
-    print("Settings & Region selector opened.")
-
+    win = get_umamusume_window()
+    if win:
+        selector.setGeometry(*get_absolute_region())
+        selector.show()
+        print("Settings & Region selector opened.")
+    else:
+        print("Umamusume window not found. Region selector not shown.")
 
 controller.open_settings_signal.connect(toggle_settings)
+
+# ---------------- Debugging ----------------
+def show_thresholded_image():
+    if not config.get("debug_mode", False):
+        print("Debug mode is disabled.")
+        return
+
+    screenshot = pyautogui.screenshot(region=get_absolute_region())
+    gray = screenshot.convert("L")
+    inverted = ImageOps.invert(gray)
+    enhancer = ImageEnhance.Contrast(inverted)
+    high_contrast = enhancer.enhance(1.0)
+    thresholded = high_contrast.point(lambda x: 0 if x < 50 else 255, mode='1')
+
+    text = pytesseract.image_to_string(thresholded, config="--psm 6").strip()
+    lines = [line.replace("|", "").strip() for line in text.split('\n') if line.strip()]
+
+    print(f"Raw text is: {text}")
+    print(f"Processed text is: {lines}")
+
+    cv_img = cv2.cvtColor(np.array(thresholded.convert("L")), cv2.COLOR_GRAY2BGR)
+    cv2.imshow("Thresholded OCR Image", cv_img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 # ---------------- MAIN ----------------
 def main():
@@ -247,7 +293,6 @@ def main():
     print("Running OCR. Press 'Alt+J' for settings & region selector. 'q' to quit.")
     app = QtWidgets.QApplication(sys.argv)
 
-    # ----- Text Overlay -----
     text_overlay = TextOverlay(
         (config["overlay_position"]["x_offset"], config["overlay_position"]["y_offset"])
     )
@@ -263,7 +308,6 @@ def main():
 
     text_overlay.position_changed.connect(on_overlay_moved)
 
-    # ----- Status Overlay -----
     status_overlay = StatusOverlay(
         (config["status_position"]["x_offset"], config["status_position"]["y_offset"])
     )
@@ -289,16 +333,15 @@ def main():
     status_overlay.toggle_scanning.connect(on_status_toggle)
     status_overlay.quit_app.connect(on_status_quit)
     status_overlay.position_changed.connect(on_status_moved)
+    status_overlay.open_settings.connect(lambda: controller.open_settings_signal.emit())
 
-    # ----- Region Selector -----
     selector = RegionSelector(get_absolute_region())
     selector.hide()
 
-    # ----- Hotkeys -----
     keyboard.add_hotkey('alt+j', lambda: controller.open_settings_signal.emit())
     keyboard.add_hotkey('q', lambda: app.quit())
+    keyboard.add_hotkey('z', show_thresholded_image)
 
-    # ----- Start scanning thread -----
     stop_event = threading.Event()
     threading.Thread(
         target=continuous_scan,

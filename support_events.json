@@ -63,11 +63,11 @@
     "Top": "Speed +5\nPower +10\nKitasan Black bond +5",
     "Bot": "Get Practice Perfect ○ status\nKitasan Black bond +5"
   },
-  "(❯❯) Diamond Fixation": {
+  "Diamond Fixation": {
     "Top": "Wisdom +10\nSatono Diamond bond +5",
     "Bot": "Randomly either\nEnergy +15\nStamina +10\nSatono Diamond bond +5\nor\nMood -1\nGuts +20"
   },
-  "(❯❯❯) Only for You": {
+  "Only for You": {
     "Top": "Energy -20\nStamina +30\nIron Will hint +1\nSatono Diamond bond +5",
     "Bot": "Energy +5\nGuts +5\nIron Will hint +1\nSatono Diamond bond +5"
   },
@@ -91,15 +91,15 @@
     "Top": "Stamina +5\nGuts +10\nMatikanetannhauser bond +5",
     "Bot": "Subdued Front Runners hint +1\nMatikanetannhauser bond +5"
   },
-  "(❯) Run Away to First Base": {
+  "Run Away to First Base": {
     "Top": "Energy -15\nStamina +10\nGuts +10\nMejiro Palmer bond +5",
     "Bot": "Energy -15\nGuts +10\nWisdom +10\nMejiro Palmer bond +5"
   },
-  "(❯❯) Runaway Romance": {
+  "Runaway Romance": {
     "Top": "Energy +10\nGuts +5\nWisdom +5\nMejiro Palmer bond +5",
     "Bot": "Energy +10\nFront Runner Savvy ○ hint +1\nMejiro Palmer bond +5"
   },
-  "(❯❯❯) Optimistic Escapism: Never Give Up!": {
+  "Optimistic Escapism: Never Give Up!": {
     "Top": "Energy -20\nStamina +5\nGuts +5\nVanguard Spirit hint +3 or Keeping the Lead hint +1/+3\nMejiro Palmer bond +5",
     "Bot": "Energy +10\nLone Wolf hint +1"
   },
@@ -111,15 +111,15 @@
     "Top": "Guts +15\nMejiro Palmer bond +5",
     "Bot": "Wet Conditions ○ hint +1\nMejiro Palmer bond +5"
   },
-  "(❯) I'm Not Afraid!": {
+  "I'm Not Afraid!": {
     "Top": "Randomly either\nSpeed +10\nTwin Turbo bond +5\nor\nEnergy -10\nSpeed +10\nEvent chain ended",
     "Bot": "Energy +20\nEvent chain ended"
   },
-  "(❯❯) Can't Catch Me!": {
+  "Can't Catch Me!": {
     "Top": "Randomly either\nSpeed +15\nLeader's Pride hint +3\nTwin Turbo bond +5\nor\nEnergy -10\nSpeed +10\nEvent chain ended",
     "Bot": "Energy +25\nEvent chain ended"
   },
-  "(❯❯❯) Turbo Is Strong!": {
+  "Turbo Is Strong!": {
     "Top": "Randomly either\nEnergy -10\nSpeed +5\nEarly Lead hint +3\nor\nEnergy -10\nSpeed +25\nTaking the Lead hint +3\nTwin Turbo bond +5",
     "Bot": "Energy +15\nWatchful Eye hint +1"
   },
@@ -333,7 +333,7 @@
     "Top": "Sprint Straightaways ○ hint +1\nBiko Pegasus bond +5",
     "Bot": "Energy +30\nBiko Pegasus bond +5"
   },
-  "(❯❯❯) Memories of Cinema": {
+  "Memories of Cinema": {
     "Top": "Energy +40\nStamina +6\nMood +1\nTazuna Hayakawa bond +5",
     "Bot": "Stamina +13\nGuts +13\nMood +1\nTazuna Hayakawa bond +5"
   },
@@ -361,7 +361,7 @@
     "Top": "Speed +5\nGuts +5\nRice Shower bond +5",
     "Bot": "Firm Conditions ○ hint +1\nRice Shower bond +5"
   },
-  "(❯) The Bookworm and the Magical Girl": {
+  "The Bookworm and the Magical Girl": {
     "Top": "Stamina +5\nWisdom +5\nZenno Rob Roy bond +5",
     "Bot": "Energy +20\nPower +10\nZenno Rob Roy bond +5\nEvent chain ended"
   },
@@ -373,11 +373,11 @@
     "Top": "Stamina +10\nWisdom +10\nZenno Rob Roy bond +5",
     "Bot": "Medium Straightaways ○ hint +1\nZenno Rob Roy bond +5"
   },
-  "(❯❯) I Want to Say Thank You!": {
+  "I Want to Say Thank You!": {
     "Top": "Power +5\nStraightaway Adept hint +1\nNishino Flower bond +5",
     "Bot": "Wisdom +5\nStraightaway Acceleration hint +1\nNishino Flower bond +5"
   },
-  "(❯) Chasing Their Backs": {
+  "Chasing Their Backs": {
     "Top": "Energy +5\nWisdom +3\nNice Nature bond +5",
     "Bot": "Nice Nature bond +20"
   },
@@ -389,7 +389,7 @@
     "Top": "Ramp Up hint +1\nNice Nature bond +5",
     "Bot": "Mood +1\nMaximum Energy +4\nNice Nature bond +5"
   },
-  "(❯❯) Ikuno-Style Support": {
+  "Ikuno-Style Support": {
     "Top": "Wisdom +15\nFrenzied Front Runners hint +3\nIkuno Dictus bond +5",
     "Bot": "Wisdom +15\nFrenzied End Closers hint +3\nIkuno Dictus bond +5"
   },
@@ -401,11 +401,11 @@
     "Top": "Stamina +20\nIkuno Dictus bond +5",
     "Bot": "Trick (Rear) hint +1\nIkuno Dictus bond +5"
   },
-  "(❯) #BFF #Party!": {
+  "#BFF #Party!": {
     "Top": "Power +10\nDaitaku Helios bond +5",
     "Bot": "Speed +10\nDaitaku Helios bond +5"
   },
-  "(❯❯) #LOL #Party! #Round2": {
+  "#LOL #Party! #Round2": {
     "Top": "Power +10\n(random) Speed +10\nStraight Descent hint +1/+3\nDaitaku Helios bond +5",
     "Bot": "Energy +20\nWatchful Eye hint +1\nDaitaku Helios bond +5"
   },
@@ -417,11 +417,11 @@
     "Top": "Speed +5\nPower +10\nDaitaku Helios bond +5",
     "Bot": "Long Shot ○ hint +1\nDaitaku Helios bond +5"
   },
-  "(❯) Some Very Green Friends": {
+  "Some Very Green Friends": {
     "Top": "Speed +5\nSkill points +10\nLucky Seven hint +1\nSweep Tosho bond +5",
     "Bot": "Mood -1\nMaverick ○ hint +5"
   },
-  "(❯❯) Premeditated Mischief": {
+  "Premeditated Mischief": {
     "Top": "Speed +10\nSkill points +20\nLevelheaded hint +1\nSweep Tosho bond +5",
     "Bot": "Mood -1\nLone Wolf hint +1"
   },
@@ -549,7 +549,7 @@
     "Top": "Energy +10\nMood +1\nMarvelous Sunday bond +5",
     "Bot": "Hanshin Racecourse ○ hint +1\nMarvelous Sunday bond +5"
   },
-  "(❯❯) Guidance and Friends": {
+  "Guidance and Friends": {
     "Top": "Skill points +45\nMatikanefukukitaru bond +5",
     "Bot": "Randomly either\nEnergy +10\nMood +1\nRight-Handed ○ hint +3\nMatikanefukukitaru bond +5\nor\nEnergy -20\nRight-Handed ○ hint +1\nMatikanefukukitaru bond +5"
   },
@@ -561,7 +561,7 @@
     "Top": "Skill points +30\nMatikanefukukitaru bond +5",
     "Bot": "Energy +20\nMatikanefukukitaru bond +5"
   },
-  "(❯) What I'm Destined For...": {
+  "What I'm Destined For...": {
     "Top": "Energy +10\nGuts +5\nMeisho Doto bond +5",
     "Bot": "Randomly either\nEnergy -10\nWisdom +5\nor\nMaximum Energy +4\nMood +1\nGuts +5\nWisdom +5\nMeisho Doto bond +5"
   },
@@ -589,7 +589,7 @@
     "Top": "Guts +10\nWisdom +5\nKing Halo bond +5",
     "Bot": "Homestretch Haste hint +1\nKing Halo bond +5"
   },
-  "(❯❯) How I Play at the Park": {
+  "How I Play at the Park": {
     "Top": "Energy +37\nWisdom +6\nAoi Kiryuin bond +5\n(random) Mood +1",
     "Bot": "Randomly either\nSkill points +19\nAoi Kiryuin bond +5\nor\nSpeed +6\nSkill points +58\nMood +1\nAoi Kiryuin bond +5"
   },

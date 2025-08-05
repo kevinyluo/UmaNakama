@@ -3,8 +3,8 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 class StatusOverlay(QtWidgets.QWidget):
     toggle_scanning = QtCore.pyqtSignal()  # Signal to pause/resume
     quit_app = QtCore.pyqtSignal()         # Signal to quit app
-    position_changed = QtCore.pyqtSignal(int, int)  # <--- Add this signal
-
+    position_changed = QtCore.pyqtSignal(int, int) 
+    open_settings = QtCore.pyqtSignal()  #
 
     def __init__(self, position=(50, 50), color=QtGui.QColor(0, 200, 0)):
         super().__init__()
@@ -38,16 +38,20 @@ class StatusOverlay(QtWidgets.QWidget):
         self.drag_pos = None
 
     def show_context_menu(self, pos):
-        menu = QtWidgets.QMenu()
+        """Unified context menu for pause/resume, open settings, quit."""
+        menu = QtWidgets.QMenu(self)
         toggle_action = menu.addAction("Pause Scanning" if self.is_scanning else "Resume Scanning")
+        settings_action = menu.addAction("Open Settings")
         quit_action = menu.addAction("Quit App")
-        action = menu.exec_(pos)
+
+        action = menu.exec_(self.mapToGlobal(self.rect().bottomLeft()))
 
         if action == toggle_action:
             self.is_scanning = not self.is_scanning
             self.toggle_scanning.emit()
-            # Change color when paused
             self.set_color(QtGui.QColor(0, 200, 0) if self.is_scanning else QtGui.QColor(200, 0, 0))
+        elif action == settings_action:
+            self.open_settings.emit()
         elif action == quit_action:
             self.quit_app.emit()
 

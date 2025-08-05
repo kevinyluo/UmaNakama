@@ -1,8 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class TextOverlay(QtWidgets.QScrollArea):
-    position_changed = QtCore.pyqtSignal(int, int)  # <--- Add signal
-
+    position_changed = QtCore.pyqtSignal(int, int)  # Signal for postion change
 
     def __init__(self, position):
         super().__init__()
@@ -32,7 +31,6 @@ class TextOverlay(QtWidgets.QScrollArea):
 
     def mouseReleaseEvent(self, event):
         self.drag_pos = None
-
 
     def update_text(self, lines):
         self.text_lines = lines
@@ -89,7 +87,10 @@ class TextOverlay(QtWidgets.QScrollArea):
         for idx, block in enumerate(blocks):
             bg_color = QtGui.QColor(56, 56, 56, 230) if idx % 2 == 0 else QtGui.QColor(66, 66, 66, 230)
             block_height = ((line_height + line_padding) * len(block)) + (2 * block_vertical_padding)
-            painter.fillRect(margin, y, rect.width() - 2 * margin, block_height, bg_color)
+
+            block_x = margin - 5 # Left margin
+            block_width = rect.width() - 2 * margin + 10 # Right margin
+            painter.fillRect(block_x, y, block_width, block_height, bg_color)
 
             y += block_vertical_padding
             for line in block:
