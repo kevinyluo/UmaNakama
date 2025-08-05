@@ -183,7 +183,7 @@ def read_text_from_screen(text_overlay):
 def continuous_scan(text_overlay, stop_event, status_overlay):
     global scanning_enabled
     while not stop_event.is_set():
-        if scanning_enabled and not (settings_overlay and settings_overlay.isVisible()):
+        if scanning_enabled: #and not (settings_overlay and settings_overlay.isVisible()):
             read_text_from_screen(text_overlay)
             status_overlay.set_color(QtGui.QColor(0, 200, 0))
         else:
