@@ -18,7 +18,6 @@ from overlays.text_overlay import TextOverlay
 from overlays.region_overlay import RegionSelector
 from overlays.status_overlay import StatusOverlay
 from overlays.settings_overlay import SettingsOverlay
-import Levenshtein
 
 
 # ---------------- Global Variables ----------------
