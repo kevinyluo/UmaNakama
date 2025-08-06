@@ -16,7 +16,6 @@ from text_overlay import TextOverlay
 from region_overlay import RegionSelector
 from status_overlay import StatusOverlay
 from settings_overlay import SettingsOverlay
-import Levenshtein
 
 # ---------------- Global Variables----------------
 settings_overlay_pos = (500, 200)
