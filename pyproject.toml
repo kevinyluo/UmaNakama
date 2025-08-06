@@ -1,0 +1,15 @@
+[project]
+name = "umanakama"
+version = "0.1.0"
+description = "Umanakama is an OCR-based assistant for the game Umamusume"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "keyboard>=0.13.5",
+    "opencv-python>=4.12.0.88",
+    "pyautogui>=0.9.54",
+    "pyqt5>=5.15.11",
+    "pyqt5-qt5<=5.15.2",
+    "pyqt5-sip>=12.17.0",
+    "pytesseract>=0.3.13",
+]
