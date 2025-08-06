@@ -123,7 +123,24 @@ class SettingsOverlay(QtWidgets.QWidget):
         self.debug_checkbox.stateChanged.connect(self.toggle_debug_mode)
         layout.addWidget(self.debug_checkbox)
 
+        # Always show overlay checkbox
+        self.always_show_checkbox = QtWidgets.QCheckBox("Always Show Event Overlay")
+        self.always_show_checkbox.setStyleSheet("""
+            color: white;
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px;
+        """)
+        self.always_show_checkbox.setChecked(self.config.get("always_show_overlay", False))
+        self.always_show_checkbox.stateChanged.connect(self.toggle_always_show)
+        layout.addWidget(self.always_show_checkbox)
+
         self.update_confidence_label()
+        
+    def toggle_always_show(self, state):
+        self.config["always_show_overlay"] = (state == QtCore.Qt.Checked)
+        self.save_callback(self.config)
+
 
     def update_confidence_label(self):
         val = self.slider.value() / 100

@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class TextOverlay(QtWidgets.QScrollArea):
-    position_changed = QtCore.pyqtSignal(int, int)  # Signal for postion change
+    position_changed = QtCore.pyqtSignal(int, int)
 
     def __init__(self, position):
         super().__init__()
@@ -17,6 +17,10 @@ class TextOverlay(QtWidgets.QScrollArea):
         self.inner_widget = QtWidgets.QWidget()
         self.setWidget(self.inner_widget)
         self.setWidgetResizable(True)
+
+        self.logo = QtGui.QPixmap("assets/UmaNakamaLogoWhite.png")
+        self.logo_size = 60  # Adjust as needed
+
 
         self.inner_widget.paintEvent = self.paint_inner
         self.show()
@@ -35,7 +39,7 @@ class TextOverlay(QtWidgets.QScrollArea):
     def update_text(self, lines):
         self.text_lines = lines
         self.inner_widget.update()
-
+        
     def paint_inner(self, event):
         painter = QtGui.QPainter(self.inner_widget)
         rect = self.inner_widget.rect()
@@ -67,12 +71,25 @@ class TextOverlay(QtWidgets.QScrollArea):
         text_col_start = margin + label_col_width + 10
 
         y = top_padding
+
+        # --- Draw Logo on Top Right ---
+        if not self.logo.isNull():
+            scaled_logo = self.logo.scaled(self.logo_size, self.logo_size, 
+                                        QtCore.Qt.KeepAspectRatio, 
+                                        QtCore.Qt.SmoothTransformation)
+            logo_x = rect.width() - scaled_logo.width() - margin
+            logo_y = margin
+            painter.drawPixmap(logo_x, logo_y, scaled_logo)
+
+        # --- Event Title ---
         painter.setFont(title_font)
         painter.setPen(label_color)
         painter.drawText(margin, y, rect.width() - 2 * margin, line_height + line_padding,
-                         QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, self.text_lines[0])
-        y += line_height + spacing + line_padding
+                        QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, self.text_lines[0])
+        
+        y += line_height + spacing + line_padding + 20  # Extra spacing below title
 
+        # --- Build option blocks ---
         blocks = []
         current_block = []
         for line in self.text_lines[1:]:
@@ -84,41 +101,43 @@ class TextOverlay(QtWidgets.QScrollArea):
         if current_block:
             blocks.append(current_block)
 
-        for idx, block in enumerate(blocks):
-            bg_color = QtGui.QColor(56, 56, 56, 230) if idx % 2 == 0 else QtGui.QColor(66, 66, 66, 230)
+        for block in blocks:
             block_height = ((line_height + line_padding) * len(block)) + (2 * block_vertical_padding)
 
-            block_x = margin - 5 # Left margin
-            block_width = rect.width() - 2 * margin + 10 # Right margin
-            painter.fillRect(block_x, y, block_width, block_height, bg_color)
+            # Drop shadow
+            shadow_rect = QtCore.QRect(margin + 3, y + 3, rect.width() - 2 * margin, block_height)
+            painter.setBrush(QtGui.QColor(0, 0, 0, 80))
+            painter.setPen(QtCore.Qt.NoPen)
+            painter.drawRoundedRect(shadow_rect, 8, 8)
 
-            y += block_vertical_padding
+            # Main block
+            block_rect = QtCore.QRect(margin, y, rect.width() - 2 * margin, block_height)
+            painter.setBrush(QtGui.QColor(56, 56, 56, 230))
+            painter.setPen(QtGui.QPen(QtGui.QColor(255, 255, 255), 1))
+            painter.drawRoundedRect(block_rect, 8, 8)
+
+            y_inner = y + block_vertical_padding
             for line in block:
                 if ": " in line:
                     label, content = line.split(": ", 1)
                     painter.setFont(label_font)
                     painter.setPen(label_color)
-                    painter.drawText(margin, y, label_col_width, line_height + line_padding,
-                                     QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, label)
+                    painter.drawText(margin + 10, y_inner, label_col_width, line_height + line_padding,
+                                    QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, label)
 
                     painter.setFont(base_font)
                     painter.setPen(text_color)
-                    painter.drawText(text_col_start, y, rect.width() - text_col_start - margin, line_height + line_padding,
-                                     QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, content)
+                    painter.drawText(text_col_start, y_inner, rect.width() - text_col_start - margin, line_height + line_padding,
+                                    QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, content)
                 else:
                     painter.setFont(base_font)
                     painter.setPen(text_color)
-                    painter.drawText(text_col_start, y, rect.width() - text_col_start - margin, line_height + line_padding,
-                                     QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, line)
+                    painter.drawText(text_col_start, y_inner, rect.width() - text_col_start - margin, line_height + line_padding,
+                                    QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter, line)
 
-                y += line_height + line_padding
+                y_inner += line_height + line_padding
 
-            y += block_vertical_padding
-
-            if idx < len(blocks) - 1:
-                painter.setPen(QtGui.QPen(QtGui.QColor(255, 255, 255), 2))
-                painter.drawLine(0, y, rect.width(), y)
-                y += spacing
+            y += block_height + spacing
 
         y += bottom_padding
         self.inner_widget.setMinimumHeight(y)
