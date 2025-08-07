@@ -354,7 +354,7 @@ def main():
     print("Starting UmaNakama...")
 
     app = QtWidgets.QApplication(sys.argv)
-    #show_splash(app)
+    show_splash(app)
 
     print("Running OCR. Press 'Alt+J' for settings & region selector. 'q' to quit.")
 
