@@ -18,12 +18,23 @@ from overlays.text_overlay import TextOverlay
 from overlays.region_overlay import RegionSelector
 from overlays.status_overlay import StatusOverlay
 from overlays.settings_overlay import SettingsOverlay
+from overlays.skill_overlay import SkillInfoOverlay
+from overlays.condtion_overlay import ConditionInfoOverlay
 
 
 # ---------------- Global Variables ----------------
 settings_overlay_pos = (500, 200)
 settings_overlay = None
 selector = None
+
+# ------------- Load Skill JSON files ---------------------
+
+with open("events/parsed_skills.json", "r", encoding="utf-8") as f:
+    parsed_skills = json.load(f) 
+with open("events/conditions.json", "r", encoding="utf-8") as f:
+    condition_keywords = json.load(f)
+
+# ------------- Load config ---------------------
 
 CONFIG_FILE = "config.json"
 default_config = {
@@ -34,7 +45,8 @@ default_config = {
     "scanning_enabled": False,
     "text_match_confidence": 0.7,
     "debug_mode": False,
-    "always_show_overlay": False   # ✅ New toggle
+    "always_show_overlay": False,
+    "hide_condition_viewer": False
 }
 
 class AppController(QtCore.QObject):
@@ -42,6 +54,11 @@ class AppController(QtCore.QObject):
     open_region_selector_signal = QtCore.pyqtSignal()
 
 controller = AppController()
+
+class SkillOverlayController(QtCore.QObject):
+    update_skill_overlay = QtCore.pyqtSignal(list)
+
+skill_controller = SkillOverlayController()
 
 # ---------------- CONFIG HANDLING ----------------
 def load_config():
@@ -141,7 +158,7 @@ def find_best_match(event_line, category):
     return None, None
 
 # ---------------- OCR FUNCTION ----------------
-def read_text_from_screen(text_overlay):
+def read_text_from_screen(text_overlay, skill_overlay, condition_overlay):
     screenshot = pyautogui.screenshot(region=get_absolute_region())
     gray = screenshot.convert("L")
     inverted = ImageOps.invert(gray)
@@ -155,6 +172,8 @@ def read_text_from_screen(text_overlay):
     if len(lines) < 2:
         if not config.get("always_show_overlay", False):
             text_overlay.hide()
+            skill_overlay.hide()
+            condition_overlay.hide()
         return
 
     category_line = lines[0].lower()
@@ -166,33 +185,55 @@ def read_text_from_screen(text_overlay):
     else:
         if not config.get("always_show_overlay", False):
             text_overlay.hide()
+            skill_overlay.hide()
+            condition_overlay.hide()
         return
 
     event_name, event_options = find_best_match(event_line, category)
     if event_name:
         overlay_lines = [event_name]
+        matched_skills = []
+
         for option, effect in event_options.items():
             effect_lines = effect.split('\n')
             overlay_lines.append(f"{option}: {effect_lines[0]}")
             for extra in effect_lines[1:]:
                 overlay_lines.append(extra)
+
+        for line in overlay_lines:
+            for skill_name, data in parsed_skills.items():
+                if skill_name.lower() in line.lower():
+                    matched_skills.append((skill_name, data))
+
         text_overlay.update_text(overlay_lines)
         text_overlay.show()
+
+        if matched_skills:
+            skill_controller.update_skill_overlay.emit(matched_skills)
+        else:
+            skill_controller.update_skill_overlay.emit([])
+
+
     else:
         if not config.get("always_show_overlay", False):
             text_overlay.hide()
+            skill_overlay.hide()
+            condition_overlay.hide()
+
 
 # ---------------- CONTINUOUS SCAN ----------------
-def continuous_scan(text_overlay, stop_event, status_overlay):
+def continuous_scan(text_overlay, stop_event, status_overlay, skill_overlay, condition_overlay):
     global scanning_enabled
     while not stop_event.is_set():
         if scanning_enabled:
-            read_text_from_screen(text_overlay)
+            read_text_from_screen(text_overlay, skill_overlay, condition_overlay)
             status_overlay.is_scanning = True
             status_overlay.update()             
         else:
             if not config.get("always_show_overlay", False):
                 text_overlay.hide()
+                skill_overlay.hide()
+                condition_overlay.hide()
             status_overlay.is_scanning = False
             status_overlay.update()
         time.sleep(config.get("scan_speed", 0.5))
@@ -313,14 +354,51 @@ def main():
     print("Starting UmaNakama...")
 
     app = QtWidgets.QApplication(sys.argv)
-    show_splash(app)
+    #show_splash(app)
 
     print("Running OCR. Press 'Alt+J' for settings & region selector. 'q' to quit.")
 
+    # ---------- text overlay declaration ----------------
     text_overlay = TextOverlay(
-        (config["overlay_position"]["x_offset"], config["overlay_position"]["y_offset"])
+        (config["overlay_position"]["x_offset"], config["overlay_position"]["y_offset"]), parsed_skills=parsed_skills
     )
     text_overlay.hide()
+
+    # ---------- skill and condition overlay declaration ----------------
+    skill_overlay = SkillInfoOverlay()
+    skill_overlay.hide()
+
+    condition_overlay = ConditionInfoOverlay()
+    condition_overlay.hide()
+
+
+    def update_overlay_from_signal(matched_skills):
+        if matched_skills:
+            skill_overlay.set_text(matched_skills)
+            skill_overlay.move(text_overlay.x() + text_overlay.width(), text_overlay.y())
+            skill_overlay.show()
+
+            # Check for condition keywords in the skill conditions
+            found_keywords = []
+            for _, skill in matched_skills:
+                cond = skill.get("conditons", "").lower()
+                for keyword in condition_keywords:
+                    if keyword in cond and keyword not in found_keywords:
+                        found_keywords.append(keyword)
+
+            if  not config.get("hide_condition_viewer", False) and found_keywords:
+                data_list = [(kw, condition_keywords[kw]) for kw in found_keywords]
+                condition_overlay.set_text(data_list)
+                condition_overlay.move(skill_overlay.x() + skill_overlay.width(), skill_overlay.y())
+                condition_overlay.show()
+            else:
+                condition_overlay.hide()
+        else:
+            skill_overlay.hide()
+            condition_overlay.hide()
+
+
+    skill_controller.update_skill_overlay.connect(update_overlay_from_signal)
 
     def on_overlay_moved(x, y):
         win = get_umamusume_window()
@@ -376,14 +454,18 @@ def main():
     selector = RegionSelector(get_absolute_region())
     selector.hide()
 
+    # ----------- hotkeys --------------
+
     keyboard.add_hotkey('alt+j', lambda: controller.open_settings_signal.emit())
     keyboard.add_hotkey('q', lambda: app.quit())
     keyboard.add_hotkey('z', show_thresholded_image)
 
+    # ----------- threading -------------
+
     stop_event = threading.Event()
     threading.Thread(
         target=continuous_scan,
-        args=(text_overlay, stop_event, status_overlay),
+        args=(text_overlay, stop_event, status_overlay, skill_overlay, condition_overlay),
         daemon=True
     ).start()
 

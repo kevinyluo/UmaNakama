@@ -1,0 +1,14 @@
+{
+  "Skill_name": {
+    "img_src": "/images/umamusume/skill_icons/utx_ico_skill_10011.png",
+    "description_game": "Moderately increase performance in fall.",
+    "description_detailed": "Your Speed stat is increased by 40 in Autumn", 
+    "rarity": "normal", 
+    "activation": "Guaranteed",
+    "base_cost": "90", 
+    "conditons": "season==3", 
+    "base_duration": "Infinite", 
+    "effect": "Speed Stat Up (40)"
+  }
+
+}

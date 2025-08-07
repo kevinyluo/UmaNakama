@@ -135,8 +135,26 @@ class SettingsOverlay(QtWidgets.QWidget):
         self.always_show_checkbox.stateChanged.connect(self.toggle_always_show)
         layout.addWidget(self.always_show_checkbox)
 
+        # Hide Condition Viewer checkbox
+        self.hide_condition_checkbox = QtWidgets.QCheckBox("Hide Condition Viewer")
+        self.hide_condition_checkbox.setStyleSheet("""
+            color: white;
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px;
+        """)
+        self.hide_condition_checkbox.setChecked(self.config.get("hide_condition_viewer", False))
+        self.hide_condition_checkbox.stateChanged.connect(self.toggle_hide_condition)
+        layout.addWidget(self.hide_condition_checkbox)
+
+
         self.update_confidence_label()
-        
+
+    def toggle_hide_condition(self, state):
+        self.config["hide_condition_viewer"] = (state == QtCore.Qt.Checked)
+        self.save_callback(self.config)
+
+
     def toggle_always_show(self, state):
         self.config["always_show_overlay"] = (state == QtCore.Qt.Checked)
         self.save_callback(self.config)

@@ -1,0 +1,677 @@
+{
+  "accumulatetime": {
+    "description": "The number of seconds since the race has started.",
+    "example": "accumulatetime>=5",
+    "meaning": "The race has been ongoing for at least 5 seconds."
+  },
+  "activate_count_all": {
+    "description": "The number of skills you have activated in the race.",
+    "example": "activate_count_all>=7",
+    "meaning": "You have activated at least 7 skills so far."
+  },
+  "activate_count_all_team": {
+    "description": "The characters on your team have cumulatively activated the specified number of skills.",
+    "example": "activate_count_all_team>=10",
+    "meaning": "The characters on your team have cumulatively activated 10 skills or more."
+  },
+  "activate_count_end_after": {
+    "description": "The number of skills you have activated in the Late-Race or later.",
+    "example": "activate_count_end_after>=3",
+    "meaning": "You've activated at least 3 skills during the Late-Race or the Last Spurt."
+  },
+  "activate_count_heal": {
+    "description": "The number of recovery (healing) skills you have activated during the race.",
+    "example": "activate_count_heal>=1",
+    "meaning": "You have activated at least one recovery skill during the race."
+  },
+  "activate_count_later_half": {
+    "description": "You've activated the specified amount of skills in the second half of the race.",
+    "example": "activate_count_later_half>=2",
+    "meaning": "You've activated at least 2 skills in the second half of the race."
+  },
+  "activate_count_middle": {
+    "description": "The number of skills you have activated in the Mid-Race.",
+    "example": "activate_count_middle>=3",
+    "meaning": "You've activated at least 3 skills during the Mid-Race."
+  },
+  "activate_count_start": {
+    "description": "The number of skills you have activated in the Early-Race.",
+    "example": "activate_count_start>=3",
+    "meaning": "You've activated at least 3 skills during the Early-Race."
+  },
+  "all_corner_random": {
+    "description": "Picks a random point during any corner.",
+    "example": "all_corner_random==1",
+    "meaning": "A random point on a random corner is selected."
+  },
+  "always": {
+    "description": "Always activates.",
+    "example": "always==1",
+    "meaning": "This skill has no particular conditions."
+  },
+  "base_guts": {
+    "description": "Your guts stat.",
+    "example": "base_guts>=1200",
+    "meaning": "Your guts stat is 1200 or higher."
+  },
+  "base_power": {
+    "description": "Your power stat.",
+    "example": "base_power>=1200",
+    "meaning": "Your power stat is 1200 or higher."
+  },
+  "base_speed": {
+    "description": "Your speed stat.",
+    "example": "base_speed>=1200",
+    "meaning": "Your speed stat is 1200 or higher."
+  },
+  "base_stamina": {
+    "description": "Your stamina stat.",
+    "example": "base_stamina>=1200",
+    "meaning": "Your Stamina stat is 1200 or higher."
+  },
+  "base_wiz": {
+    "description": "Your wisdom stat.",
+    "example": "base_wiz>=1200",
+    "meaning": "Your wisdom stat is 1200 or higher."
+  },
+  "bashin_diff_behind": {
+    "description": "Horse lengths between you and the closest uma behind you.",
+    "example": "bashin_diff_behind<=1",
+    "meaning": "There's another uma at most one horse length behind you."
+  },
+  "bashin_diff_infront": {
+    "description": "Horse lengths between you and the closest uma ahead of you.",
+    "example": "bashin_diff_infront<=1",
+    "meaning": "There's another uma at most one horse length ahead of you."
+  },
+  "behind_near_lane_time": {
+    "description": "The number of seconds there's another uma right behind you.",
+    "example": "behind_near_lane_time>=3",
+    "meaning": "Another uma has been right behind you for at least 3 seconds."
+  },
+  "behind_near_lane_time_set1": {
+    "description": "The number of seconds there's another uma behind you.",
+    "example": "behind_near_lane_time_set1>=1",
+    "meaning": "Another uma has been behind you for at least 1 seconds."
+  },
+  "blocked_all_continuetime": {
+    "description": "The number of seconds you've been blocked from the front and at least one side simultaneously.",
+    "example": "blocked_all_continuetime>=1",
+    "meaning": "You've been blocked by other umas both in front and on the side for at least one second."
+  },
+  "blocked_front": {
+    "description": "Checks if you're currently being blocked by someone in front of you.",
+    "example": "blocked_front==1",
+    "meaning": "Someone is right in front of you."
+  },
+  "blocked_front_continuetime": {
+    "description": "The number of seconds you've been blocked from the front.",
+    "example": "blocked_front_continuetime>=1",
+    "meaning": "You've been blocked by another uma in front of you for at least a second."
+  },
+  "blocked_side_continuetime": {
+    "description": "The number of seconds you've been blocked from at least one side.",
+    "example": "blocked_side_continuetime>=2",
+    "meaning": "You've been blocked by another uma from either side for at least 2 seconds."
+  },
+  "change_order_onetime": {
+    "description": "Checks if your position in the race has changed.",
+    "example": "change_order_onetime<0",
+    "meaning": "You've overtaken another uma."
+  },
+  "change_order_up_end_after": {
+    "description": "Checks how many times you've overtaken someone after entering the Late-Race.",
+    "example": "change_order_up_end_after>=3",
+    "meaning": "You have overtaken another girl at least 3 times since entering the Late-Race."
+  },
+  "change_order_up_finalcorner_after": {
+    "description": "Checks how many times you've overtaken someone after entering the Final Corner.",
+    "example": "change_order_up_finalcorner_after>=3",
+    "meaning": "You have overtaken another girl at least 3 times since entering the Final Corner."
+  },
+  "change_order_up_middle": {
+    "description": "Checks how many times you've overtaken someone during the Mid-Race.",
+    "example": "change_order_up_middle>=3",
+    "meaning": "You have overtaken another girl at least 3 times during the Mid-Race."
+  },
+  "compete_fight_count": {
+    "description": "The number of times you've been in a Showdown.",
+    "example": "compete_fight_count>0",
+    "meaning": "You participated in at least one Showdown (追い比べ) during the Final Straight."
+  },
+  "corner": {
+    "description": "Checks if you're currently on a corner (and if yes, then which one).",
+    "example": "corner!=0",
+    "meaning": "You're currently on any corner."
+  },
+  "corner_count": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "corner_random": {
+    "description": "Picks a random point during the selected corner.",
+    "example": "corner_random==1",
+    "meaning": "A random point on the first corner is selected."
+  },
+  "course_distance": {
+    "description": "The length of the current race.",
+    "example": "course_distance==2400",
+    "meaning": "The current race is exactly 2400 meters long."
+  },
+  "distance_diff_rate": {
+    "description": "Your position between the currently first and the currently last girl as a percentage.",
+    "example": "distance_diff_rate<=30",
+    "meaning": "If there's a 100-meter gap between the first and the last uma, you're no further than 30 meters behind the first one."
+  },
+  "distance_diff_top": {
+    "description": "The distance in meters between the first place and you.",
+    "example": "distance_diff_top>=7",
+    "meaning": "There's at least 7 meters difference between the character currently in the first place and you."
+  },
+  "distance_diff_top_float": {
+    "description": "The distance in decimeters between the first place and you.",
+    "example": "distance_diff_top_float<=25",
+    "meaning": "There's at most a 2.5 meters difference between the character currently in the first place and you."
+  },
+  "distance_rate": {
+    "description": "Race progression in percentage.",
+    "example": "distance_rate>=50",
+    "meaning": "Race is in its half or later."
+  },
+  "distance_rate_after_random": {
+    "description": "Picks a random point after the specified point in the race.",
+    "example": "distance_rate_after_random==50",
+    "meaning": "Picks a random point in the second half (i.e. after 50%) of the race."
+  },
+  "distance_type": {
+    "description": "The distance type of the current race.",
+    "example": "distance_type==4",
+    "meaning": "The current race is long."
+  },
+  "down_slope_random": {
+    "description": "Picks a random point on any downhill.",
+    "example": "down_slope_random==1",
+    "meaning": "A random point on any downhill part of the race is selected."
+  },
+  "furlong": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "grade": {
+    "description": "The grade of the current race.",
+    "example": "grade==100",
+    "meaning": "The current race is of grade G1."
+  },
+  "ground_condition": {
+    "description": "The current condition of the track.",
+    "example": "ground_condition==1",
+    "meaning": "The track is in good condition."
+  },
+  "ground_type": {
+    "description": "The ground type of the current race.",
+    "example": "ground_type==2",
+    "meaning": "The race is taking place on a dirt track."
+  },
+  "hp_per": {
+    "description": "Your remaining HP (stamina) in percentage.",
+    "example": "hp_per<=70",
+    "meaning": "You have at most 70% stamina remaining."
+  },
+  "infront_near_lane_time": {
+    "description": "The number of seconds there's another uma right in front of you.",
+    "example": "infront_near_lane_time>=3",
+    "meaning": "Another uma has been right in front of you for at least 3 seconds."
+  },
+  "is_activate_any_skill": {
+    "description": "Checks if any other skill has just been activated.",
+    "example": "is_activate_any_skill==1",
+    "meaning": "You have just used another skill."
+  },
+  "is_activate_heal_skill": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "is_activate_other_skill_detail": {
+    "description": "A different trigger of this skill was activated during the race.",
+    "example": "is_activate_other_skill_detail==1",
+    "meaning": "You activated \"Trigger 1\" of this skill at some earlier point of the race."
+  },
+  "is_badstart": {
+    "description": "Checks if you've had a late start to the current race.",
+    "example": "is_badstart==0",
+    "meaning": "You haven't had a late start to the current race."
+  },
+  "is_basis_distance": {
+    "description": "The distance type of the track.",
+    "example": "is_basis_distance==1",
+    "meaning": "The total distance of the race is divisible by 400 (e.g. 1600, 2000, 2400)"
+  },
+  "is_behind_in": {
+    "description": "Checks if the girl behind you is closer to the inner fence than you.",
+    "example": "is_behind_in==1",
+    "meaning": "The uma behind you is closer to the inner fence than you."
+  },
+  "is_dirtgrade": {
+    "description": "The race is an exchange race (takes place at either the Kawasaki, Funabashi, Morioka, or Ooi racetrack)",
+    "example": "is_dirtgrade==1",
+    "meaning": "The current race is an exchange race (takes place at either the Kawasaki, Funabashi, Morioka, or Ooi racetrack)"
+  },
+  "is_exist_chara_id": {
+    "description": "Checks if a character with the given ID is participating in the race.",
+    "example": "is_exist_chara_id==1002",
+    "meaning": "Silence Suzuka is running in the current race."
+  },
+  "is_exist_skill_id": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "is_finalcorner": {
+    "description": "Checks if you're currently on the final corner or beyond.",
+    "example": "is_finalcorner==1",
+    "meaning": "You're currently on the last corner or beyond it."
+  },
+  "is_finalcorner_laterhalf": {
+    "description": "Checks if you're currently on the second half of the final corner.",
+    "example": "is_finalcorner_laterhalf==1",
+    "meaning": "You're on the second half of the final corner."
+  },
+  "is_finalcorner_random": {
+    "description": "Picks a random point on the final corner. The skill will activate there if all other conditions are met.",
+    "example": "is_finalcorner_random==1",
+    "meaning": "A random point on the final corner."
+  },
+  "is_hp_empty_onetime": {
+    "description": "Checks if your HP (stamina) had been depleted at some point in the race.",
+    "example": "is_hp_empty_onetime==1",
+    "meaning": "You're out of stamina, or had been previously."
+  },
+  "is_last_straight": {
+    "description": "Checks if you're currently on the final straight of the course.",
+    "example": "is_last_straight==1",
+    "meaning": "You're currently on the final straight of the course."
+  },
+  "is_last_straight_onetime": {
+    "description": "Checks if you've just entered the last straight.",
+    "example": "is_last_straight_onetime==1",
+    "meaning": "You have just arrived at the last straight."
+  },
+  "is_lastspurt": {
+    "description": "Checks if you're currently in the last spurt.",
+    "example": "is_lastspurt==1",
+    "meaning": "You're in the last spurt mode."
+  },
+  "is_move_lane": {
+    "description": "Checks if you've just moved left or right.",
+    "example": "is_move_lane==1",
+    "meaning": "You've just moved closer to the inner fence."
+  },
+  "is_other_character_activate_advantage_skill": {
+    "description": "A character other than you has activated an advantageous (i.e. non-debuff) skill of a specific type.",
+    "example": "is_other_character_activate_advantage_skill==9",
+    "meaning": "Someone has activated a healing skill."
+  },
+  "is_overtake": {
+    "description": "Checks if you have any overtake targets.",
+    "example": "is_overtake==1",
+    "meaning": "You have at least one overtake target."
+  },
+  "is_surrounded": {
+    "description": "Checks if you're currently surrounded.",
+    "example": "is_surrounded==1",
+    "meaning": "You're currently surrounded by other girls."
+  },
+  "is_temptation": {
+    "description": "Checks if you're currently rushing (kakari).",
+    "example": "is_temptation==0",
+    "meaning": "You're currently not rushing."
+  },
+  "is_used_skill_id": {
+    "description": "Checks whether you've activated a specific skill during this race.",
+    "example": "is_used_skill_id==202051",
+    "meaning": "You've activated the Great Escape skill during this race."
+  },
+  "lane_type": {
+    "description": "The lane you're currently running in.",
+    "example": "lane_type==0",
+    "meaning": "You're currently running right next to the inner fence."
+  },
+  "last_straight_random": {
+    "description": "Picks a random point on the last straight.",
+    "example": "last_straight_random==1",
+    "meaning": "A random point on the last straight is selected."
+  },
+  "lastspurt": {
+    "description": "Checks if you can carry out your last spurt.",
+    "example": "lastspurt==2",
+    "meaning": "You have more than enough stamina (HP) left to carry out your last spurt at full strength."
+  },
+  "motivation": {
+    "description": "Your Mood going into the race.",
+    "example": "motivation>=4",
+    "meaning": "Your motivation is Good or better."
+  },
+  "near_count": {
+    "description": "The number of other girls that are currently near you.",
+    "example": "near_count==4",
+    "meaning": "There are exactly four other girls near you."
+  },
+  "near_infront_count": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "order": {
+    "description": "Your current position in the race.",
+    "example": "order<=3",
+    "meaning": "You're currently first, second, or third."
+  },
+  "order_rate": {
+    "description": "Your current position in the race as a percentage.",
+    "example": "order_rate>=50",
+    "meaning": "You're in the second half of the pack."
+  },
+  "order_rate_in20_continue": {
+    "description": "Your position has been within the top 20% for the entire race until now.",
+    "example": "order_rate_in20_continue==1",
+    "meaning": "Your position in the race was never worse than top 20% after the first 5 seconds (for example, in a 10-uma race, you were never worse than 2nd)."
+  },
+  "order_rate_in40_continue": {
+    "description": "Your position has been within the top 40% for the entire race until now.",
+    "example": "order_rate_in40_continue==1",
+    "meaning": "Your position in the race was never worse than top 40% after the first 5 seconds (for example, in a 10-uma race, you were never worse than 4th)."
+  },
+  "order_rate_in50_continue": {
+    "description": "Your position has been within the top 50% for the entire race until now.",
+    "example": "order_rate_in50_continue==1",
+    "meaning": "Your position in the race was never worse than top 50% after the first 5 seconds (for example, in a 10-uma race, you were never worse than 5th)."
+  },
+  "order_rate_in80_continue": {
+    "description": "Your position has been within the top 80% for the entire race until now.",
+    "example": "order_rate_in80_continue==1",
+    "meaning": "Your position in the race was never worse than top 80% after the first 5 seconds (for example, in a 10-uma race, you were never worse than 8th)."
+  },
+  "order_rate_out20_continue": {
+    "description": "Your position has been worse than the top 20% for the entire race until now.",
+    "example": "order_rate_out20_continue==1",
+    "meaning": "Your position in the race was always outside of the top 20% (so within the last 80%). For example, in a 9-uma race, you were always 2nd or worse."
+  },
+  "order_rate_out40_continue": {
+    "description": "Your position has been worse than the top 40% for the entire race until now.",
+    "example": "order_rate_out40_continue==1",
+    "meaning": "Your position in the race was always outside of the top 40% (so within the last 60%). For example, in a 9-uma race, you were always 4th or worse."
+  },
+  "order_rate_out50_continue": {
+    "description": "Your position has been worse than the top 50% for the entire race until now.",
+    "example": "order_rate_out50_continue==1",
+    "meaning": "Your position in the race was always outside of the top 50% (so within the last 50%). For example, in a 9-uma race, you were always 5th or worse."
+  },
+  "order_rate_out70_continue": {
+    "description": "Your position has been worse than the top 70% for the entire race until now.",
+    "example": "order_rate_out70_continue==1",
+    "meaning": "Your position in the race was always outside of the top 70% (so within the last 30%). For example, in a 9-uma race, you were always 7th or worse."
+  },
+  "overtake_target_no_order_up_time": {
+    "description": "The number of seconds you've had any overtake targets.",
+    "example": "overtake_target_no_order_up_time>=2",
+    "meaning": "You've had at least one overtake target for at least two seconds."
+  },
+  "overtake_target_time": {
+    "description": "The number of seconds you've been an overtake target.",
+    "example": "overtake_target_time>=2",
+    "meaning": "You've been an overtake target for at least 2 seconds."
+  },
+  "phase": {
+    "description": "Current phase of the race.",
+    "example": "phase>=2",
+    "meaning": "You're currently either in the Late-Race or the Last Spurt."
+  },
+  "phase_corner_random": {
+    "description": "Picks a random point during a corner on the selected phase. The skill will activate there if all other conditions are met.",
+    "example": "phase_corner_random==1",
+    "meaning": "A random point during a corner in the Mid-Race."
+  },
+  "phase_first_half_straight_random": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "phase_firsthalf": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "phase_firsthalf_random": {
+    "description": "Picks a random point during the first half of the selected phase.",
+    "example": "phase_firsthalf_random==1",
+    "meaning": "A random point on the first half of the Mid-Race is selected."
+  },
+  "phase_firstquarter": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "phase_firstquarter_random": {
+    "description": "Picks a random point during the first quarter of the selected phase.",
+    "example": "phase_firstquarter_random==1",
+    "meaning": "A random point on the first quarter of the Mid-Race is selected."
+  },
+  "phase_laterhalf": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "phase_laterhalf_random": {
+    "description": "Picks a random point during the second half of the selected phase. The skill will activate there if all other conditions are met.",
+    "example": "phase_laterhalf_random==0",
+    "meaning": "A random point in the second half of the Early-Race."
+  },
+  "phase_latter_half_straight_random": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "phase_random": {
+    "description": "Picks a random point during the selected phase. The skill will activate there if all other conditions are met.",
+    "example": "phase_random==0",
+    "meaning": "A random point in the Early-Race."
+  },
+  "phase_straight_random": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "popularity": {
+    "description": "Your popularity rank among the girls in the current race.",
+    "example": "popularity==1",
+    "meaning": "You're the most popular girl in the race."
+  },
+  "post_number": {
+    "description": "The starting gate block you started to race in.",
+    "example": "post_number<=3",
+    "meaning": "You started the race in starting gate blocks 1, 2, or 3."
+  },
+  "random_lot": {
+    "description": "Rolls a random number from 0-100.",
+    "example": "random_lot==50",
+    "meaning": "50% chance for activation."
+  },
+  "remain_distance": {
+    "description": "The number of meters remaining in the race.",
+    "example": "remain_distance==200",
+    "meaning": "There are exactly 200 meters remaining in the race."
+  },
+  "remain_distance_viewer_id": {
+    "description": "The number of meters remaining in the race for any player character.",
+    "example": "remain_distance_viewer_id<=850",
+    "meaning": "Any non-NPC character has reached the last 850 meters in the race."
+  },
+  "rotation": {
+    "description": "The direction of the race.",
+    "example": "rotation==1",
+    "meaning": "The current race is run clockwise."
+  },
+  "running_style": {
+    "description": "Your running strategy.",
+    "example": "running_style==1",
+    "meaning": "You're a runner."
+  },
+  "running_style_count_nige_otherself": {
+    "description": "The numbers of Front Runners in the race.",
+    "example": "running_style_count_nige_otherself>=1",
+    "meaning": "At least one of the other girls in the race is a Front Runner."
+  },
+  "running_style_count_oikomi_otherself": {
+    "description": "The numbers of End Closers in the race.",
+    "example": "running_style_count_oikomi_otherself>=1",
+    "meaning": "At least one of the other girls in the race is an End Closer."
+  },
+  "running_style_count_same": {
+    "description": "The number of characters with the same running strategy as you.",
+    "example": "running_style_count_same<=1",
+    "meaning": "Nobody shares the same strategy with you (if you're a Front Runner, you're the only Front Runner)."
+  },
+  "running_style_count_same_rate": {
+    "description": "The percentage of characters with the same running strategy as you.",
+    "example": "running_style_count_same_rate>=40",
+    "meaning": "At least 40% of the girls in the current race have the same strategy as you (e.g. Front Runner)."
+  },
+  "running_style_count_sashi_otherself": {
+    "description": "The numbers of Pace Chasers in the race.",
+    "example": "running_style_count_sashi_otherself>=1",
+    "meaning": "At least one of the other girls in the race is a Pace Chasers."
+  },
+  "running_style_count_senko_otherself": {
+    "description": "The numbers of Pace Chasers in the race.",
+    "example": "running_style_count_senko_otherself>=1",
+    "meaning": "At least one of the other girls in the race is a Pace Chaser."
+  },
+  "running_style_equal_popularity_one": {
+    "description": "Checks if your running strategy is the same as the strategy of the most popular girl in the race.",
+    "example": "running_style_equal_popularity_one==1",
+    "meaning": "You share the same running strategy with the #1 popular girl in the race."
+  },
+  "running_style_temptation_count_nige": {
+    "description": "The number of Front Runners that are currently rushing (kakari).",
+    "example": "running_style_temptation_count_nige>=1",
+    "meaning": "There's at least one currently rushing Front Runner in the race."
+  },
+  "running_style_temptation_count_oikomi": {
+    "description": "The number of End Closers that are currently rushing (kakari).",
+    "example": "running_style_temptation_count_oikomi>=1",
+    "meaning": "There's at least one currently rushing End Closer in the race."
+  },
+  "running_style_temptation_count_sashi": {
+    "description": "The number of Late Surgers that are currently rushing (kakari).",
+    "example": "running_style_temptation_count_sashi>=1",
+    "meaning": "There's at least one currently rushing Late Surger in the race."
+  },
+  "running_style_temptation_count_senko": {
+    "description": "The number of Pace Chasers that are currently rushing (kakari).",
+    "example": "running_style_temptation_count_senko>=1",
+    "meaning": "There's at least one currently rushing Pace Chaser in the race."
+  },
+  "running_style_temptation_opponent_count_nige": {
+    "description": "The number of enemy Front Runners that are currently rushing (kakari).",
+    "example": "running_style_temptation_opponent_count_nige>=1",
+    "meaning": "There's at least one currently rushing enemy Front Runner in the race."
+  },
+  "running_style_temptation_opponent_count_oikomi": {
+    "description": "The number of enemy End Closers that are currently rushing (kakari).",
+    "example": "running_style_temptation_opponent_count_oikomi>=1",
+    "meaning": "There's at least one currently rushing enemy End Closer in the race."
+  },
+  "running_style_temptation_opponent_count_sashi": {
+    "description": "The number of enemy Late Surgers that are currently rushing (kakari).",
+    "example": "running_style_temptation_opponent_count_sashi>=1",
+    "meaning": "There's at least one currently rushing enemy Late Surger in the race."
+  },
+  "running_style_temptation_opponent_count_senko": {
+    "description": "The number of enemy Pace Chasers that are currently rushing (kakari).",
+    "example": "running_style_temptation_opponent_count_senko>=1",
+    "meaning": "There's at least one currently rushing Pace Chaser in the race."
+  },
+  "same_skill_horse_count": {
+    "description": "The number of girls that have this particular skill.",
+    "example": "same_skill_horse_count==1",
+    "meaning": "Among all the umas in the race, you're the only one with this particular skill."
+  },
+  "season": {
+    "description": "The current season.",
+    "example": "season==1@season==5",
+    "meaning": "It's currently spring (either early spring or the cherry blossom season)."
+  },
+  "slope": {
+    "description": "Checks if you're currently running uphill or downhill.",
+    "example": "slope==1",
+    "meaning": "You're currently running uphill."
+  },
+  "straight_front_type": {
+    "description": "Checks if you're currently on a specific straight.",
+    "example": "straight_front_type==2",
+    "meaning": "You're currently on a straight on the opposite side of the racecourse from where the audience is."
+  },
+  "straight_random": {
+    "description": "Picks a random point on any straight.",
+    "example": "straight_random==1",
+    "meaning": "A random point on any straight is selected."
+  },
+  "temptation_count": {
+    "description": "The number of times you've been rushing (kakari) during the race.",
+    "example": "temptation_count==0",
+    "meaning": "You haven't rushing a single time during the race."
+  },
+  "temptation_count_behind": {
+    "description": "The number of girls behind you that are currently rushing (kakari).",
+    "example": "temptation_count_behind>=1",
+    "meaning": "At least one uma behind you is rushing."
+  },
+  "temptation_count_infront": {
+    "description": "The number of girls in front of you that are currently rushing (kakari).",
+    "example": "temptation_count_infront>=1",
+    "meaning": "At least one uma ahead of you is rushing."
+  },
+  "temptation_opponent_count_behind": {
+    "description": "The number of enemies behind you that are currently rushing (kakari).",
+    "example": "temptation_opponent_count_behind>=1",
+    "meaning": "At least one enemy behind you is rushing."
+  },
+  "temptation_opponent_count_infront": {
+    "description": "The number of enemies in front of you that are currently rushing (kakari).",
+    "example": "temptation_opponent_count_infront>=1",
+    "meaning": "At least one enemy ahead of you is rushing."
+  },
+  "time": {
+    "description": "The time of day during which the race takes place.",
+    "example": "time==4",
+    "meaning": "It's currently night."
+  },
+  "track_id": {
+    "description": "The ID of the current racetrack.",
+    "example": "track_id==10006",
+    "meaning": "The race is taking place on the Tokyo racetrack."
+  },
+  "up_slope_random": {
+    "description": "Picks a random point on any uphill.",
+    "example": "up_slope_random==1",
+    "meaning": "A random point on any uphill part of the race is selected."
+  },
+  "up_slope_random_later_half": {
+    "description": "This condition is probably new. Currently under investigation.",
+    "example": "",
+    "meaning": ""
+  },
+  "visiblehorse": {
+    "description": "The number of girls in your field of vision.",
+    "example": "visiblehorse>=4",
+    "meaning": "There are at least 4 girls in your field of vision."
+  },
+  "weather": {
+    "description": "The current weather.",
+    "example": "weather==4",
+    "meaning": "It's snowing."
+  }
+}
