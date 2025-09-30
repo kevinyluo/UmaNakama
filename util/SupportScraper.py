@@ -1,10 +1,27 @@
 import time
 import json
+import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+# ---------- sanitization helpers ----------
+# Symbols to strip outright: stars, circles, music notes, hearts, etc.
+_STARLIKE = r"[☆★○●◎◇◆■□▼▲♪♫♥♡❀✿✸✦✧✪✩✫✬✭✮✯•※]"
+_PARENS = r"[\(\（][^\)\）]*[\)\）]"  # handles ASCII () and full-width （）
+
+def clean_text(text: str) -> str:
+    if not text:
+        return ""
+    t = re.sub(_PARENS, "", text)             # remove (...) or （…）
+    t = re.sub(_STARLIKE, "", t)               # remove star-like/shape/music symbols
+    t = re.sub(r"[ \t]+", " ", t)              # collapse spaces/tabs
+    t = re.sub(r"\s+\n", "\n", t)              # trim space before newline
+    t = re.sub(r"\n\s+", "\n", t)              # trim space after newline
+    return t.strip()
+# ------------------------------------------
 
 def scroll_and_click(driver, wait, selector, by=By.CSS_SELECTOR, description="element"):
     try:
@@ -28,7 +45,7 @@ def wait_and_click(driver, wait, selector, by=By.CSS_SELECTOR, description="elem
         print(f"Could not click {description}: {e}")
         return False
 
-path = "C:\\Users\\kevin\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
+path = "C:\\Users\\kevin\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe"
 URL = "https://gametora.com/umamusume/training-event-helper"
 
 service = Service(executable_path=path)
@@ -62,7 +79,6 @@ if not checkbox.is_selected():
     checkbox.click()
 time.sleep(1)
 
-
 # Find all support containers
 supports = []
 containers = driver.find_elements(By.CSS_SELECTOR, "div.sc-d7f35a8d-1.ifktje")
@@ -74,16 +90,17 @@ for c in containers:
     except Exception:
         continue
 
-print(f"Found {len(supports)} support cards (including 'Remove'). Skipping the first.")
+print(f"Found {len(supports)} support cards (including 'Remove'). Skipping the first).")
 
 unique_events = {}
 
 def add_events(scraped_events):
     for event_name, event_data in scraped_events.items():
-        if event_name not in unique_events:
+        if event_name and event_name not in unique_events:
             unique_events[event_name] = event_data
 
-for support_id, container in supports[0:]:  # Skip "Remove"
+# actually skip the first (usually "Remove")
+for support_id, container in supports[1:]:
     print(f"\n--- Scraping Support ID: {support_id} ---")
     
     # Re-open support select box before clicking next
@@ -106,7 +123,6 @@ for support_id, container in supports[0:]:  # Skip "Remove"
         continue
 
     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", container)
-    
     try:
         driver.execute_script("arguments[0].click();", container)
     except Exception as e:
@@ -120,15 +136,22 @@ for support_id, container in supports[0:]:  # Skip "Remove"
     event_wrappers = driver.find_elements(By.CSS_SELECTOR, ".eventhelper_ewrapper__A_RGO")
     for ew in event_wrappers:
         try:
-            event_name = ew.find_element(By.CSS_SELECTOR, ".tooltips_ttable_heading__DK4_X").text.strip()
+            raw_name = ew.find_element(By.CSS_SELECTOR, ".tooltips_ttable_heading__DK4_X").text
+            event_name = clean_text(raw_name)
+
             grid = ew.find_element(By.CSS_SELECTOR, ".eventhelper_egrid__F3rTP")
             cells = grid.find_elements(By.CSS_SELECTOR, ".eventhelper_ecell__B48KX")
             event_data = {}
             for i in range(0, len(cells), 2):
-                label = cells[i].text.strip()
-                effect = cells[i+1].text.strip()
-                event_data[label] = effect
-            events[event_name] = event_data
+                raw_label = cells[i].text if i < len(cells) else ""
+                raw_effect = cells[i+1].text if i+1 < len(cells) else ""
+                label = clean_text(raw_label)
+                effect = clean_text(raw_effect)
+                if not label and not effect:
+                    continue
+                event_data[label or f"effect_{i}"] = effect
+            if event_name and event_data:
+                events[event_name] = event_data
         except Exception as e:
             print(f"Error parsing event: {e}")
     

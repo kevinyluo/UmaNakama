@@ -5,6 +5,24 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import re
+
+# Symbols to strip: stars, circles, music notes, hearts, bullets, diamonds, etc.
+_STARLIKE = r"[☆★○●♪♫•※◎◇◆■□▼▲♥♡❀✿✸✦✧✪✩✫✬✭✮✯]"
+def _strip_parens(text: str) -> str:
+    # remove any (...) groups, possibly multiple occurrences
+    return re.sub(r"\([^)]*\)", "", text)
+
+def clean_text(text: str) -> str:
+    if not text:
+        return ""
+    t = _strip_parens(text)
+    t = re.sub(_STARLIKE, "", t)
+    # normalize whitespace (keep newlines if you want; tidy around them)
+    t = re.sub(r"[ \t]+", " ", t)         # collapse spaces/tabs
+    t = re.sub(r"\s+\n", "\n", t)         # remove trailing spaces before newlines
+    t = re.sub(r"\n\s+", "\n", t)         # remove leading spaces after newlines
+    return t.strip()
 
 def scroll_and_click(driver, wait, selector, by=By.CSS_SELECTOR, description="element"):
     try:
@@ -28,7 +46,7 @@ def wait_and_click(driver, wait, selector, by=By.CSS_SELECTOR, description="elem
         print(f"Could not click {description}: {e}")
         return False
 
-path = "C:\\Users\\kevin\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
+path = "C:\\Users\\kevin\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe"
 URL = "https://gametora.com/umamusume/training-event-helper"
 
 service = Service(executable_path=path)
@@ -117,7 +135,7 @@ for name, container in characters[1:]:  # Skip first "Remove"
     event_wrappers = driver.find_elements(By.CSS_SELECTOR, ".eventhelper_ewrapper__A_RGO")
     for ew in event_wrappers:
         try:
-            event_name = ew.find_element(By.CSS_SELECTOR, ".tooltips_ttable_heading__DK4_X").text.strip()
+            event_name = clean_text(ew.find_element(By.CSS_SELECTOR, ".tooltips_ttable_heading__DK4_X").text)
             grid = ew.find_element(By.CSS_SELECTOR, ".eventhelper_egrid__F3rTP")
             cells = grid.find_elements(By.CSS_SELECTOR, ".eventhelper_ecell__B48KX")
             event_data = {}

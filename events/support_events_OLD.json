@@ -1,19 +1,15 @@
 {
-  "A Captivating Invitation": {
-    "Top": "Power +10\nKing Halo bond +5",
-    "Bot": "Guts +10\nKing Halo bond +5"
+  "(❯❯) A Reasonable Diet vs. an Explosive Diet": {
+    "Top": "Energy +10\nSkill points +10\nYaeno Muteki bond +5",
+    "Bot": "Energy +10\nWisdom +10\nSkill points +10\nPlaytime's Over! hint +3\nEvent chain ended"
   },
-  "Dancer's Pride": {
-    "Top": "Energy -5\nStamina +10\nPower +5\nSkill points +5\nKing Halo bond +5",
-    "Bot": "Energy +15\nSkill points +5\nKing Halo bond +5"
+  "Firm and Plain, Yet Close to Virtue": {
+    "Top": "Speed +10",
+    "Bot": "Mood +1\nPower +5"
   },
-  "You May Socialize With Me!": {
-    "Top": "Energy -20\nSpeed +10\nPower +10\nWit +5\nKing Halo bond +5",
-    "Bot": "Mood -1\nGuts +25\nKing Halo bond +5"
-  },
-  "You May Advise Me!": {
-    "Top": "Guts +10\nWit +5\nKing Halo bond +5",
-    "Bot": "Homestretch Haste hint +1\nKing Halo bond +5"
+  "The Will to Protect!": {
+    "Top": "Stamina +10\nPower +10",
+    "Bot": "Medium Corners ○ hint +1"
   },
   "Exhilarating! What a Scoop!": {
     "Top": "Stamina +10\nEtsuko Otonashi bond +5",
@@ -27,122 +23,25 @@
     "Top": "Energy -10\nPower +20\nGuts +20\nBeeline Burst hint +1",
     "Bot": "Energy +30\nStamina +20\nBreath of Fresh Air hint +1"
   },
-  "Raising the Uma Lord's Castle": {
-    "Top": "Maximum Energy +4\nGold Ship bond +5",
-    "Bot": "Speed +10\nGold Ship bond +5"
-  },
-  "Assembling the Uma Lord's Minions": {
-    "Top": "Randomly either\nEnergy -10\nSpeed +5\nStamina +5\nInside Scoop hint +3\nGold Ship bond +5\nor\nEnergy -10\nSpeed +10\nStamina +10\nInnate Experience hint +3\nGold Ship bond +5",
-    "Bot": "Energy +10\nMaverick hint +1"
-  },
-  "Adventurer Gold Ship": {
-    "Top": "Stamina +15\nGold Ship bond +5",
-    "Bot": "Guts +10\nSkill points +15\nGold Ship bond +5"
-  },
-  "Revive the Brand! Golshi's Yakisoba": {
-    "Top": "Mood +1\nStamina +5",
-    "Bot": "Hanshin Racecourse hint +1\nGold Ship bond +5"
-  },
-  "No One Is Above Discipline!": {
-    "Top": "Randomly either\nMaximum Energy +4\nEnergy -10\nStamina +10\nPower +10\nGuts +5\nHomestretch Haste hint +1\nBamboo Memory bond +5\nor\nEnergy -20\nStamina +10\nPower +10\nGuts +5\nBamboo Memory bond +5\nor\nEnergy -20\nStamina +10\nGuts +10\nObtain Running Idle skill",
-    "Mid": "Energy -10\nMood +1\nStamina +5\nPower +5\nBamboo Memory bond +5",
-    "Bot": "Energy +30\nHesitant Late Surgers hint +1\nEvent chain ended"
-  },
-  "Overthrow the Rival!": {
-    "Top": "Guts +10\nBamboo Memory bond +5",
-    "Bot": "Maximum Energy +4\nEnergy -5\nBamboo Memory bond +5"
-  },
-  "Tons of Trouble!": {
-    "Top": "Stamina +5\nGuts +5\nBamboo Memory bond +5",
-    "Bot": "Energy -10\nStandard Distance hint +5\nBamboo Memory bond +5"
-  },
-  "Modestly! Boldly!": {
-    "Top": "Mood +1\nSpeed +5\nKawakami Princess bond +5",
-    "Bot": "Skill points +10\nTether hint +1\nKawakami Princess bond +5"
-  },
-  "Hit It! Princess Road!": {
-    "Top": "Speed +15\nGuts +15\nCenter Stage hint +1\nKawakami Princess bond +5",
-    "Bot": "Energy +25\nSkill points +25"
-  },
-  "Princess Punch!": {
-    "Top": "Guts +10\nKawakami Princess bond +5",
-    "Bot": "Mood +1\nKawakami Princess bond +5"
-  },
-  "Princess Escape!": {
-    "Top": "Energy +10\nKawakami Princess bond +5",
-    "Bot": "Steadfast hint +1\nKawakami Princess bond +5"
-  },
-  "Let's Go... Buono": {
-    "Top": "Energy +30\nGuts +5\nHishi Akebono bond +5\nGet Slow Metabolism status",
-    "Bot": "Stamina +5\nPower +5\nHishi Akebono bond +5"
-  },
-  "Eat Up": {
-    "Top": "Energy +10\nHishi Akebono bond +5",
-    "Bot": "Energy -5\nPower +15\nHishi Akebono bond +5"
-  },
-  "Leave It to Me": {
-    "Top": "Stamina +10\nHishi Akebono bond +5",
-    "Bot": "Energy -15\nSprinting Gear hint +2\nHishi Akebono bond +5"
-  },
-  "One Step Forward": {
-    "Top": "Energy -10\nSkill points +15/+45\nMejiro Dober bond +5",
-    "Bot": "Guts +5\nWit +5\nMejiro Dober bond +5"
-  },
-  "Give It a Try": {
-    "Top": "Energy +15\nMejiro Dober bond +5",
-    "Bot": "Mood +1\nSkill points +15\nMejiro Dober bond +5"
-  },
-  "Hope She'll Like It...": {
-    "Top": "Skill points +45\nMejiro Dober bond +5",
-    "Bot": "Unyielding Spirit hint +1\nMejiro Dober bond +5"
-  },
-  "Blooming Hope!": {
-    "Top": "Randomly either\nStamina +15\nHeal a negative status effect\nSakura Chiyono O bond +5\nor\nEnergy -10\nGuts +15\nSakura Chiyono O bond +5",
-    "Bot": "Energy +10\nMood +1\nSakura Chiyono O bond +5"
-  },
-  "Someday, I'll Bloom!": {
-    "Top": "Randomly either\nEnergy -15\nStamina +20\nSkill points +10\nSpeed Star hint +3\nSakura Chiyono O bond +5\nor\nEnergy -15\nStamina +10\nSkill points +5\nPrepared to Pass hint +3\nSakura Chiyono O bond +5",
-    "Bot": "Speed +5\nStamina +10\nPower +5\nSkill points +30\nSakura Chiyono O bond +5"
-  },
-  "Today's Words of Wisdom!": {
-    "Top": "Energy -10\nPower +20\nSakura Chiyono O bond +5",
-    "Bot": "Energy +5\nSkill points +10\nSakura Chiyono O bond +5"
-  },
-  "Until I Bloom...": {
-    "Top": "Energy +5\nStamina +5\nSakura Chiyono O bond +5",
-    "Bot": "Spring Runner hint +1\nSakura Chiyono O bond +5"
-  },
-  "A Reasonable Diet vs. an Explosive Diet": {
-    "Top": "Energy +10\nSkill points +10\nYaeno Muteki bond +5",
-    "Bot": "Energy +10\nWit +10\nSkill points +10\nPlaytime's Over! hint +3\nEvent chain ended"
-  },
-  "Firm and Plain, Yet Close to Virtue": {
-    "Top": "Speed +10",
-    "Bot": "Mood +1\nPower +5"
-  },
-  "The Will to Protect!": {
-    "Top": "Stamina +10\nPower +10",
-    "Bot": "Medium Corners hint +1"
-  },
   "Full-Power Muscles!": {
     "Top": "Stamina +5\nSkill points +15\nWinning Ticket bond +5",
     "Bot": "Mood +1\nSkill points +15\nWinning Ticket bond +5"
   },
   "Full-Power Racing!": {
-    "Top": "Late Surger Corners hint +1\nWinning Ticket bond +5",
+    "Top": "Late Surger Corners ○ hint +1\nWinning Ticket bond +5",
     "Bot": "Skill points +30\nWinning Ticket bond +5"
   },
-  "Cozy Memories of Wanko Soba": {
+  "(❯) Cozy Memories of Wanko Soba": {
     "Top": "Mood +1\nYukino Bijin bond +5",
     "Bot": "Maximum Energy +4\nYukino Bijin bond +5"
   },
-  "The Class Rep's Intense Crash Course": {
+  "(❯❯) The Class Rep's Intense Crash Course": {
     "Top": "Mood +1\nPower +5\nYukino Bijin bond +5",
-    "Bot": "Power +3\nGuts +3\nWit +3\nYukino Bijin bond +5"
+    "Bot": "Power +3\nGuts +3\nWisdom +3\nYukino Bijin bond +5"
   },
-  "I Wanna Win!": {
+  "(❯❯❯) I Wanna Win!": {
     "Top": "Mood +1\nNo Stopping Me! hint +1\nYukino Bijin bond +5",
-    "Bot": "Power +3\nGuts +3\nWit +3\nNo Stopping Me! hint +1\nYukino Bijin bond +5"
+    "Bot": "Power +3\nGuts +3\nWisdom +3\nNo Stopping Me! hint +1\nYukino Bijin bond +5"
   },
   "For a Spiffy Concert": {
     "Top": "Guts +10\nYukino Bijin bond +5",
@@ -150,9 +49,9 @@
   },
   "Aiming for the City Spots": {
     "Top": "Energy -10\nMood +1\nGuts +10\nYukino Bijin bond +5",
-    "Bot": "Corner Acceleration hint +1\nYukino Bijin bond +5"
+    "Bot": "Corner Acceleration ○ hint +1\nYukino Bijin bond +5"
   },
-  "Paying It Forward": {
+  "(❯❯) Paying It Forward": {
     "Top": "Energy +10\nMood +1\nKitasan Black bond +5",
     "Bot": "Speed +5/+10\nStraightaway Adept hint +1/+3\nKitasan Black bond +5"
   },
@@ -162,10 +61,10 @@
   },
   "Ah, Home Sweet Home": {
     "Top": "Speed +5\nPower +10\nKitasan Black bond +5",
-    "Bot": "Get Practice Perfect status\nKitasan Black bond +5"
+    "Bot": "Get Practice Perfect ○ status\nKitasan Black bond +5"
   },
   "Diamond Fixation": {
-    "Top": "Wit +10\nSatono Diamond bond +5",
+    "Top": "Wisdom +10\nSatono Diamond bond +5",
     "Bot": "Randomly either\nEnergy +15\nStamina +10\nSatono Diamond bond +5\nor\nMood -1\nGuts +20"
   },
   "Only for You": {
@@ -180,7 +79,7 @@
     "Top": "Stamina +5\nGuts +10\nSatono Diamond bond +5",
     "Bot": "Hesitant Front Runners hint +1\nSatono Diamond bond +5"
   },
-  "Seeking Uniqueness!": {
+  "(❯) Seeking Uniqueness!": {
     "Top": "Mood +1\nMatikanetannhauser bond +5",
     "Bot": "Energy +10/+30\nMatikanetannhauser bond +5"
   },
@@ -194,11 +93,11 @@
   },
   "Run Away to First Base": {
     "Top": "Energy -15\nStamina +10\nGuts +10\nMejiro Palmer bond +5",
-    "Bot": "Energy -15\nGuts +10\nWit +10\nMejiro Palmer bond +5"
+    "Bot": "Energy -15\nGuts +10\nWisdom +10\nMejiro Palmer bond +5"
   },
   "Runaway Romance": {
-    "Top": "Energy +10\nGuts +5\nWit +5\nMejiro Palmer bond +5",
-    "Bot": "Energy +10\nFront Runner Savvy hint +1\nMejiro Palmer bond +5"
+    "Top": "Energy +10\nGuts +5\nWisdom +5\nMejiro Palmer bond +5",
+    "Bot": "Energy +10\nFront Runner Savvy ○ hint +1\nMejiro Palmer bond +5"
   },
   "Optimistic Escapism: Never Give Up!": {
     "Top": "Energy -20\nStamina +5\nGuts +5\nVanguard Spirit hint +3 or Keeping the Lead hint +1/+3\nMejiro Palmer bond +5",
@@ -210,7 +109,7 @@
   },
   "Optimistic Escapism": {
     "Top": "Guts +15\nMejiro Palmer bond +5",
-    "Bot": "Wet Conditions hint +1\nMejiro Palmer bond +5"
+    "Bot": "Wet Conditions ○ hint +1\nMejiro Palmer bond +5"
   },
   "I'm Not Afraid!": {
     "Top": "Randomly either\nSpeed +10\nTwin Turbo bond +5\nor\nEnergy -10\nSpeed +10\nEvent chain ended",
@@ -232,19 +131,23 @@
     "Top": "Energy +15\nTwin Turbo bond +5",
     "Bot": "Early Lead hint +1\nTwin Turbo bond +5"
   },
+  "(❯❯) How Should I Respond?": {
+    "Top": "Power +5\nSkill points +10\nStamina to Spare hint +1\nOguri Cap bond +5",
+    "Bot": "Stamina +5\nSkill points +10\nOuter Swell hint +1\nOguri Cap bond +5"
+  },
+  "(❯❯❯) What I Want to Say": {
+    "Top": "Randomly either\nPower +10\nGuts +5\nSkill points +10\nOguri Cap bond +5\nFurious Feat hint +1\nor\nPower +15\nGuts +10\nSkill points +15\nOguri Cap bond +5\nFurious Feat hint +3",
+    "Bot": "Energy +30"
+  },
   "How Should I Respond?": {
     "Top": "Energy +5\nPower +5",
     "Bot": "Energy -10\nGuts +15"
   },
-  "What I Want to Say": {
-    "Top": "Randomly either\nPower +10\nGuts +5\nSkill points +10\nOguri Cap bond +5\nFurious Feat hint +1\nor\nPower +15\nGuts +10\nSkill points +15\nOguri Cap bond +5\nFurious Feat hint +3",
-    "Bot": "Energy +30"
-  },
   "Conquering the Crowds": {
     "Top": "Power +5\nSkill points +15",
-    "Bot": "Nakayama Racecourse hint +1"
+    "Bot": "Nakayama Racecourse ○ hint +1"
   },
-  "Just a Little Closer": {
+  "(❯❯) Just a Little Closer": {
     "Top": "Energy -10\nSpeed +15\nSpecial Week bond +5",
     "Mid": "Energy -10\nSkill points +20\nSpecial Week bond +5",
     "Bot": "Energy -10\nShake It Out hint +1\nSpecial Week bond +5"
@@ -257,17 +160,17 @@
     "Top": "Energy +10\nMood +1\nSpecial Week bond +5",
     "Bot": "Energy -10\nStamina +15\nSkill points +15\nSpecial Week bond +5"
   },
-  "A Roller Coaster of Feelings!": {
+  "(❯❯) A Roller Coaster of Feelings!": {
     "Top": "Energy -10\nSpeed +5\nStamina +5\nGuts +10\nSpecial Week bond +5",
-    "Bot": "Energy +20\nWit +10\nSpecial Week bond +5\nEvent chain ended"
+    "Bot": "Energy +20\nWisdom +10\nSpecial Week bond +5\nEvent chain ended"
   },
   "On and On": {
     "Top": "Speed +10\nStamina +5\nSilence Suzuka bond +5",
     "Bot": "Speed +15\nSilence Suzuka bond +5"
   },
   "What Should I Do?": {
-    "Top": "Speed +5\nStamina +5\nWit +5\nSilence Suzuka bond +5",
-    "Bot": "Left-Handed hint +1\nSilence Suzuka bond +5"
+    "Top": "Speed +5\nStamina +5\nWisdom +5\nSilence Suzuka bond +5",
+    "Bot": "Left-Handed ○ hint +1\nSilence Suzuka bond +5"
   },
   "My Way, Or...": {
     "Top": "Mood +1\nSkill points +15\nTokai Teio bond +5",
@@ -275,7 +178,15 @@
   },
   "My Weapon": {
     "Top": "Mood +1\nGuts +10\nTokai Teio bond +5",
-    "Bot": "Pace Chaser Straightaways hint +1\nTokai Teio bond +5"
+    "Bot": "Pace Chaser Straightaways ○ hint +1\nTokai Teio bond +5"
+  },
+  "Adventurer Gold Ship": {
+    "Top": "Stamina +15\nGold Ship bond +5",
+    "Bot": "Guts +10\nSkill points +15\nGold Ship bond +5"
+  },
+  "Revive the Brand! Golshi's Yakisoba": {
+    "Top": "Mood +1\nStamina +5",
+    "Bot": "Hanshin Racecourse ○ hint +1\nGold Ship bond +5"
   },
   "The Coolest Line": {
     "Top": "Power +10\nVodka bond +5",
@@ -285,19 +196,19 @@
     "Top": "Nimble Navigator hint +1\nVodka bond +5",
     "Bot": "Power +5\nSkill points +15\nVodka bond +5"
   },
-  "A Moment's Respite": {
+  "(❯❯) A Moment's Respite": {
     "Top": "Energy +15\nGrass Wonder bond +5",
-    "Bot": "Randomly either\nEnergy -10\nPower +5\nGuts +5\nWit +5\nGrass Wonder bond +5\nor\nPower +5\nGuts +5\nWit +10\nGrass Wonder bond +5"
+    "Bot": "Randomly either\nEnergy -10\nPower +5\nGuts +5\nWisdom +5\nGrass Wonder bond +5\nor\nPower +5\nGuts +5\nWisdom +10\nGrass Wonder bond +5"
   },
   "Library Vexation": {
-    "Top": "Wit +10\nGrass Wonder bond +5",
-    "Bot": "Guts +5\nWit +5\nGrass Wonder bond +5"
+    "Top": "Wisdom +10\nGrass Wonder bond +5",
+    "Bot": "Guts +5\nWisdom +5\nGrass Wonder bond +5"
   },
   "A Friendly Daytime Discussion": {
     "Top": "Frenzied Pace Chasers hint +1\nGrass Wonder bond +5",
-    "Bot": "Target in Sight hint +1\nGrass Wonder bond +5"
+    "Bot": "Target in Sight ○ hint +1\nGrass Wonder bond +5"
   },
-  "Uma-me": {
+  "(❯❯) Uma-me": {
     "Top": "Energy +30\nEl Condor Pasa bond +5",
     "Bot": "Stamina to Spare hint +1\nEl Condor Pasa bond +5\nEvent chain ended"
   },
@@ -307,39 +218,39 @@
   },
   "Secret Notebook!": {
     "Top": "Power +10\nEl Condor Pasa bond +5",
-    "Bot": "Sunny Days hint +1\nEl Condor Pasa bond +5"
+    "Bot": "Sunny Days ○ hint +1\nEl Condor Pasa bond +5"
   },
-  "Be Strategic": {
-    "Top": "Energy +10\nWit +5\nSeiun Sky bond +5",
+  "(❯) Be Strategic ☆": {
+    "Top": "Energy +10\nWisdom +5\nSeiun Sky bond +5",
     "Bot": "Skill points +30\nSecond Wind hint +1\nSeiun Sky bond -5\nEvent chain ended"
   },
   "Recruiting Cat Catchers": {
-    "Top": "Energy +10\nWit +5\nSeiun Sky bond +5",
+    "Top": "Energy +10\nWisdom +5\nSeiun Sky bond +5",
     "Bot": "Energy -10\nSpeed +15\nStamina +5\nSeiun Sky bond +5"
   },
   "Recruiting Advisors": {
-    "Top": "Wit +15\nSeiun Sky bond +5",
+    "Top": "Wisdom +15\nSeiun Sky bond +5",
     "Bot": "Keeping the Lead hint +1\nSeiun Sky bond +5"
   },
   "Tamamo's School Tour": {
-    "Top": "Wit +10\nTamamo Cross bond +5",
+    "Top": "Wisdom +10\nTamamo Cross bond +5",
     "Bot": "Stamina +5\nGuts +5\nTamamo Cross bond +5"
   },
   "A Battle I Can't Lose!": {
     "Top": "Calm in a Crowd hint +1\nTamamo Cross bond +5",
-    "Bot": "Stamina +5\nWit +5\nTamamo Cross bond +5"
+    "Bot": "Stamina +5\nWisdom +5\nTamamo Cross bond +5"
   },
-  "Lovely Training Weather": {
-    "Top": "Wit +5\nSkill points +20\nFine Motion bond +5",
+  "(❯) Lovely Training Weather ♪": {
+    "Top": "Wisdom +5\nSkill points +20\nFine Motion bond +5",
     "Mid": "Speed +10\nStamina +5",
-    "Bot": "Get Practice Perfect status\nFine Motion bond +5"
+    "Bot": "Get Practice Perfect ○ status\nFine Motion bond +5"
   },
   "Wonderful New Shoes": {
     "Top": "Speed +5\nSkill points +10\nFine Motion bond +5",
     "Bot": "Energy -10\nStamina +5\nSkill points +20\nFine Motion bond +5"
   },
   "Reminiscent Clover": {
-    "Top": "Corner Adept hint +1\nFine Motion bond +5",
+    "Top": "Corner Adept ○ hint +1\nFine Motion bond +5",
     "Bot": "Guts +15\nFine Motion bond +5"
   },
   "It's a Game of Tag!": {
@@ -348,7 +259,7 @@
   },
   "Ten Minutes Left!": {
     "Top": "Guts +15\nInes Fujin bond +5",
-    "Bot": "Wit +15\nInes Fujin bond +5"
+    "Bot": "Wisdom +15\nInes Fujin bond +5"
   },
   "//Verification Required": {
     "Top": "Energy +10\nGuts +5\nAir Shakur bond +5",
@@ -360,7 +271,7 @@
   },
   "08:36 / Crap, I Overslept": {
     "Top": "Mood -1\nSkill points +45\nGold City bond +5",
-    "Bot": "Energy +10\nWit +5\nGold City bond +5"
+    "Bot": "Energy +10\nWisdom +5\nGold City bond +5"
   },
   "13:12 / Lunch Break, Gotta Get Myself Together": {
     "Top": "Skill points +30\nGold City bond +5",
@@ -374,44 +285,44 @@
     "Top": "Gap Closer hint +1\nSakura Bakushin O bond +5",
     "Bot": "Energy -10\nSpeed +10\nPower +5\nSakura Bakushin O bond +5"
   },
-  "Leave it to Me to Help Out!": {
+  "Leave it to Me to Help Out! ♪": {
     "Top": "Energy +15\nSuper Creek bond +5",
     "Bot": "Stamina +10\nSuper Creek bond +5"
   },
-  "Leave it to Me to Be Considerate!": {
+  "Leave it to Me to Be Considerate! ♪": {
     "Top": "Deep Breaths hint +1\nSuper Creek bond +5",
     "Bot": "Energy +10\nStamina +5\nSuper Creek bond +5"
   },
-  "Always on Stage": {
-    "Top": "Wit +10\nSmart Falcon bond +5",
+  "(❯) Always on Stage ☆": {
+    "Top": "Wisdom +10\nSmart Falcon bond +5",
     "Bot": "Energy +25\nFocus hint +1\nSmart Falcon bond +5\nEvent chain ended"
   },
-  "Chants Are the Life of a Concert": {
+  "Chants Are the Life of a Concert ☆": {
     "Top": "Stamina +5\nGuts +10\nSmart Falcon bond +5",
-    "Bot": "Wit +15\nSmart Falcon bond +5"
+    "Bot": "Wisdom +15\nSmart Falcon bond +5"
   },
-  "If I'm Cute, Come to My Show!": {
+  "If I'm Cute, Come to My Show! ☆": {
     "Top": "Energy -10\nPower +10\nFinal Push hint +1\nSmart Falcon bond +5",
-    "Bot": "Energy +10\nWit +5\nSmart Falcon bond +5"
+    "Bot": "Energy +10\nWisdom +5\nSmart Falcon bond +5"
   },
-  "Aspiring to Adulthood": {
-    "Top": "Energy -10\nWit +20\nNishino Flower bond +5",
-    "Bot": "Wit +5\nSkill points +15"
+  "(❯❯) Aspiring to Adulthood": {
+    "Top": "Energy -10\nWisdom +20\nNishino Flower bond +5",
+    "Bot": "Wisdom +5\nSkill points +15"
   },
   "Warmth, Love, and Lunch": {
-    "Top": "Get Charming status\nNishino Flower bond +5",
+    "Top": "Get Charming ○ status\nNishino Flower bond +5",
     "Bot": "Energy +20\nNishino Flower bond +5"
   },
-  "Let's Bloom Beautifully": {
-    "Top": "Wit +15\nNishino Flower bond +5",
+  "Let's Bloom Beautifully ♪": {
+    "Top": "Wisdom +15\nNishino Flower bond +5",
     "Bot": "Speed +10\nPower +5\nNishino Flower bond +5"
   },
-  "Urara's Study Review": {
-    "Top": "Energy +10\nWit +5\nHaru Urara bond +5",
-    "Bot": "Mood +1\nWit +5\nHaru Urara bond +5"
+  "Urara's ☆ Study Review": {
+    "Top": "Energy +10\nWisdom +5\nHaru Urara bond +5",
+    "Bot": "Mood +1\nWisdom +5\nHaru Urara bond +5"
   },
-  "Urara's Long Shot Dash!": {
-    "Top": "Long Shot hint +1\nHaru Urara bond +5",
+  "Urara's ☆ Long Shot Dash!": {
+    "Top": "Long Shot ○ hint +1\nHaru Urara bond +5",
     "Bot": "Mood +1\nEnergy +10\nHaru Urara bond +5"
   },
   "A Hero's Woes": {
@@ -419,7 +330,7 @@
     "Bot": "Energy +5\nPower +5\nBiko Pegasus bond +5"
   },
   "Preparing My Special Move!": {
-    "Top": "Sprint Straightaways hint +1\nBiko Pegasus bond +5",
+    "Top": "Sprint Straightaways ○ hint +1\nBiko Pegasus bond +5",
     "Bot": "Energy +30\nBiko Pegasus bond +5"
   },
   "Memories of Cinema": {
@@ -428,10 +339,10 @@
   },
   "My Chosen Way of Life": {
     "Top": "Energy +16\nMood +1\nTazuna Hayakawa bond +5",
-    "Bot": "Mood +1\nWit +6\nTazuna Hayakawa bond +5"
+    "Bot": "Mood +1\nWisdom +6\nTazuna Hayakawa bond +5"
   },
   "Enthusiastic Pair\nDating starts": {
-    "Top": "Energy +16\nWit +6\nMood +1\nTazuna Hayakawa bond +5\nCan start dating",
+    "Top": "Energy +16\nWisdom +6\nMood +1\nTazuna Hayakawa bond +5\nCan start dating",
     "Bot": "Mood -1\nTazuna Hayakawa bond -5\nWatchful Eye hint +1\nEvent chain ended"
   },
   "To Maintain My Weight": {
@@ -448,107 +359,82 @@
   },
   "A Page About Cloudy Weather": {
     "Top": "Speed +5\nGuts +5\nRice Shower bond +5",
-    "Bot": "Firm Conditions hint +1\nRice Shower bond +5"
-  },
-  "Dig Here, Windy!": {
-    "Top": "Speed +10\nShinko Windy bond +5",
-    "Bot": "Energy -5\nSkill points +30\nShinko Windy bond +5"
-  },
-  "Chomp Extermination!": {
-    "Top": "Speed +3\nMood +1\nShinko Windy bond +5",
-    "Bot": "Energy +10\nSkill points +5\nShinko Windy bond +5"
-  },
-  "Chomp Attack!": {
-    "Top": "Skill points +15\nShinko Windy bond +5",
-    "Bot": "Speed +3\nUnyielding Spirit hint +1\nShinko Windy bond +5"
-  },
-  "No More Words Use Body Language!": {
-    "Top": "Mood +1\nLucky Seven hint +1\nSeeking the Pearl bond +5",
-    "Mid": "Power +10\nGuts +10\nSeeking the Pearl bond +5",
-    "Bot": "Energy +30"
-  },
-  "Full-Power Passion!": {
-    "Top": "Energy +10\nMood +1\nSeeking the Pearl bond +5",
-    "Bot": "Power +5\nGuts +5\nSeeking the Pearl bond +5"
-  },
-  "Full-Power Thinking!": {
-    "Top": "Wit +20\nSeeking the Pearl bond +5",
-    "Bot": "Energy -10\nUma Stan hint +3\nSeeking the Pearl bond +5"
+    "Bot": "Firm Conditions ○ hint +1\nRice Shower bond +5"
   },
   "The Bookworm and the Magical Girl": {
-    "Top": "Stamina +5\nWit +5\nZenno Rob Roy bond +5",
+    "Top": "Stamina +5\nWisdom +5\nZenno Rob Roy bond +5",
     "Bot": "Energy +20\nPower +10\nZenno Rob Roy bond +5\nEvent chain ended"
   },
   "Book-lover Quirks": {
-    "Top": "Speed +5\nWit +5\nZenno Rob Roy bond +5",
+    "Top": "Speed +5\nWisdom +5\nZenno Rob Roy bond +5",
     "Bot": "Energy +10\nPower +5\nZenno Rob Roy bond +5"
   },
   "A Tale Entrusted": {
-    "Top": "Stamina +10\nWit +10\nZenno Rob Roy bond +5",
-    "Bot": "Medium Straightaways hint +1\nZenno Rob Roy bond +5"
+    "Top": "Stamina +10\nWisdom +10\nZenno Rob Roy bond +5",
+    "Bot": "Medium Straightaways ○ hint +1\nZenno Rob Roy bond +5"
   },
   "I Want to Say Thank You!": {
     "Top": "Power +5\nStraightaway Adept hint +1\nNishino Flower bond +5",
-    "Bot": "Wit +5\nStraightaway Acceleration hint +1\nNishino Flower bond +5"
+    "Bot": "Wisdom +5\nStraightaway Acceleration hint +1\nNishino Flower bond +5"
   },
   "Chasing Their Backs": {
-    "Top": "Energy +5\nWit +3\nNice Nature bond +5",
+    "Top": "Energy +5\nWisdom +3\nNice Nature bond +5",
     "Bot": "Nice Nature bond +20"
   },
   "Not like Meow": {
     "Top": "Energy +20\nNice Nature bond +5",
-    "Bot": "Energy +10\nWit +5\nNice Nature bond +5"
+    "Bot": "Energy +10\nWisdom +5\nNice Nature bond +5"
   },
-  "Burden": {
+  "(Delicious) Burden": {
     "Top": "Ramp Up hint +1\nNice Nature bond +5",
     "Bot": "Mood +1\nMaximum Energy +4\nNice Nature bond +5"
   },
   "Ikuno-Style Support": {
-    "Top": "Wit +15\nFrenzied Front Runners hint +3\nIkuno Dictus bond +5",
-    "Bot": "Wit +15\nFrenzied End Closers hint +3\nIkuno Dictus bond +5"
+    "Top": "Wisdom +15\nFrenzied Front Runners hint +3\nIkuno Dictus bond +5",
+    "Bot": "Wisdom +15\nFrenzied End Closers hint +3\nIkuno Dictus bond +5"
   },
   "Ikuno-Style Flawless Method": {
-    "Top": "Wit +10\nIkuno Dictus bond +5",
+    "Top": "Wisdom +10\nIkuno Dictus bond +5",
     "Bot": "Skill points +30\nIkuno Dictus bond +5"
   },
   "Ikuno-Style Management": {
     "Top": "Stamina +20\nIkuno Dictus bond +5",
-    "Bot": "Trick hint +1\nIkuno Dictus bond +5"
+    "Bot": "Trick (Rear) hint +1\nIkuno Dictus bond +5"
   },
   "#BFF #Party!": {
     "Top": "Power +10\nDaitaku Helios bond +5",
     "Bot": "Speed +10\nDaitaku Helios bond +5"
   },
   "#LOL #Party! #Round2": {
-    "Top": "Power +10\nSpeed +10\nStraight Descent hint +1/+3\nDaitaku Helios bond +5",
+    "Top": "Power +10\n(random) Speed +10\nStraight Descent hint +1/+3\nDaitaku Helios bond +5",
     "Bot": "Energy +20\nWatchful Eye hint +1\nDaitaku Helios bond +5"
   },
-  "Encounter With the Sun": {
+  "Encounter With the Sun ☆": {
     "Top": "Power +10\nDaitaku Helios bond +5",
     "Bot": "Get Hot Topic status\nDaitaku Helios bond +5"
   },
   "Smiles Forever": {
     "Top": "Speed +5\nPower +10\nDaitaku Helios bond +5",
-    "Bot": "Long Shot hint +1\nDaitaku Helios bond +5"
+    "Bot": "Long Shot ○ hint +1\nDaitaku Helios bond +5"
   },
   "Some Very Green Friends": {
     "Top": "Speed +5\nSkill points +10\nLucky Seven hint +1\nSweep Tosho bond +5",
-    "Bot": "Mood -1\nMaverick hint +5"
+    "Bot": "Mood -1\nMaverick ○ hint +5"
   },
   "Premeditated Mischief": {
     "Top": "Speed +10\nSkill points +20\nLevelheaded hint +1\nSweep Tosho bond +5",
     "Bot": "Mood -1\nLone Wolf hint +1"
   },
-  "Miracle Escape!": {
+  "Miracle ☆ Escape!": {
     "Top": "Energy +10\nSpeed +5\nSweep Tosho bond +5",
     "Bot": "Energy -10\nSpeed +20\nSweep Tosho bond +5"
   },
-  "Wonderful Mistake!": {
+  "Wonderful ☆ Mistake!": {
     "Top": "Randomly either\nEnergy -15\nSkill points +40\nor\nEnergy -20\nSkill points +40\nSweep Tosho bond +5",
-    "Bot": "Get Charming status\nSweep Tosho bond +5"
+    "Bot": "Get Charming ○ status\nSweep Tosho bond +5"
   },
   "Sleight of Hand": {
-    "Top": "Wit +5\nSkill points +15\nFuji Kiseki bond +5",
+    "Top": "Wisdom +5\nSkill points +15\nFuji Kiseki bond +5",
     "Bot": "Power +5\nSkill points +15\nFuji Kiseki bond +5"
   },
   "Misdirection": {
@@ -556,7 +442,7 @@
     "Bot": "Skill points +30\nFuji Kiseki bond +5"
   },
   "I'm Going to Win Tomorrow!": {
-    "Top": "Wit +10\nDaiwa Scarlet bond +5",
+    "Top": "Wisdom +10\nDaiwa Scarlet bond +5",
     "Bot": "Mood +1\nSkill points +15\nDaiwa Scarlet bond +5"
   },
   "This Is Nothing!": {
@@ -564,7 +450,7 @@
     "Bot": "Energy +20\nMood +1\nDaiwa Scarlet bond +5"
   },
   "Hishiama's Struggles: Problem Children": {
-    "Top": "Energy +10\nWit +5\nHishi Amazon bond +5",
+    "Top": "Energy +10\nWisdom +5\nHishi Amazon bond +5",
     "Bot": "Energy -10\nSpeed +10\nGuts +5\nHishi Amazon bond +5"
   },
   "Hishiama's Struggles: Final Stretch": {
@@ -573,7 +459,7 @@
   },
   "Strict but Gracious": {
     "Top": "Go with the Flow hint +1\nAir Groove bond +5",
-    "Bot": "Energy +10\nWit +10"
+    "Bot": "Energy +10\nWisdom +10"
   },
   "Agile but Strong": {
     "Top": "Power +15\nAir Groove bond +5",
@@ -584,8 +470,8 @@
     "Bot": "Speed +5\nPower +5\nAgnes Digital bond +5"
   },
   "Heavy Romance": {
-    "Top": "Rainy Days hint +1\nAgnes Digital bond +5",
-    "Bot": "Wet Conditions hint +1\nAgnes Digital bond +5"
+    "Top": "Rainy Days ○ hint +1\nAgnes Digital bond +5",
+    "Bot": "Wet Conditions ○ hint +1\nAgnes Digital bond +5"
   },
   "Last-Minute Modal Theory": {
     "Top": "Power +15\nBiwa Hayahide bond +5",
@@ -609,15 +495,15 @@
   },
   "A Taste of Silence": {
     "Top": "Stamina +5\nSkill points +15\nManhattan Cafe bond +5",
-    "Bot": "Non-Standard Distance hint +1\nManhattan Cafe bond +5"
+    "Bot": "Non-Standard Distance ○ hint +1\nManhattan Cafe bond +5"
   },
-  "I'm Not a Cyborg": {
+  "(❯) I'm Not a Cyborg": {
     "Top": "Guts +10\nSkill points +15\nMihono Bourbon bond +5",
-    "Bot": "Energy -10\nCorner Recovery hint +1\nMihono Bourbon bond -5\nEvent chain ended"
+    "Bot": "Energy -10\nCorner Recovery ○ hint +1\n(random) Mihono Bourbon bond -5\nEvent chain ended"
   },
   "Do No Harm": {
     "Top": "Energy -10\nStamina +5\nPower +15\nMihono Bourbon bond +5",
-    "Bot": "Energy +10\nWit +5\nMihono Bourbon bond +5"
+    "Bot": "Energy +10\nWisdom +5\nMihono Bourbon bond +5"
   },
   "Orders Must Be Followed": {
     "Top": "Focus hint +1\nMihono Bourbon bond +5",
@@ -632,12 +518,12 @@
     "Bot": "Energy +30\nMejiro Ryan bond +5"
   },
   "The Correlation between Sleep and Efficiency": {
-    "Top": "Power +5\nWit +5\nAgnes Tachyon bond +5",
-    "Bot": "Wit +10\nAgnes Tachyon bond +5"
+    "Top": "Power +5\nWisdom +5\nAgnes Tachyon bond +5",
+    "Bot": "Wisdom +10\nAgnes Tachyon bond +5"
   },
   "Happenstance Introduced Through Intervention": {
-    "Top": "Late Surger Savvy hint +1\nAgnes Tachyon bond +5",
-    "Bot": "Wit +10\nAgnes Tachyon bond +5"
+    "Top": "Late Surger Savvy ○ hint +1\nAgnes Tachyon bond +5",
+    "Bot": "Wisdom +10\nAgnes Tachyon bond +5"
   },
   "Unforeseen Lunch": {
     "Top": "Energy +15\nEishin Flash bond +5",
@@ -645,7 +531,7 @@
   },
   "Responding to the Unforeseen": {
     "Top": "Guts +10\nEishin Flash bond +5",
-    "Bot": "Target in Sight hint +1\nEishin Flash bond +5"
+    "Bot": "Target in Sight ○ hint +1\nEishin Flash bond +5"
   },
   "Just Leave Me Alone": {
     "Top": "Stamina +5\nSkill points +15\nNarita Taishin bond +5",
@@ -655,20 +541,20 @@
     "Top": "Pressure hint +1\nNarita Taishin bond +5",
     "Bot": "Skill points +30\nNarita Taishin bond +5"
   },
-  "Marvelous, No Question": {
+  "Marvelous, No Question ☆": {
     "Top": "Energy +10\nSpeed +5\nMarvelous Sunday bond +5",
     "Bot": "Mood +1\nSpeed +5\nMarvelous Sunday bond +5"
   },
-  "How To Be More Marvelous": {
+  "How To Be More Marvelous ☆": {
     "Top": "Energy +10\nMood +1\nMarvelous Sunday bond +5",
-    "Bot": "Hanshin Racecourse hint +1\nMarvelous Sunday bond +5"
+    "Bot": "Hanshin Racecourse ○ hint +1\nMarvelous Sunday bond +5"
   },
   "Guidance and Friends": {
     "Top": "Skill points +45\nMatikanefukukitaru bond +5",
-    "Bot": "Randomly either\nEnergy +10\nMood +1\nRight-Handed hint +3\nMatikanefukukitaru bond +5\nor\nEnergy -20\nRight-Handed hint +1\nMatikanefukukitaru bond +5"
+    "Bot": "Randomly either\nEnergy +10\nMood +1\nRight-Handed ○ hint +3\nMatikanefukukitaru bond +5\nor\nEnergy -20\nRight-Handed ○ hint +1\nMatikanefukukitaru bond +5"
   },
   "Maximum Spirituality": {
-    "Top": "Wit +5\nSkill points +15\nMatikanefukukitaru bond +5",
+    "Top": "Wisdom +5\nSkill points +15\nMatikanefukukitaru bond +5",
     "Bot": "Energy -10\nSpeed +5\nStamina +5\nPower +5\nMatikanefukukitaru bond +5"
   },
   "When Piety and Kindness Intersect": {
@@ -677,27 +563,43 @@
   },
   "What I'm Destined For...": {
     "Top": "Energy +10\nGuts +5\nMeisho Doto bond +5",
-    "Bot": "Randomly either\nEnergy -10\nWit +5\nor\nMaximum Energy +4\nMood +1\nGuts +5\nWit +5\nMeisho Doto bond +5"
+    "Bot": "Randomly either\nEnergy -10\nWisdom +5\nor\nMaximum Energy +4\nMood +1\nGuts +5\nWisdom +5\nMeisho Doto bond +5"
   },
   "I... Will Change": {
     "Top": "Energy +10\nMood +1\nMeisho Doto bond +5",
     "Bot": "Guts +15\nMeisho Doto bond +5"
   },
   "Please... Buy Some Carrots": {
-    "Top": "Energy +10\nWit +5\nMeisho Doto bond +5",
-    "Bot": "Pace Chaser Corners hint +1\nMeisho Doto bond +5"
+    "Top": "Energy +10\nWisdom +5\nMeisho Doto bond +5",
+    "Bot": "Pace Chaser Corners ○ hint +1\nMeisho Doto bond +5"
+  },
+  "Give It a Try": {
+    "Top": "Energy +15\nMejiro Dober bond +5",
+    "Bot": "Mood +1\nSkill points +15\nMejiro Dober bond +5"
+  },
+  "Hope She'll Like It...": {
+    "Top": "Skill points +45\nMejiro Dober bond +5",
+    "Bot": "Unyielding Spirit hint +1\nMejiro Dober bond +5"
+  },
+  "You May Socialize With Me!": {
+    "Top": "Energy -20\nSpeed +10\nPower +10\nWisdom +5\nKing Halo bond +5",
+    "Bot": "Mood -1\nGuts +25\nKing Halo bond +5"
+  },
+  "You May Advise Me!": {
+    "Top": "Guts +10\nWisdom +5\nKing Halo bond +5",
+    "Bot": "Homestretch Haste hint +1\nKing Halo bond +5"
   },
   "How I Play at the Park": {
-    "Top": "Energy +37\nWit +6\nAoi Kiryuin bond +5\nMood +1",
+    "Top": "Energy +37\nWisdom +6\nAoi Kiryuin bond +5\n(random) Mood +1",
     "Bot": "Randomly either\nSkill points +19\nAoi Kiryuin bond +5\nor\nSpeed +6\nSkill points +58\nMood +1\nAoi Kiryuin bond +5"
   },
   "Trainer Tip: Always Improve Your Coaching": {
     "Top": "Energy +15\nSkill points +19\nAoi Kiryuin bond +5",
-    "Bot": "Speed +6\nWit +6\nAoi Kiryuin bond +5"
+    "Bot": "Speed +6\nWisdom +6\nAoi Kiryuin bond +5"
   },
-  "The Search for a Hobby\nDating starts": {
+  "The Search for a Hobby": {
     "Top": "Energy +30\nSkill points +19\nMood +1\nAoi Kiryuin bond +5\nCan start dating",
-    "Bot": "Mood -1\nMaverick hint +1\nAoi Kiryuin bond -5\nEvent chain ended"
+    "Bot": "Mood -1\nMaverick ○ hint +1\nAoi Kiryuin bond -5\nEvent chain ended"
   },
   "For an Adorable Younger Student": {
     "Top": "Early Lead hint +1",
@@ -705,13 +607,13 @@
   },
   "Drive Destination": {
     "Top": "Mood +1\nSpeed +5",
-    "Bot": "Mood +1\nWit +5"
+    "Bot": "Mood +1\nWisdom +5"
   },
-  "Yes! Let's Hug": {
+  "Yes! Let's Hug ☆": {
     "Top": "Speed +10",
     "Bot": "Speed +5\nPower +5"
   },
-  "Yeehaw! Party Tonight": {
+  "Yeehaw! Party Tonight ☆": {
     "Top": "Energy -10\nSpeed +5\nPower +10",
     "Bot": "Prepared to Pass hint +1"
   },
@@ -721,14 +623,14 @@
   },
   "Beyond Our Limited Time": {
     "Top": "Energy +10\nSkill points +15",
-    "Bot": "Non-Standard Distance hint +1"
+    "Bot": "Non-Standard Distance ○ hint +1"
   },
   "The Emperor's Encouragement": {
     "Top": "Speed +10",
     "Bot": "Energy -10\nSkill points +30"
   },
   "The Student Council President's Thoughtfulness": {
-    "Top": "Rainy Days hint +1",
+    "Top": "Rainy Days ○ hint +1",
     "Bot": "Stamina +15"
   }
 }
