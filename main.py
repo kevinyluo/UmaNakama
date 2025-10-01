@@ -6,9 +6,9 @@ import difflib
 import json
 import time
 import os
-from PIL import ImageEnhance, ImageOps
+from PIL import ImageEnhance, ImageOps, Image
 from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtWidgets import QSplashScreen
+from PyQt5.QtWidgets import QSplashScreen, QDialog, QVBoxLayout, QLabel, QComboBox, QDialogButtonBox, QHBoxLayout
 from PyQt5.QtGui import QPixmap
 import threading
 import pygetwindow as gw
@@ -21,21 +21,181 @@ from overlays.settings_overlay import SettingsOverlay
 from overlays.skill_overlay import SkillInfoOverlay
 from overlays.condtion_overlay import ConditionInfoOverlay
 
+# ================= PIL -> QImage helper (no ImageQt) ==================
+def pil_to_qimage(pil_img: Image.Image) -> QtGui.QImage:
+    """Safe, dependency-free conversion of a PIL Image to QImage."""
+    if pil_img.mode != "RGBA":
+        pil_img = pil_img.convert("RGBA")
+    w, h = pil_img.size
+    buf = pil_img.tobytes("raw", "RGBA")
+    qimg = QtGui.QImage(buf, w, h, QtGui.QImage.Format_RGBA8888)
+    return qimg.copy()  # detach from Python buffer so it won't GC
 
-# ---------------- Global Variables ----------------
+# ================= Portrait matching (template) ==================
+PORTRAIT_DIR = "assets/portraits"     # 1 image per character here (PNG/JPG)
+portrait_templates = {}               # name -> gray image
+portrait_lock = threading.Lock()      # guard templates while hot-updating
+
+def _ensure_dirs():
+    os.makedirs(PORTRAIT_DIR, exist_ok=True)
+
+def _load_portraits():
+    """Load/refresh portrait templates from disk."""
+    global portrait_templates
+    _ensure_dirs()
+    loaded = {}
+    for fname in os.listdir(PORTRAIT_DIR):
+        name, ext = os.path.splitext(fname)
+        if ext.lower() not in {".png", ".jpg", ".jpeg"}:
+            continue
+        path = os.path.join(PORTRAIT_DIR, fname)
+        img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+        if img is not None:
+            loaded[name] = img
+    with portrait_lock:
+        portrait_templates = loaded
+    print(f"[portrait] loaded {len(portrait_templates)} templates")
+
+def _add_portrait_template(name: str, pil_img: Image.Image):
+    """Add/update an in-memory template from a PIL image for immediate use."""
+    arr = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2GRAY)
+    with portrait_lock:
+        portrait_templates[name] = arr
+
+def detect_character_from_roi(pil_img, min_score=0.7):
+    """
+    Simple TM_CCOEFF_NORMED template match against each stored portrait.
+    Returns (name, score) or (None, best_score).
+    """
+    with portrait_lock:
+        templates = portrait_templates.copy()
+
+    if not templates:
+        _load_portraits()
+        with portrait_lock:
+            templates = portrait_templates.copy()
+
+    if not templates:
+        return None, 0.0
+
+    roi = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2GRAY)
+    roi = cv2.equalizeHist(roi)
+
+    best_name, best_score = None, -1.0
+    for name, templ in templates.items():
+        th, tw = templ.shape[:2]
+        # Resize ROI up if needed so template can slide
+        if roi.shape[0] < th or roi.shape[1] < tw:
+            scale_y = th / max(1, roi.shape[0])
+            scale_x = tw / max(1, roi.shape[1])
+            scale = max(scale_x, scale_y)
+            roi_resized = cv2.resize(roi, (int(roi.shape[1]*scale), int(roi.shape[0]*scale)))
+        else:
+            roi_resized = roi
+
+        res = cv2.matchTemplate(roi_resized, templ, cv2.TM_CCOEFF_NORMED)
+        _, max_val, _, _ = cv2.minMaxLoc(res)
+        if max_val > best_score:
+            best_score = max_val
+            best_name = name
+
+    if best_score >= min_score:
+        return best_name, float(best_score)
+    return None, float(best_score)
+
+# ================= Character picker dialog (main-thread) ==================
+class CharacterPicker(QDialog):
+    def __init__(self, names, preview_qimage=None, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("Who's this?")
+        self.setWindowFlags(self.windowFlags() | QtCore.Qt.WindowStaysOnTopHint)
+        self.setModal(True)
+
+        layout = QVBoxLayout(self)
+
+        # Optional portrait preview
+        if preview_qimage is not None:
+            h = QHBoxLayout()
+            lbl = QLabel()
+            pix = QPixmap.fromImage(preview_qimage)
+            pix = pix.scaled(96, 96, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+            lbl.setPixmap(pix)
+            h.addWidget(lbl)
+            h.addWidget(QLabel("Select the trainee for this portrait:"))
+            layout.addLayout(h)
+        else:
+            layout.addWidget(QLabel("Select the trainee:"))
+
+        self.combo = QComboBox()
+        self.combo.setEditable(True)  # quick type-to-filter
+        self.combo.addItems(names)
+        self.combo.setInsertPolicy(QComboBox.NoInsert)
+        layout.addWidget(self.combo)
+
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        buttons.accepted.connect(self.accept)
+        buttons.rejected.connect(self.reject)
+        layout.addWidget(buttons)
+
+    def selected_name(self):
+        return self.combo.currentText().strip()
+
+# Bridge to safely invoke dialog from worker thread
+class CharPickerBridge(QtCore.QObject):
+    request = QtCore.pyqtSignal(object)  # payload: {"names":[...], "qimage":QImage|None, "event":threading.Event, "out":dict}
+
+char_picker_bridge = CharPickerBridge()
+
+def _on_char_picker_request(payload):
+    names = payload.get("names", [])
+    qimage = payload.get("qimage")
+    ev = payload.get("event")
+    out = payload.get("out")
+    dlg = CharacterPicker(names, qimage)
+    result = dlg.exec_()
+    out["name"] = dlg.selected_name() if result == QDialog.Accepted else None
+    if ev:
+        ev.set()
+
+char_picker_bridge.request.connect(_on_char_picker_request)
+
+# ----- UI proxy to marshal UI calls to the main thread -----
+class UiProxy(QtCore.QObject):
+    set_overlay = QtCore.pyqtSignal(list)  # overlay lines
+    show_overlay = QtCore.pyqtSignal()
+    hide_all = QtCore.pyqtSignal()
+    update_skills = QtCore.pyqtSignal(list)  # [(skill_name, data), ...]
+
+ui_proxy = None
+
+# ================= Global Variables =================
 settings_overlay_pos = (500, 200)
 settings_overlay = None
 selector = None
 
-# ------------- Load Skill JSON files ---------------------
-
+# ------------- Load Skill/Condition JSON ---------------------
 with open("events/parsed_skills.json", "r", encoding="utf-8") as f:
-    parsed_skills = json.load(f) 
+    parsed_skills = json.load(f)
 with open("events/conditions.json", "r", encoding="utf-8") as f:
     condition_keywords = json.load(f)
 
-# ------------- Load config ---------------------
+# ------------- Load Names for Picker -------------------------
+def load_trainee_names():
+    try:
+        with open("events/trainee_names.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, dict) and "names" in data:
+            return data["names"]
+        if isinstance(data, list):
+            return data
+    except Exception as e:
+        print(f"Error loading trainee_names.json: {e}")
+    with portrait_lock:
+        return sorted(list(portrait_templates.keys()))
 
+trainee_names_cache = None
+
+# ------------- Load config ---------------------
 CONFIG_FILE = "config.json"
 default_config = {
     "region": {"x_offset": 596, "y_offset": 382, "width": 355, "height": 74},
@@ -46,7 +206,8 @@ default_config = {
     "text_match_confidence": 0.7,
     "debug_mode": False,
     "always_show_overlay": False,
-    "hide_condition_viewer": False
+    "hide_condition_viewer": False,
+    "portrait_match_threshold": 0.70,  # threshold for auto-detect
 }
 
 class AppController(QtCore.QObject):
@@ -54,11 +215,6 @@ class AppController(QtCore.QObject):
     open_region_selector_signal = QtCore.pyqtSignal()
 
 controller = AppController()
-
-class SkillOverlayController(QtCore.QObject):
-    update_skill_overlay = QtCore.pyqtSignal(list)
-
-skill_controller = SkillOverlayController()
 
 # ---------------- CONFIG HANDLING ----------------
 def load_config():
@@ -129,6 +285,51 @@ def get_absolute_region():
         config["region"]["height"]
     )
 
+def split_region(full_rect):
+    """Return (left_yellow, right_red) from a saved full rect (x,y,w,h)."""
+    x, y, w, h = full_rect
+    s = h  # yellow square side equals full height
+    left = (x, y, min(s, w), h)
+    right_w = max(0, w - s)
+    right = (x + s, y, right_w, h)
+    return left, right
+
+def get_char_region():  # yellow
+    return split_region(get_absolute_region())[0]
+
+def get_ocr_region():   # red
+    return split_region(get_absolute_region())[1]
+
+# -------- optional: per-character trainee events ----------
+_events_by_char = None
+def load_events_by_char():
+    """Load trainee events keyed by character name."""
+    global _events_by_char
+    if _events_by_char is not None:
+        return _events_by_char
+
+    # Prefer the new filename, but accept the old one as a fallback
+    candidates = [
+        os.path.join("events", "trainee_events_by_character.json"),  # NEW
+        os.path.join("events", "trainee_by_character.json"),         # legacy
+    ]
+
+    for path in candidates:
+        if os.path.isfile(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    _events_by_char = json.load(f)
+                print(f"[events] loaded {os.path.basename(path)} "
+                      f"({len(_events_by_char)} trainees)")
+                return _events_by_char
+            except Exception as e:
+                print(f"[events] error loading {path}: {e}")
+
+    _events_by_char = {}
+    print("[events] no trainee-by-character file found; will fall back to global list.")
+    return _events_by_char
+
+
 # ---------------- EVENT MATCHING ----------------
 def load_events(category):
     filename = os.path.join("events", f"{category}_events.json")
@@ -139,27 +340,88 @@ def load_events(category):
         print(f"Error loading {filename}: {e}")
         return {}
 
-def find_best_match(event_line, category):
-    if len(event_line) < 4:
+def find_best_match(event_line, category, character_name=None):
+    """
+    If category is 'trainee' and we have a detected character, look up only that
+    character's events from trainee_events_by_character.json. Otherwise fall back
+    to the global {category}_events.json.
+    """
+    if not event_line or len(event_line) < 4:
         return None, None
-    
-    events = load_events(category)
-    candidates = list(events.keys())
-    confidence = config.get("text_match_confidence", 0.7)
+
+    candidates_map = None
+
+    if category == "trainee":
+        by_char = load_events_by_char()
+        if character_name:
+            # exact match on the key as written in the JSON (raw name)
+            candidates_map = by_char.get(character_name)
+            if candidates_map is None:
+                # Optional: try a very light normalization if your portrait filenames
+                # sometimes differ in whitespace; otherwise you can remove this.
+                candidates_map = by_char.get(character_name.strip())
+
+            if candidates_map:
+                print(f"[events] matching within {character_name} ({len(candidates_map)} events)")
+        # If we still don't have a map, fall back to global trainee_events.json
+        if candidates_map is None:
+            candidates_map = load_events("trainee")
+
+    else:
+        # support events unchanged
+        candidates_map = load_events(category)
+
+    if not candidates_map:
+        return None, None
+
+    candidates = list(candidates_map.keys())
+    confidence = float(config.get("text_match_confidence", 0.7))
 
     special_events = ["inspiration", "summer camp"]
-    if any(special_event in event_line.lower() for special_event in special_events):
+    if any(s in event_line.lower() for s in special_events):
         confidence = 0.95
 
     matches = difflib.get_close_matches(event_line, candidates, n=1, cutoff=confidence)
     if matches:
         event_name = matches[0]
-        return event_name, events[event_name]
+        return event_name, candidates_map[event_name]
     return None, None
+
+
+# ---------------- Character learn/save ----------------
+def save_portrait_image(name: str, pil_img: Image.Image):
+    _ensure_dirs()
+    safe = name.strip()
+    safe = "".join(ch for ch in safe if ch not in "\\/:*?\"<>|").strip()
+    if not safe:
+        return None
+    path = os.path.join(PORTRAIT_DIR, f"{safe}.png")
+    pil_img.save(path)
+    _add_portrait_template(safe, pil_img)
+    print(f"[portrait] saved: {path}")
+    return path
+
+# To avoid prompting repeatedly for the same screen line
+_prompt_cache = {}  # key -> last_time
+
+def should_prompt_again(key: str, cooldown=4.0):
+    now = time.time()
+    last = _prompt_cache.get(key, 0.0)
+    if now - last >= cooldown:
+        _prompt_cache[key] = now
+        return True
+    return False
 
 # ---------------- OCR FUNCTION ----------------
 def read_text_from_screen(text_overlay, skill_overlay, condition_overlay):
-    screenshot = pyautogui.screenshot(region=get_absolute_region())
+    global trainee_names_cache, ui_proxy
+
+    # ---- capture subregions ----
+    ocr_rect = get_ocr_region()   # right/red
+    char_rect = get_char_region() # left/yellow
+
+    # ---- OCR from the red region ----
+    screenshot = pyautogui.screenshot(region=ocr_rect)
     gray = screenshot.convert("L")
     inverted = ImageOps.invert(gray)
     enhancer = ImageEnhance.Contrast(inverted)
@@ -169,29 +431,70 @@ def read_text_from_screen(text_overlay, skill_overlay, condition_overlay):
     text = pytesseract.image_to_string(thresholded, config="--psm 6").strip()
     lines = [line.replace("|", "").strip() for line in text.split('\n') if line.strip()]
 
+    # --- debug print of OCR ---
+    print(f"[ocr] lines -> {lines}")
+
     if len(lines) < 2:
-        if not config.get("always_show_overlay", False):
-            text_overlay.hide()
-            skill_overlay.hide()
-            condition_overlay.hide()
+        ui_proxy.hide_all.emit()
         return
 
     category_line = lines[0].lower()
     event_line = lines[1]
+
+    # Optional: detect character (yellow region) only for trainee category
+    detected_char = None
     if "trainee" in category_line:
         category = "trainee"
+        try:
+            char_img = pyautogui.screenshot(region=char_rect)  # keep as color
+            thr = float(config.get("portrait_match_threshold", 0.70))
+            name, score = detect_character_from_roi(char_img, min_score=thr)
+            if name:
+                detected_char = name
+                print(f"[char] detected: {name} ({score:.2f})")
+            else:
+                # Ask user who this is (with a small cooldown so we don't spam)
+                key = f"{category}|{event_line}"
+                if should_prompt_again(key):
+                    if trainee_names_cache is None:
+                        trainee_names_cache = load_trainee_names()
+
+                    # Build preview QImage for dialog (no ImageQt)
+                    qimage = pil_to_qimage(char_img)
+                    done = threading.Event()
+                    out = {}
+
+                    # Trigger dialog in GUI thread
+                    char_picker_bridge.request.emit({
+                        "names": trainee_names_cache or [],
+                        "qimage": qimage,
+                        "event": done,
+                        "out": out
+                    })
+                    # Wait for user selection
+                    done.wait(timeout=15.0)  # avoid blocking forever
+                    selected = out.get("name")
+                    if selected:
+                        detected_char = selected
+                        save_portrait_image(selected, char_img)
+        except Exception as e:
+            print(f"[char] detection error: {e}")
+
     elif "support" in category_line:
         category = "support"
     else:
-        if not config.get("always_show_overlay", False):
-            text_overlay.hide()
-            skill_overlay.hide()
-            condition_overlay.hide()
+        ui_proxy.hide_all.emit()
         return
 
-    event_name, event_options = find_best_match(event_line, category)
+    print(f"[ocr] category={category} | event_line='{event_line}'")
+    if detected_char:
+        print(f"[char] using character: {detected_char}")
+
+    # ---- Event matching (optionally scoped by detected_char for trainee) ----
+    event_name, event_options = find_best_match(event_line, category, detected_char)
     if event_name:
-        overlay_lines = [event_name]
+        title = f"{event_name}" if not detected_char else f"{detected_char} — {event_name}"
+        overlay_lines = [title]
         matched_skills = []
 
         for option, effect in event_options.items():
@@ -205,35 +508,25 @@ def read_text_from_screen(text_overlay, skill_overlay, condition_overlay):
                 if skill_name.lower() in line.lower():
                     matched_skills.append((skill_name, data))
 
-        text_overlay.update_text(overlay_lines)
-        text_overlay.show()
-
-        if matched_skills:
-            skill_controller.update_skill_overlay.emit(matched_skills)
-        else:
-            skill_controller.update_skill_overlay.emit([])
-
-
+        ui_proxy.set_overlay.emit(overlay_lines)
+        ui_proxy.show_overlay.emit()
+        ui_proxy.update_skills.emit(matched_skills)
     else:
-        if not config.get("always_show_overlay", False):
-            text_overlay.hide()
-            skill_overlay.hide()
-            condition_overlay.hide()
-
+        ui_proxy.hide_all.emit()
 
 # ---------------- CONTINUOUS SCAN ----------------
 def continuous_scan(text_overlay, stop_event, status_overlay, skill_overlay, condition_overlay):
     global scanning_enabled
     while not stop_event.is_set():
         if scanning_enabled:
-            read_text_from_screen(text_overlay, skill_overlay, condition_overlay)
+            try:
+                read_text_from_screen(text_overlay, skill_overlay, condition_overlay)
+            except Exception as e:
+                print(f"[worker] scan error: {e}")
             status_overlay.is_scanning = True
-            status_overlay.update()             
+            status_overlay.update()
         else:
-            if not config.get("always_show_overlay", False):
-                text_overlay.hide()
-                skill_overlay.hide()
-                condition_overlay.hide()
+            ui_proxy.hide_all.emit()
             status_overlay.is_scanning = False
             status_overlay.update()
         time.sleep(config.get("scan_speed", 0.5))
@@ -258,7 +551,9 @@ def save_region_from_selector():
             "height": new_region[3]
         }
     save_config(config)
-    print(f"Region updated: {get_absolute_region()}")
+    print(f"Region updated (full): {get_absolute_region()}")
+    ly, rr = get_char_region(), get_ocr_region()
+    print(f"  Left (yellow): {ly} | Right (red): {rr}")
 
 # ---------------- SETTINGS TOGGLE ----------------
 def toggle_settings():
@@ -292,7 +587,8 @@ def show_thresholded_image():
         print("Debug mode is disabled.")
         return
 
-    screenshot = pyautogui.screenshot(region=get_absolute_region())
+    ocr_rect = get_ocr_region()
+    screenshot = pyautogui.screenshot(region=ocr_rect)
     gray = screenshot.convert("L")
     inverted = ImageOps.invert(gray)
     enhancer = ImageEnhance.Contrast(inverted)
@@ -306,7 +602,7 @@ def show_thresholded_image():
     print(f"Processed text is: {lines}")
 
     cv_img = cv2.cvtColor(np.array(thresholded.convert("L")), cv2.COLOR_GRAY2BGR)
-    cv2.imshow("Thresholded OCR Image", cv_img)
+    cv2.imshow("Thresholded OCR Image (RED region)", cv_img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
@@ -350,10 +646,15 @@ def show_splash(app):
 
 # ---------------- MAIN ----------------
 def main():
-    global scanning_enabled, selector
+    global scanning_enabled, selector, trainee_names_cache, ui_proxy
     print("Starting UmaNakama...")
 
+    _ensure_dirs()
+    _load_portraits()  # load any existing portraits first
+
     app = QtWidgets.QApplication(sys.argv)
+    app.setQuitOnLastWindowClosed(False)  # <-- keep app alive after dialogs close
+
     show_splash(app)
 
     print("Running OCR. Press 'Alt+J' for settings & region selector. 'q' to quit.")
@@ -371,6 +672,18 @@ def main():
     condition_overlay = ConditionInfoOverlay()
     condition_overlay.hide()
 
+    # ---------- UI proxy wiring (GUI thread) ------------
+    ui_proxy = UiProxy()
+    ui_proxy.set_overlay.connect(text_overlay.update_text)
+    ui_proxy.show_overlay.connect(text_overlay.show)
+
+    def _hide_everything():
+        if not config.get("always_show_overlay", False):
+            text_overlay.hide()
+            skill_overlay.hide()
+            condition_overlay.hide()
+
+    ui_proxy.hide_all.connect(_hide_everything)
 
     def update_overlay_from_signal(matched_skills):
         if matched_skills:
@@ -378,7 +691,6 @@ def main():
             skill_overlay.move(text_overlay.x() + text_overlay.width(), text_overlay.y())
             skill_overlay.show()
 
-            # Check for condition keywords in the skill conditions
             found_keywords = []
             for _, skill in matched_skills:
                 cond = skill.get("conditons", "").lower()
@@ -386,7 +698,7 @@ def main():
                     if keyword in cond and keyword not in found_keywords:
                         found_keywords.append(keyword)
 
-            if  not config.get("hide_condition_viewer", False) and found_keywords:
+            if not config.get("hide_condition_viewer", False) and found_keywords:
                 data_list = [(kw, condition_keywords[kw]) for kw in found_keywords]
                 condition_overlay.set_text(data_list)
                 condition_overlay.move(skill_overlay.x() + skill_overlay.width(), skill_overlay.y())
@@ -397,8 +709,7 @@ def main():
             skill_overlay.hide()
             condition_overlay.hide()
 
-
-    skill_controller.update_skill_overlay.connect(update_overlay_from_signal)
+    ui_proxy.update_skills.connect(update_overlay_from_signal)
 
     def on_overlay_moved(x, y):
         win = get_umamusume_window()
@@ -454,20 +765,25 @@ def main():
     selector = RegionSelector(get_absolute_region())
     selector.hide()
 
-    # ----------- hotkeys --------------
+    # Warm-load names for picker
+    trainee_names_cache = load_trainee_names()
 
+    # ----------- hotkeys --------------
     keyboard.add_hotkey('alt+j', lambda: controller.open_settings_signal.emit())
-    keyboard.add_hotkey('q', lambda: app.quit())
+    keyboard.add_hotkey('alt+q', lambda: app.quit())
     keyboard.add_hotkey('z', show_thresholded_image)
 
     # ----------- threading -------------
-
     stop_event = threading.Event()
-    threading.Thread(
+
+    QtWidgets.QApplication.instance().aboutToQuit.connect(stop_event.set)
+
+    thread = threading.Thread(
         target=continuous_scan,
         args=(text_overlay, stop_event, status_overlay, skill_overlay, condition_overlay),
         daemon=True
-    ).start()
+    )
+    thread.start()
 
     try:
         sys.exit(app.exec_())
