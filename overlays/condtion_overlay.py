@@ -1,3 +1,18 @@
+"""
+Condition keywords overlay.
+
+Responsibilities
+- Shows human-readable explanations for any condition keywords detected in the
+  currently matched skills (from `events/conditions.json`).
+- Stacks to the right of the skill overlay so the user can glance across all
+  relevant info in a single line.
+
+Notes
+- Only visible when at least one keyword is present and the viewer isn’t hidden.
+- Keep content purely informative—no interactions—to reduce cognitive load mid-run.
+"""
+
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 import html
 

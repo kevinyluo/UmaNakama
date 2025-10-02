@@ -1,3 +1,18 @@
+"""
+Region selector overlay (split visual: yellow + red).
+
+Responsibilities
+- Provides a single draggable/resizable rectangle that VISUALLY splits into:
+  a yellow square on the left (portrait) and a red rectangle on the right (OCR).
+  The left square’s side equals the overall height of the full selector.
+- Draws translucent fills and corner resize handles; only the full rect is persisted
+  and subregions are derived at paint/use time.
+
+Notes
+- This widget is purely visual/interactive; it stores no app state itself.
+- Keep pen/alpha conservative so the underlying game UI remains legible during setup.
+"""
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class RegionSelector(QtWidgets.QWidget):

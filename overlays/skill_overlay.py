@@ -1,3 +1,16 @@
+"""
+Skill info overlay.
+
+Responsibilities
+- Displays matched skills and their metadata next to the text overlay. Intended to
+  sit to the right of the main HUD and update in lockstep with event changes.
+- Handles a compact list format for quick scanning; avoids wide tooltips that cover the game.
+
+Notes
+- Optimize for frequent updates; minimize layout churn and expensive painting paths.
+- Hide automatically when no skills are detected for the current event.
+"""
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 import requests
 
