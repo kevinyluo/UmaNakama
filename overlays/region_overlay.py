@@ -1,7 +1,30 @@
+"""
+Region selector overlay (split visual: yellow + red).
+
+Responsibilities
+- Provides a single draggable/resizable rectangle that VISUALLY splits into:
+  a yellow square on the left (portrait) and a red rectangle on the right (OCR).
+  The left square’s side equals the overall height of the full selector.
+- Draws translucent fills and corner resize handles; only the full rect is persisted
+  and subregions are derived at paint/use time.
+
+Notes
+- This widget is purely visual/interactive; it stores no app state itself.
+- Keep pen/alpha conservative so the underlying game UI remains legible during setup.
+"""
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class RegionSelector(QtWidgets.QWidget):
-    def __init__(self, region=(596, 382, 355, 74)):
+    """
+    Composite overlay:
+      ┌─────────────── total width (w) ────────────────┐
+      │  yellow square (size=h)  |   red OCR region    │
+      └──────────────────────────┴─────────────────────┘
+    - Yellow left is always square (size = height).
+    - Red right is the remaining width (w - h), clamped to a small minimum.
+    """
+    def __init__(self, region=(596, 382, 355, 74), min_right_width=50):
         super().__init__()
         self.setWindowFlags(
             QtCore.Qt.FramelessWindowHint |
@@ -9,38 +32,92 @@ class RegionSelector(QtWidgets.QWidget):
             QtCore.Qt.Tool
         )
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-        self.setGeometry(*region)
+
         self.resize_handle_size = 10
         self.dragging = False
         self.resizing = False
         self.resize_dir = None
         self.old_pos = None
+
+        self.min_right_width = int(min_right_width)
+
+        # Ensure starting geometry leaves room for the right (red) segment
+        x, y, w, h = region
+        if w < h + self.min_right_width:
+            w = h + self.min_right_width
+        self.setGeometry(x, y, w, h)
+
         self.show()
 
+    # ---------- Public helpers to consume the two subregions ----------
+    def get_left_rect(self):
+        """Absolute screen rect of the yellow square (x, y, w, h)."""
+        gx, gy, w, h = self.geometry().getRect()
+        s = h  # square side = height
+        return (gx, gy, s, h)
+
+    def get_right_rect(self):
+        """Absolute screen rect of the red OCR region (x, y, w, h)."""
+        gx, gy, w, h = self.geometry().getRect()
+        s = h
+        return (gx + s, gy, max(0, w - s), h)
+
+    def get_subregions(self):
+        """(left_rect, right_rect) as absolute screen rect tuples."""
+        return self.get_left_rect(), self.get_right_rect()
+
+    # ------------------------ Painting ------------------------
     def paintEvent(self, event):
         painter = QtGui.QPainter(self)
         painter.setRenderHint(QtGui.QPainter.Antialiasing)
-        fill_color = QtGui.QColor(255, 0, 0, 60)
-        painter.setBrush(fill_color)
-        border_color = QtGui.QColor(139, 0, 0)
-        painter.setPen(QtGui.QPen(border_color, 3))
-        painter.drawRect(0, 0, self.width(), self.height())
 
-        handle_size = self.resize_handle_size
-        handle_color = QtGui.QColor(139, 0, 0)
-        painter.setBrush(handle_color)
+        w, h = self.width(), self.height()
+        s = h  # yellow square width
+
+        # Safety: if somehow width got too small, just early out with a border
+        if w <= 0 or h <= 0:
+            return
+
+        # --- left (yellow square) ---
+        yellow_fill = QtGui.QColor(255, 255, 0, 80)
+        yellow_border = QtGui.QColor(180, 140, 0)
+        painter.setBrush(yellow_fill)
+        painter.setPen(QtGui.QPen(yellow_border, 2))
+        painter.drawRect(0, 0, min(s, w), h)
+
+        # --- right (red area) ---
+        right_x = s
+        right_w = max(0, w - s)
+        red_fill = QtGui.QColor(255, 0, 0, 60)
+        red_border = QtGui.QColor(139, 0, 0)
+        painter.setBrush(red_fill)
+        painter.setPen(QtGui.QPen(red_border, 2))
+        if right_w > 0:
+            painter.drawRect(right_x, 0, right_w, h)
+
+        # Divider line between yellow and red (visual)
+        painter.setPen(QtGui.QPen(QtGui.QColor(255, 255, 255, 160), 1, QtCore.Qt.DotLine))
+        painter.drawLine(right_x, 0, right_x, h)
+
+        # Outer border for the whole selector
+        painter.setPen(QtGui.QPen(QtGui.QColor(255, 255, 255, 200), 2))
+        painter.setBrush(QtCore.Qt.NoBrush)
+        painter.drawRect(0, 0, w, h)
+
+        # Resize handles (4 corners)
+        handle = self.resize_handle_size
+        painter.setBrush(QtGui.QColor(255, 255, 255, 220))
         painter.setPen(QtCore.Qt.NoPen)
+        painter.drawRect(0, 0, handle, handle)  # TL
+        painter.drawRect(w - handle, 0, handle, handle)  # TR
+        painter.drawRect(0, h - handle, handle, handle)  # BL
+        painter.drawRect(w - handle, h - handle, handle, handle)  # BR
 
-        # Draw handles for all 4 corners
-        painter.drawRect(0, 0, handle_size, handle_size)  # top-left
-        painter.drawRect(self.width() - handle_size, 0, handle_size, handle_size)  # top-right
-        painter.drawRect(0, self.height() - handle_size, handle_size, handle_size)  # bottom-left
-        painter.drawRect(self.width() - handle_size, self.height() - handle_size, handle_size, handle_size)  # bottom-right
-
+    # --------------------- Mouse interaction ---------------------
     def mousePressEvent(self, event):
         if event.button() == QtCore.Qt.LeftButton:
             self.old_pos = event.globalPos()
-            self.resize_dir = self.get_resize_direction(event.pos())
+            self.resize_dir = self._get_resize_direction(event.pos())
             if self.resize_dir:
                 self.resizing = True
             else:
@@ -52,11 +129,13 @@ class RegionSelector(QtWidgets.QWidget):
             self.move(self.x() + delta.x(), self.y() + delta.y())
             self.old_pos = event.globalPos()
         elif self.resizing:
-            self.resize_window(event.globalPos())
+            self._resize_window(event.globalPos())
         else:
-            direction = self.get_resize_direction(event.pos())
-            if direction:
+            direction = self._get_resize_direction(event.pos())
+            if direction == "top-left" or direction == "bottom-right":
                 self.setCursor(QtCore.Qt.SizeFDiagCursor)
+            elif direction == "top-right" or direction == "bottom-left":
+                self.setCursor(QtCore.Qt.SizeBDiagCursor)
             else:
                 self.setCursor(QtCore.Qt.ArrowCursor)
 
@@ -66,7 +145,8 @@ class RegionSelector(QtWidgets.QWidget):
             self.resizing = False
             self.resize_dir = None
 
-    def get_resize_direction(self, pos):
+    # ------------------------ Resizing ------------------------
+    def _get_resize_direction(self, pos):
         hs = self.resize_handle_size
         if pos.x() <= hs and pos.y() <= hs:
             return "top-left"
@@ -78,10 +158,12 @@ class RegionSelector(QtWidgets.QWidget):
             return "bottom-right"
         return None
 
-    def resize_window(self, global_pos):
+    def _resize_window(self, global_pos):
         delta = global_pos - self.old_pos
-        x, y, w, h = self.geometry().x(), self.geometry().y(), self.width(), self.height()
+        geom = self.geometry()
+        x, y, w, h = geom.x(), geom.y(), geom.width(), geom.height()
 
+        # Apply raw deltas based on which corner is grabbed
         if self.resize_dir == "bottom-right":
             w += delta.x()
             h += delta.y()
@@ -99,5 +181,17 @@ class RegionSelector(QtWidgets.QWidget):
             w += delta.x()
             h -= delta.y()
 
-        self.setGeometry(x, y, max(w, 50), max(h, 50))
+        # Minimum height
+        h = max(h, 50)
+
+        # Enforce that the right red area keeps a small minimum width
+        # total width must be at least h (for the square) + min_right_width
+        min_total_w = h + self.min_right_width
+        if w < min_total_w:
+            if self.resize_dir in ("top-left", "bottom-left"):
+                # Keep right edge fixed; grow to the left
+                x -= (min_total_w - w)
+            w = min_total_w
+
+        self.setGeometry(x, y, w, h)
         self.old_pos = global_pos

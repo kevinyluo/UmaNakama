@@ -1,3 +1,16 @@
+"""
+Tiny floating status/control widget.
+
+Responsibilities
+- Shows live scanning state (on/off), and exposes quick controls: toggle scanning,
+  open settings/region selector, and quit the app.
+- Emits `position_changed(x, y)` so its last position can be remembered across runs.
+
+Notes
+- All interactions must be connected to slots on the main thread.
+- Keep CPU use negligible—this widget repaints on small state changes only.
+"""
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 ICON_SIZE = 100

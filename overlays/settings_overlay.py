@@ -1,3 +1,17 @@
+"""
+Settings overlay for runtime tweaks.
+
+Responsibilities
+- UI to adjust scan speed, debug mode, overlay visibility, portrait threshold, and
+  other toggles without restarting the app.
+- Not responsible for persistence: it emits/returns changes; the caller saves them
+  to `config.json` when appropriate.
+
+Notes
+- Keep it top-most and non-modal so the user can tune while watching live updates.
+- Default values should mirror `default_config` to avoid drift.
+"""
+
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class SettingsOverlay(QtWidgets.QWidget):
